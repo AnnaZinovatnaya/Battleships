@@ -11,7 +11,7 @@ Game::~Game(void)
 
 void Game::initializeGame(void)
 {
-	char buttonPressed = 0;
+	char keyPressed = 0;
 
 	cout << "\n";
 	cout << " *************************************" << endl;
@@ -22,9 +22,9 @@ void Game::initializeGame(void)
 	cout << "\n\n";
 	cout << " Press ENTER to start...";
 
-	while (buttonPressed != '\r')
+	while (keyPressed != '\r')
 	{
-		buttonPressed = _getch();
+		keyPressed = _getch();
 	}
 	system("cls");
 
@@ -43,7 +43,7 @@ void Game::playGame(void)
 	int computerHit[2] = { 0,0 };
 	bool properHit = false;
 	bool endOfGame = false;
-	char buttonPressed = 0;
+	char keyPressed = 0;
 
 	char winningMessage[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE] = {
 		"                        ",
@@ -64,19 +64,20 @@ void Game::playGame(void)
 	while (endOfGame == false) {
 
 
-		cin >> cHit;
+		
+		cHit[0] = _getch();
+		putchar(cHit[0]);
+		cHit[1] = _getch();
+		putchar(cHit[1]);
+		cHit[2] = _getch();
+		putchar(cHit[2]);
 
 		COORD coord;
 		coord.X = 0;
 		coord.Y = 18;
 		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
-		for (int i = 0; i<8 * 7; i++) {
-			cout << "          ";
-		}
-
-		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-
+		cout << "   \b\b\b";
 
 		properHit = Game::checkHit(cHit);
 		if (properHit) {
@@ -103,7 +104,7 @@ void Game::playGame(void)
 		}
 		else
 		{
-			if (cHit[0] == 'p') {
+			if (cHit[0] == 'p' && cHit[1] == 'p' && cHit[2] == 'p') {
 				Game::pauseGame();
 			}
 		}
@@ -126,15 +127,17 @@ void Game::playGame(void)
 	Game::showStatistics();
 
 	cout << "\nPress ENTER to exit...";
-	buttonPressed = 0;
-	while (buttonPressed != '\r')
+	keyPressed = 0;
+	while (keyPressed != '\r')
 	{
-		buttonPressed = _getch();
+		keyPressed = _getch();
 	}
 }
 
 bool Game::checkHit(char hit[3])
 {
+	if (hit[2] != '\r')
+		return false;
 	if (hit[1]<'0' || hit[1]>'9')
 		return false;
 	if (hit[0] >= 'A'&&hit[0] <= 'J')
@@ -251,7 +254,8 @@ void Game::pauseGame(void)
 			coord.X = 0;
 			coord.Y = 20;
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-			cout << "                               \b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b";
+			cout << "                               ";
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
 			int minutes = static_cast<int>(newTime / 60);
 			cout << "Time: " << minutes << " minute(s) " << newTime - (minutes * 60) << " second(s)" << endl;

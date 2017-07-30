@@ -65,7 +65,7 @@ void Map::initializeMap(int humanShips[10][10])
 	}
 
 	cout << "\n";
-	cout << "Press 'p', then ENTER to pause the game";
+	cout << "Press 'p' 3 times to pause the game";
 	cout << "\n";
 	cout << "\n";
 	cout << "Type character and digit and press ENTER to hit:\n";
