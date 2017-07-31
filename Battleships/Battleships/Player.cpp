@@ -3,6 +3,8 @@
 Player::Player(void)
 {
 	defeatFlag = false;
+	lastHitX = 0;
+	lastHitY = 0;
 }
 
 

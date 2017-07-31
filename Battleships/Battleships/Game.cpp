@@ -87,7 +87,6 @@ void Game::playGame(void)
 
 			Game::convertHumanHit(cHit, humanHit);
 			Game::human.hit(humanHit);
-			//Game::computer.markSunkShips(human.hits);
 			Game::map.updateMap(human.ships, human.hits, computer.ships, computer.hits);
 
 			isComputerSinkSunk = Game::computer.markSunkShips(human.hits);
@@ -103,11 +102,11 @@ void Game::playGame(void)
 				coord.X = 0;
 				coord.Y = 18;
 				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+				
+				endOfGame = Game::checkEndOfGame();
 
 			}
 			
-
-			endOfGame = Game::checkEndOfGame();
 			if (endOfGame == true)
 				break;
 
@@ -121,13 +120,13 @@ void Game::playGame(void)
 				isHumanSinkSunk = Game::human.markSunkShips(computer.hits);
 				if (isHumanSinkSunk) {
 					computer.markSunkShip();
+					endOfGame = Game::checkEndOfGame();
 				}
 			}
 			else {
 				computer.markMissedHit();
 			}
 
-			endOfGame = Game::checkEndOfGame();
 			if (endOfGame == true)
 				break;
 		}
@@ -269,7 +268,7 @@ void Game::pauseGame(void)
 			cout << "                               ";
 			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
-			int minutes = static_cast<int>(newTime / 60);
+			minutes = static_cast<int>(newTime / 60);
 			cout << "Time: " << minutes << " minute(s) " << newTime - (minutes * 60) << " second(s)" << endl;
 			oldTime = newTime;
 		}
