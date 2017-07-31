@@ -4,7 +4,7 @@
 class ComputerPlayer: public Player
 {
 private:
-	char cleverHits[10][10];
+	char cleverHits[10][10]; //array that stores all hits and cells aroung sunk ships
 	int lastHitX, lastHitY;
 public:
 	ComputerPlayer(void);

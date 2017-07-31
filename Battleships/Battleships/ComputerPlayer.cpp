@@ -27,6 +27,7 @@ void ComputerPlayer::hit()
 	bool suitableHit = false;
 	int x = 0, y = 0;
 	
+	//if computer hit any human's ship, it hits around that cell (not randomly)
 	if (cleverHits[lastHitX][lastHitY] == 'X') 
 	{
 		if (lastHitX > 0 && cleverHits[lastHitX - 1][lastHitY] == '1') 
