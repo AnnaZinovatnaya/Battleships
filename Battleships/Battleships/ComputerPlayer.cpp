@@ -1,7 +1,5 @@
 #include "ComputerPlayer.h"
 
-
-
 ComputerPlayer::ComputerPlayer()
 {
 	for (int i = 0; i < 10; i++) 
@@ -11,7 +9,11 @@ ComputerPlayer::ComputerPlayer()
 			cleverHits[i][j] = '1';
 		}
 	}
+
+	lastHitX = 0;
+	lastHitY = 0;
 }
+
 
 
 ComputerPlayer::~ComputerPlayer()
@@ -19,12 +21,11 @@ ComputerPlayer::~ComputerPlayer()
 }
 
 
+
 void ComputerPlayer::hit()
 {
 	bool suitableHit = false;
 	int x = 0, y = 0;
-
-	srand(time(0));
 	
 	if (cleverHits[lastHitX][lastHitY] == 'X') 
 	{
@@ -46,11 +47,13 @@ void ComputerPlayer::hit()
 		if (lastHitY < 9 && cleverHits[lastHitX ][lastHitY + 1] == '1') 
 		{
 			x = lastHitX;
-			y = lastHitY +1 ;
+			y = lastHitY + 1;
 		}
 	}
 	else 
 	{
+		srand(time(0));
+
 		while (suitableHit == false) 
 		{
 			x = rand() % 10;
@@ -70,31 +73,38 @@ void ComputerPlayer::hit()
 }
 
 
+
 void ComputerPlayer::markMissedHit(void) 
 {
 	cleverHits[lastHitX][lastHitY] = '0';
 }
+
+
 
 void ComputerPlayer::markSuccessHit(void)
 {
 	cleverHits[lastHitX][lastHitY] = 'X';
 }
 
+
+
 void ComputerPlayer::markSunkShip(void)
 {
-	bool horizontal = false;
+	bool isHorizontal = false;
 	int size = 0;
 	int firstX = 0, firstY = 0;
 
-	horizontal = isShipHorizontal();
+	isHorizontal = isShipHorizontal();
 
-	firstX = getShipFirstX(horizontal);
-	firstY = getShipFirstY(horizontal);
+	firstX = getShipFirstX(isHorizontal);
+	firstY = getShipFirstY(isHorizontal);
 
-	size = getShipSize(firstX, firstY, horizontal);
+	size = getShipSize(firstX, firstY, isHorizontal);
 
-	ComputerPlayer::markShipAround(firstX, firstY, size, horizontal);
+	ComputerPlayer::markShipAround(firstX, firstY, size, isHorizontal);
 }
+
+
 
 bool ComputerPlayer::isShipHorizontal(void)
 {
@@ -106,7 +116,8 @@ bool ComputerPlayer::isShipHorizontal(void)
 	}
 	else if (lastHitY > 0 && lastHitY < 9) 
 	{
-		if (cleverHits[lastHitX][lastHitY - 1] == 'X' || cleverHits[lastHitX][lastHitY + 1] == 'X')
+		if (cleverHits[lastHitX][lastHitY - 1] == 'X' || 
+				cleverHits[lastHitX][lastHitY + 1] == 'X')
 			return true;
 	}
 	else if (lastHitY == 9) 
@@ -118,9 +129,11 @@ bool ComputerPlayer::isShipHorizontal(void)
 	return false;
 }
 
-int ComputerPlayer::getShipFirstX(bool horizontal)
+
+
+int ComputerPlayer::getShipFirstX(bool isHorizontal)
 {
-	if (horizontal)
+	if (isHorizontal)
 	{
 		return lastHitX;
 	}
@@ -153,9 +166,11 @@ int ComputerPlayer::getShipFirstX(bool horizontal)
 	return 0;
 }
 
-int ComputerPlayer::getShipFirstY(bool horizontal)
+
+
+int ComputerPlayer::getShipFirstY(bool isHorizontal)
 {
-	if (horizontal) 
+	if (isHorizontal)
 	{
 		if (lastHitX == 0) 
 		{
@@ -189,11 +204,12 @@ int ComputerPlayer::getShipFirstY(bool horizontal)
 }
 
 
-int ComputerPlayer::getShipSize(int firstX, int firstY, bool horizontal)
+
+int ComputerPlayer::getShipSize(int firstX, int firstY, bool isHorizontal)
 {
 	int size = 1;
 
-	if (horizontal) 
+	if (isHorizontal)
 	{
 		int currentY = firstY+1;
 		while (currentY <= 9) 
@@ -234,9 +250,12 @@ int ComputerPlayer::getShipSize(int firstX, int firstY, bool horizontal)
 	return 0;
 }
 
-void ComputerPlayer::markShipAround(int firstX, int firstY, int size, bool horizontal)
+
+
+void ComputerPlayer::markShipAround(int firstX, int firstY, 
+	int size, bool isHorizontal)
 {
-	if (horizontal) 
+	if (isHorizontal)
 	{
 		for (int i = firstX - 1; i<firstX + 2; i++) 
 		{
@@ -270,4 +289,18 @@ void ComputerPlayer::markShipAround(int firstX, int firstY, int size, bool horiz
 			}
 		}
 	}
+}
+
+
+
+int ComputerPlayer::getLastHitX(void)
+{
+	return lastHitX;
+}
+
+
+
+int ComputerPlayer::getLastHitY(void)
+{
+	return lastHitY;
 }

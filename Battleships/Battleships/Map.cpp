@@ -8,9 +8,12 @@ Map::Map(void)
 }
 
 
+
 Map::~Map(void)
 {
 }
+
+
 
 void Map::initializeMap(int humanShips[10][10])
 {
@@ -39,8 +42,6 @@ void Map::initializeMap(int humanShips[10][10])
 		}
 	}
 
-
-
 	for (int i = 0; i<10; i++)
 	{
 		for (int j = 0; j<10; j++)
@@ -51,8 +52,6 @@ void Map::initializeMap(int humanShips[10][10])
 			}
 		}
 	}
-
-
 
 	cout << "\n";
 	for (int i = 0; i < VERTICAL_SIZE; i++)
@@ -72,7 +71,10 @@ void Map::initializeMap(int humanShips[10][10])
 
 }
 
-void Map::updateMap(int humanShips[10][10], int humanHits[10][10], int computerShips[10][10], int computerHits[10][10])
+
+
+void Map::updateMap(int humanShips[10][10], int humanHits[10][10], 
+	int computerShips[10][10], int computerHits[10][10])
 {
 	DWORD dw;
 	COORD here;
@@ -127,7 +129,9 @@ void Map::updateMap(int humanShips[10][10], int humanHits[10][10], int computerS
 }
 
 
-void Map::showEndMap(int humanShips[10][10], int humanHits[10][10], int computerShips[10][10], int computerHits[10][10])
+
+void Map::showEndMap(int humanShips[10][10], int humanHits[10][10], 
+	int computerShips[10][10], int computerHits[10][10])
 {
 	system("cls");
 

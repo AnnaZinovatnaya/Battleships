@@ -2,15 +2,6 @@
 
 Game::Game(void)
 {
-}
-
-
-Game::~Game(void)
-{
-}
-
-void Game::initializeGame(void)
-{
 	char keyPressed = 0;
 
 	cout << "\n";
@@ -28,13 +19,22 @@ void Game::initializeGame(void)
 	}
 	system("cls");
 
-	cout << "Please wait until the game is loaded...";
+	cout << "\n";
+	cout << " Please wait until the game is loaded...";
 
 	Game::human.initialize();
 	Game::computer.initialize();
 
 	Game::map.initializeMap(human.ships);
 }
+
+
+
+Game::~Game(void)
+{
+}
+
+
 
 void Game::playGame(void)
 {
@@ -43,6 +43,7 @@ void Game::playGame(void)
 	int computerHit[2] = { 0,0 };
 	bool properHit = false;
 	bool endOfGame = false;
+	
 	char keyPressed = 0;
 	bool isComputerSinkSunk = false;
 	bool isHumanSinkSunk = false;
@@ -62,7 +63,7 @@ void Game::playGame(void)
 		" ***********************",
 		"                        " };
 
-	clock_t t0 = clock();
+	clock_t startTime = clock();
 
 	while (endOfGame == false) 
 	{	
@@ -88,7 +89,7 @@ void Game::playGame(void)
 			if (isComputerSinkSunk) 
 			{
 				cout << "\nYou sunk enemy's ship!" << endl;
-				Sleep(2000);
+				Sleep(1500);
 				Game::setCursorPosition(0, 19);
 
 				cout << "                      ";
@@ -96,7 +97,6 @@ void Game::playGame(void)
 				Game::setCursorPosition(0, 18);
 				
 				endOfGame = Game::checkEndOfGame();
-
 			}
 			
 			if (endOfGame == true)
@@ -105,7 +105,9 @@ void Game::playGame(void)
 			Game::computer.hit();
 			Game::map.updateMap(human.ships, human.hits, computer.ships, computer.hits);
 
-			isAnyHumanShipHit = Game::human.isAnyShipHit(computer.getLastHitX(), computer.getLastHitY());
+			isAnyHumanShipHit = Game::human.isAnyShipHit(computer.getLastHitX(), 
+					computer.getLastHitY());
+
 			if (isAnyHumanShipHit)
 			{
 				computer.markSuccessHit();
@@ -135,8 +137,8 @@ void Game::playGame(void)
 			break;
 	}
 
-	clock_t t1 = clock();
-	timeOfGame = static_cast<int>(t1 - t0) / CLOCKS_PER_SEC;
+	clock_t endTime = clock();
+	timeOfGame = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 
 	Game::map.showEndMap(human.ships, human.hits, computer.ships, computer.hits);
 
@@ -159,19 +161,38 @@ void Game::playGame(void)
 	}
 }
 
+
+
 void Game::convertHumanHitToInt(char cHit[3], int humanHit[2])
 {
-	if (cHit[0] >= 'A'&&cHit[0] <= 'J') 
-	{
-		humanHit[0] = cHit[0] % 65;
-	}
-	else 
-	{
-		humanHit[0] = cHit[0] % 97;
+	switch (cHit[0]) {
+		case 'A' : case 'a' : humanHit[0] = 0; break;
+		case 'B' : case 'b' : humanHit[0] = 1; break;
+		case 'C' : case 'c' : humanHit[0] = 2; break;
+		case 'D' : case 'd' : humanHit[0] = 3; break;
+		case 'E' : case 'e' : humanHit[0] = 4; break;
+		case 'F' : case 'f' : humanHit[0] = 5; break;
+		case 'G' : case 'g' : humanHit[0] = 6; break;
+		case 'H' : case 'h' : humanHit[0] = 7; break;
+		case 'I' : case 'i' : humanHit[0] = 8; break;
+		case 'J' : case 'j' : humanHit[0] = 9;
 	}
 
-	humanHit[1] = cHit[1] % 48;
+	switch (cHit[1]) {
+		case '0' : humanHit[1] = 0; break;
+		case '1' : humanHit[1] = 1; break;
+		case '2' : humanHit[1] = 2; break;
+		case '3' : humanHit[1] = 3; break;
+		case '4' : humanHit[1] = 4; break;
+		case '5' : humanHit[1] = 5; break;
+		case '6' : humanHit[1] = 6; break;
+		case '7' : humanHit[1] = 7; break;
+		case '8' : humanHit[1] = 8; break;
+		case '9' : humanHit[1] = 9;
+	}
 }
+
+
 
 bool Game::checkHit(char hit[3])
 {
@@ -186,6 +207,7 @@ bool Game::checkHit(char hit[3])
 
 	return false;
 }
+
 
 
 bool Game::checkEndOfGame(void)
@@ -204,21 +226,29 @@ bool Game::checkEndOfGame(void)
 	return false;
 }
 
+
+
 void Game::showStatistics(void)
 {
+	int minutes = static_cast<int>(timeOfGame / 60);
+	int humanSunkShips = human.countSunkShips();
+	int computerSunkShips = computer.countSunkShips();
+
 	cout << "\n";
 	cout << "Statistics:";
 	cout << "\n";
 	cout << "\n";
-	int minutes = static_cast<int>(timeOfGame / 60);
-	cout << "Time: " << minutes << " minutes " << timeOfGame - (minutes * 60) << " seconds" << endl;
+	cout << "Time: " << minutes << " minute(s) ";
+	cout<< timeOfGame - (minutes * 60) << " second(s)" << endl;
 	cout << "\n";
-	cout << "You sunk " << computer.countSunkShips() << " of enemy's ships" << endl;
+	cout << "You sunk " << computerSunkShips << " of enemy's ships" << endl;
 	cout << "\n";
-	cout << "Emeny sunk " << human.countSunkShips() << " of your ships" << endl;
+	cout << "Enemy sunk " << humanSunkShips << " of your ships" << endl;
 }
 
-void Game::showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]) {
+
+
+void Game::showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]){
 
 	cout << "\n";
 	for (int i = 0; i < MSG_VERTICAL_SIZE; i++)
@@ -231,9 +261,10 @@ void Game::showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]
 	}
 }
 
+
+
 bool Game::listenKeyPress(short p_key)
 {
-
 	const unsigned short MSB = 0x8000;
 
 	if (GetAsyncKeyState(p_key) & MSB)
@@ -244,20 +275,24 @@ bool Game::listenKeyPress(short p_key)
 	else return false;
 }
 
+
+
 void Game::pause(void)
 {
-	
-	clock_t pause0 = clock();
-	clock_t pause1;
+	clock_t startTime = clock();
+	clock_t endTime;
 	int oldTime = 0;
 	int newTime = 0;
 	int minutes = 0;
+
 	cout << "\n";
-	cout << "PAUSED Press SPACE key to continue... \nTime: 0 minute(s) 0 second(s)";
+	cout << "PAUSED Press SPACE key to continue... " << endl;
+	cout<<"Time: 0 minute(s) 0 second(s)";
+
 	while (!listenKeyPress(VK_SPACE))
 	{
-		pause1 = clock();
-		newTime = static_cast<int>(pause1 - pause0) / CLOCKS_PER_SEC;
+		endTime = clock();
+		newTime = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 		if (newTime != oldTime) {
 
 			Game::setCursorPosition(0, 20);
@@ -265,21 +300,23 @@ void Game::pause(void)
 			Game::setCursorPosition(0, 20);
 
 			minutes = static_cast<int>(newTime / 60);
-			cout << "Time: " << minutes << " minute(s) " << newTime - (minutes * 60) << " second(s)" << endl;
+			cout << "Time: " << minutes << " minute(s) ";
+			cout<< newTime - (minutes * 60) << " second(s)" << endl;
 			oldTime = newTime;
 		}
-
 	}
 
 	Game::setCursorPosition(0, 19);
 
-	for (int i = 0; i<8 * 2; i++) 
+	for (int i = 0; i<8; i++) 
 	{
-		cout << "          ";
+		cout << "                    ";
 	}
 
 	Game::setCursorPosition(0, 18);
 }
+
+
 
 void Game::setCursorPosition(int column, int row)
 {
@@ -287,5 +324,4 @@ void Game::setCursorPosition(int column, int row)
 	coord.X = column;
 	coord.Y = row;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-
 }

@@ -23,7 +23,6 @@ public:
 	Game(void);
 	~Game(void);
 
-	void initializeGame(void);
 	void playGame(void);
 
 	void convertHumanHitToInt(char cHit[3], int humanHit[2]);

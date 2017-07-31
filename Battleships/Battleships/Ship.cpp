@@ -5,18 +5,21 @@ Ship::Ship()
 	Ship::x = 0;
 	Ship::y = 0;
 	Ship::size = 0;
-	Ship::horizontal = 0;
+	Ship::isHorizontal = false;
 	Ship::isSunk = false;
 }
 
-Ship::Ship(int x, int y, int size, int horizontal)
+
+
+Ship::Ship(int x, int y, int size, bool isHorizontal)
 {
 	Ship::x = x;
 	Ship::y = y;
 	Ship::size = size;
-	Ship::horizontal = horizontal;
+	Ship::isHorizontal = isHorizontal;
 	Ship::isSunk = false;
 }
+
 
 
 Ship::~Ship(void)
@@ -24,13 +27,15 @@ Ship::~Ship(void)
 	Ship::x = 0;
 	Ship::y = 0;
 	Ship::size = 0;
-	Ship::horizontal = 0;
+	Ship::isHorizontal = false;
 	Ship::isSunk = false;
 }
 
+
+
 bool Ship::isSunkCheck(int enemyHits[10][10])
 {
-	if (horizontal == 0)
+	if (isHorizontal)
 	{
 		for (int i = y; i<y + size; i++)
 		{
@@ -54,9 +59,11 @@ bool Ship::isSunkCheck(int enemyHits[10][10])
 	return true;
 }
 
+
+
 bool Ship::isShipCoordinates(int hitX, int hitY)
 {
-	if (horizontal == 0)
+	if (isHorizontal)
 	{
 		for (int i = y; i<y + size; i++)
 		{
@@ -80,10 +87,14 @@ bool Ship::isShipCoordinates(int hitX, int hitY)
 	return false;
 }
 
+
+
 bool Ship::getIsSunk(void)
 {
 	return isSunk;
 }
+
+
 
 void Ship::setIsSunk(bool newStatus)
 {

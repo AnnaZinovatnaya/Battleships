@@ -3,14 +3,15 @@
 Player::Player(void)
 {
 	isDefeat = false;
-	lastHitX = 0;
-	lastHitY = 0;
 }
+
 
 
 Player::~Player(void)
 {
 }
+
+
 
 void Player::initialize(void)
 {
@@ -35,10 +36,13 @@ void Player::initialize(void)
 	fleet[9] = setShip(1);
 }
 
+
+
 Ship Player::setShip(int size)
 {
 	int x;
 	int y;
+	bool isHorizontal = false;
 	int horizontal;
 	Ship ship;
 
@@ -48,10 +52,12 @@ Ship Player::setShip(int size)
 		x = rand() % 10;
 		y = rand() % 10;
 		horizontal = rand() % 2;
+		if (horizontal == 0)
+			isHorizontal = true;
 
 		ships[x][y] = 1;
 
-		if (horizontal == 0)	//корабль горизонтальный
+		if (isHorizontal)
 		{
 			if (y<7)
 			{
@@ -67,7 +73,7 @@ Ship Player::setShip(int size)
 			}
 		}
 		else 
-		{	//корабль вертикальный
+		{	
 			if (x<7)
 			{
 				ships[x + 1][y] = 1;
@@ -82,7 +88,7 @@ Ship Player::setShip(int size)
 			}
 		}
 
-		return Ship(x, y, size, horizontal);
+		return Ship(x, y, size, isHorizontal);
 	}
 
 	if (size == 3)
@@ -95,11 +101,13 @@ Ship Player::setShip(int size)
 			x = rand() % 10;
 			y = rand() % 10;
 			horizontal = rand() % 2;
+			if (horizontal == 0)
+				isHorizontal = true;
 
-			place = checkPlace(x, y, horizontal, 3);
+			place = checkPlace(x, y, isHorizontal, 3);
 		}
 
-		if (horizontal == 0) 
+		if (isHorizontal) 
 		{
 			ships[x][y] = 1;
 			ships[x][y + 1] = 1;
@@ -111,7 +119,7 @@ Ship Player::setShip(int size)
 			ships[x + 1][y] = 1;
 			ships[x + 2][y] = 1;
 		}
-		return Ship(x, y, size, horizontal);
+		return Ship(x, y, size, isHorizontal);
 	}
 
 	if (size == 2)
@@ -123,11 +131,13 @@ Ship Player::setShip(int size)
 			x = rand() % 10;
 			y = rand() % 10;
 			horizontal = rand() % 2;
+			if (horizontal == 0)
+				isHorizontal = true;
 
-			place = checkPlace(x, y, horizontal, 2);
+			place = checkPlace(x, y, isHorizontal, 2);
 		}
 
-		if (horizontal == 0) 
+		if (isHorizontal) 
 		{
 			ships[x][y] = 1;
 			ships[x][y + 1] = 1;
@@ -137,7 +147,7 @@ Ship Player::setShip(int size)
 			ships[x][y] = 1;
 			ships[x + 1][y] = 1;
 		}
-		return Ship(x, y, size, horizontal);
+		return Ship(x, y, size, isHorizontal);
 	}
 
 	if (size == 1)
@@ -149,23 +159,24 @@ Ship Player::setShip(int size)
 			x = rand() % 10;
 			y = rand() % 10;
 
-			place = checkPlace(x, y, 0, 1);
+			place = checkPlace(x, y, false, 1);
 		}
 
 		ships[x][y] = 1;
-		return Ship(x, y, size, 0);
+		return Ship(x, y, size, false);
 	}
 
 	return ship;
 }
 
 
-bool Player::checkPlace(int x, int y, int horizontal, int size) {
-	int a, b;
+
+bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
+
 	if (ships[x][y] == 1)
 		return false;
 
-	if (horizontal == 0) {
+	if (isHorizontal) {
 		//проверка, станет ли корабль
 		if (y>10 - size)
 			return false;
@@ -223,27 +234,19 @@ bool Player::checkPlace(int x, int y, int horizontal, int size) {
 	return true;
 }
 
+
+
 void Player::hit(int hit[2])
 {
-	lastHitX = hit[0];
-	lastHitY = hit[1];
-
 	hits[hit[0]][hit[1]] = 1;
 }
 
-int Player::getLastHitX(void)
-{
-	return lastHitX;
-}
 
-int Player::getLastHitY(void)
-{
-	return lastHitY;
-}
 
 bool Player::isAnyShipHit(int x, int y)
 {
-	for (int i = 0; i < 10; i++) 
+
+	for (int i = 0; i<10; i++)
 	{
 		if (fleet[i].isShipCoordinates(x, y))
 			return true;
@@ -252,16 +255,19 @@ bool Player::isAnyShipHit(int x, int y)
 	return false;
 }
 
+
+
 bool Player::markSunkShips(int enemyHits[10][10])
 {
 	bool shipSunk = false;
-	for (int i = 0; i < 10; i++)
+
+	for (int i = 0; i<10; i++)
 	{
-		if (fleet[i].getIsSunk() == false) 
+		if (fleet[i].getIsSunk() == false)
 		{
 			cout << "  \b\b";
 			shipSunk = fleet[i].isSunkCheck(enemyHits);
-			if (shipSunk) 
+			if (shipSunk)
 			{
 				fleet[i].setIsSunk(true);
 				return true;
@@ -272,10 +278,14 @@ bool Player::markSunkShips(int enemyHits[10][10])
 	return false;
 }
 
+
+
 bool Player::getIsDeafeat(void)
 {
 	return isDefeat;
 }
+
+
 
 bool Player::checkEndOfGame()
 {
@@ -289,10 +299,13 @@ bool Player::checkEndOfGame()
 	return true;
 }
 
+
+
 int Player::countSunkShips()
 {
 	int count = 0;
-	for (int i = 0; i<10; i++) 
+
+	for (int i = 0; i<10; i++)
 	{
 		if (fleet[i].getIsSunk())
 			count++;
