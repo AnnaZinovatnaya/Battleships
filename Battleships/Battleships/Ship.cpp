@@ -52,3 +52,26 @@ bool Ship::isSunkCheck(int enemyHits[10][10])
 	return true;
 }
 
+bool Ship::isShipCoordinates(int hitX, int hitY)
+{
+	if (horizontal == 0)
+	{
+		for (int i = y; i<y + size; i++)
+		{
+			if (x == hitX && i == hitY) {
+				return true;
+			}
+		}
+	}
+	else
+	{
+		for (int i = x; i<x + size; i++)
+		{
+			if (i == hitX && y == hitY) {
+				return true;
+			}
+		}
+	}
+
+	return false;
+}

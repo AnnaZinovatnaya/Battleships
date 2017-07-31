@@ -44,6 +44,9 @@ void Game::playGame(void)
 	bool properHit = false;
 	bool endOfGame = false;
 	char keyPressed = 0;
+	bool isComputerSinkSunk = false;
+	bool isHumanSinkSunk = false;
+	bool isAnyHumanShipHit = false;
 
 	char winningMessage[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE] = {
 		"                        ",
@@ -84,19 +87,45 @@ void Game::playGame(void)
 
 			Game::convertHumanHit(cHit, humanHit);
 			Game::human.hit(humanHit);
-			Game::computer.markSunkShips(human.hits);
-
+			//Game::computer.markSunkShips(human.hits);
 			Game::map.updateMap(human.ships, human.hits, computer.ships, computer.hits);
+
+			isComputerSinkSunk = Game::computer.markSunkShips(human.hits);
+			if (isComputerSinkSunk) {
+				cout << "\nYou sunk enemy's ship!" << endl;
+				Sleep(2000);
+				coord.X = 0;
+				coord.Y = 19;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+
+				cout << "                      ";
+
+				coord.X = 0;
+				coord.Y = 18;
+				SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+
+			}
+			
 
 			endOfGame = Game::checkEndOfGame();
 			if (endOfGame == true)
 				break;
 
-			Game::generateComputerHit(computer.hits, computerHit);
-			Game::computer.hit(computerHit);
-			Game::human.markSunkShips(computer.hits);
-
+			Game::computer.hit();
 			Game::map.updateMap(human.ships, human.hits, computer.ships, computer.hits);
+
+			isAnyHumanShipHit = Game::human.isAnyShipHit(computer.lastHitX, computer.lastHitY);
+			if (isAnyHumanShipHit)
+			{
+				computer.markSuccessHit();
+				isHumanSinkSunk = Game::human.markSunkShips(computer.hits);
+				if (isHumanSinkSunk) {
+					computer.markSunkShip();
+				}
+			}
+			else {
+				computer.markMissedHit();
+			}
 
 			endOfGame = Game::checkEndOfGame();
 			if (endOfGame == true)
@@ -190,23 +219,6 @@ void Game::showMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]) {
 			cout << message[i][j];
 		}
 		cout << "\n";
-	}
-}
-
-void Game::generateComputerHit(int computerHits[10][10], int hitStorage[2])
-{
-	bool suitableHit = false;
-
-	srand(time(0));
-
-	while (suitableHit == false) {
-
-		hitStorage[0] = rand() % 10;
-		hitStorage[1] = rand() % 10;
-
-		if (computerHits[hitStorage[0]][hitStorage[1]] != 1) {
-			suitableHit = true;
-		}
 	}
 }
 

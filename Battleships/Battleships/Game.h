@@ -2,6 +2,7 @@
 
 #include "Map.h"
 #include "Player.h"
+#include "ComputerPlayer.h"
 #include <conio.h>
 #include <iostream>
 #include <ctime>
@@ -14,7 +15,8 @@ class Game
 {
 	Map map;
 	Player human;
-	Player computer;
+	//Player computer;
+	ComputerPlayer computer;
 	static const int MSG_VERTICAL_SIZE = 5, MSG_HORIZONTALAL_SIZE = 25;
 	int timeOfGame;
 
@@ -28,7 +30,6 @@ public:
 	bool checkEndOfGame(void);
 	void showStatistics(void);
 	void showMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]);
-	void generateComputerHit(int computerHits[10][10], int hitStorage[2]);
 	void convertHumanHit(char cHit[3], int humanHit[2]);
 	bool listenKeyPress(short p_key);
 	void pauseGame(void);

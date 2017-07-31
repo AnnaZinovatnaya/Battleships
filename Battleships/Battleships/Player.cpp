@@ -207,6 +207,9 @@ bool Player::checkPlace(int x, int y, int horizontal, int size) {
 
 void Player::hit(int hit[2])
 {
+	lastHitX = hit[0];
+	lastHitY = hit[1];
+
 	hits[hit[0]][hit[1]] = 1;
 }
 
@@ -222,16 +225,22 @@ bool Player::checkEndOfGame()
 	return true;
 }
 
-void Player::markSunkShips(int enemyHits[10][10])
+bool Player::markSunkShips(int enemyHits[10][10])
 {
 	bool shipSunk = false;
-	for (int i = 0; i< 10; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		shipSunk = fleet[i].isSunkCheck(enemyHits);
-		if (shipSunk) {
-			fleet[i].isSunk = true;
+		if (fleet[i].isSunk == false) {
+			cout << "  \b\b";
+			shipSunk = fleet[i].isSunkCheck(enemyHits);
+			if (shipSunk) {
+				fleet[i].isSunk = true;
+				return true;
+			}
 		}
 	}
+
+	return false;
 }
 
 int Player::countSunkShips()
@@ -243,4 +252,14 @@ int Player::countSunkShips()
 	}
 
 	return count;
+}
+
+bool Player::isAnyShipHit(int x, int y)
+{
+	for (int i = 0; i < 10; i++) {
+		if (fleet[i].isShipCoordinates(x, y))
+			return true;
+	}
+
+	return false;
 }
