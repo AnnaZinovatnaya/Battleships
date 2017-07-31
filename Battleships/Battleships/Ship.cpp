@@ -34,7 +34,8 @@ bool Ship::isSunkCheck(int enemyHits[10][10])
 	{
 		for (int i = y; i<y + size; i++)
 		{
-			if (enemyHits[x][i] != 1) {
+			if (enemyHits[x][i] != 1) 
+			{
 				return false;
 			}
 		}
@@ -43,7 +44,8 @@ bool Ship::isSunkCheck(int enemyHits[10][10])
 	{
 		for (int i = x; i<x + size; i++)
 		{
-			if (enemyHits[i][y] != 1) {
+			if (enemyHits[i][y] != 1) 
+			{
 				return false;
 			}
 		}
@@ -58,7 +60,8 @@ bool Ship::isShipCoordinates(int hitX, int hitY)
 	{
 		for (int i = y; i<y + size; i++)
 		{
-			if (x == hitX && i == hitY) {
+			if (x == hitX && i == hitY) 
+			{
 				return true;
 			}
 		}
@@ -67,11 +70,22 @@ bool Ship::isShipCoordinates(int hitX, int hitY)
 	{
 		for (int i = x; i<x + size; i++)
 		{
-			if (i == hitX && y == hitY) {
+			if (i == hitX && y == hitY) 
+			{
 				return true;
 			}
 		}
 	}
 
 	return false;
+}
+
+bool Ship::getIsSunk(void)
+{
+	return isSunk;
+}
+
+void Ship::setIsSunk(bool newStatus)
+{
+	isSunk = newStatus;
 }

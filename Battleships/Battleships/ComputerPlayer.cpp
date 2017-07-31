@@ -4,10 +4,10 @@
 
 ComputerPlayer::ComputerPlayer()
 {
-	nextHitRandom = true;
-
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
+	for (int i = 0; i < 10; i++) 
+	{
+		for (int j = 0; j < 10; j++) 
+		{
 			cleverHits[i][j] = '1';
 		}
 	}
@@ -26,32 +26,38 @@ void ComputerPlayer::hit()
 
 	srand(time(0));
 	
-	if (cleverHits[lastHitX][lastHitY] == 'X') {
-		if (lastHitX > 0 && cleverHits[lastHitX - 1][lastHitY] == '1') {
+	if (cleverHits[lastHitX][lastHitY] == 'X') 
+	{
+		if (lastHitX > 0 && cleverHits[lastHitX - 1][lastHitY] == '1') 
+		{
 			x = lastHitX - 1;
 			y = lastHitY;
 		}
-		if (lastHitX < 9 && cleverHits[lastHitX + 1][lastHitY] == '1') {
+		if (lastHitX < 9 && cleverHits[lastHitX + 1][lastHitY] == '1') 
+		{
 			x = lastHitX + 1;
 			y = lastHitY;
 		}
-		if (lastHitY > 0 && cleverHits[lastHitX][lastHitY - 1] == '1') {
+		if (lastHitY > 0 && cleverHits[lastHitX][lastHitY - 1] == '1') 
+		{
 			x = lastHitX;
 			y = lastHitY - 1;
 		}
-		if (lastHitY < 9 && cleverHits[lastHitX ][lastHitY + 1] == '1') {
+		if (lastHitY < 9 && cleverHits[lastHitX ][lastHitY + 1] == '1') 
+		{
 			x = lastHitX;
 			y = lastHitY +1 ;
 		}
-
 	}
-	else {
-		while (suitableHit == false) {
-
+	else 
+	{
+		while (suitableHit == false) 
+		{
 			x = rand() % 10;
 			y = rand() % 10;
 
-			if (cleverHits[x][y] != '0' && cleverHits[x][y] != 'X') {
+			if (cleverHits[x][y] != '0' && cleverHits[x][y] != 'X') 
+			{
 				suitableHit = true;
 			}
 		}
@@ -68,10 +74,10 @@ void ComputerPlayer::markMissedHit(void)
 {
 	cleverHits[lastHitX][lastHitY] = '0';
 }
+
 void ComputerPlayer::markSuccessHit(void)
 {
 	cleverHits[lastHitX][lastHitY] = 'X';
-	nextHitRandom = false;
 }
 
 void ComputerPlayer::markSunkShip(void)
@@ -87,21 +93,24 @@ void ComputerPlayer::markSunkShip(void)
 
 	size = getShipSize(firstX, firstY, horizontal);
 
-	ComputerPlayer::markShip(firstX, firstY, size, horizontal);
+	ComputerPlayer::markShipAround(firstX, firstY, size, horizontal);
 }
 
 bool ComputerPlayer::isShipHorizontal(void)
 {
 
-	if (lastHitY == 0) {
+	if (lastHitY == 0) 
+	{
 		if (cleverHits[lastHitX][lastHitY + 1] == 'X')
 			return true;
 	}
-	else if (lastHitY > 0 && lastHitY < 9) {
+	else if (lastHitY > 0 && lastHitY < 9) 
+	{
 		if (cleverHits[lastHitX][lastHitY - 1] == 'X' || cleverHits[lastHitX][lastHitY + 1] == 'X')
 			return true;
 	}
-	else if (lastHitY == 9) {
+	else if (lastHitY == 9) 
+	{
 		if (cleverHits[lastHitX][lastHitY - 1] == 'X')
 			return true;
 	}
@@ -111,21 +120,28 @@ bool ComputerPlayer::isShipHorizontal(void)
 
 int ComputerPlayer::getShipFirstX(bool horizontal)
 {
-	if (horizontal) {
+	if (horizontal)
+	{
 		return lastHitX;
 	}
-	else {
-		if (lastHitX == 0) {
+	else 
+	{
+		if (lastHitX == 0) 
+		{
 			return lastHitX;
 		}
-		else {
+		else 
+		{
 			int currentX = lastHitX;
 
-			while (currentX>=0) {
-				if (cleverHits[currentX][lastHitY] == 'X') {
+			while (currentX>=0) 
+			{
+				if (cleverHits[currentX][lastHitY] == 'X') 
+				{
 					currentX--;
 				}
-				else {
+				else 
+				{
 					return currentX + 1;
 				}
 			}
@@ -139,18 +155,24 @@ int ComputerPlayer::getShipFirstX(bool horizontal)
 
 int ComputerPlayer::getShipFirstY(bool horizontal)
 {
-	if (horizontal) {
-		if (lastHitX == 0) {
+	if (horizontal) 
+	{
+		if (lastHitX == 0) 
+		{
 			return lastHitX;
 		}
-		else {
+		else 
+		{
 			int currentY = lastHitY;
 
-			while (currentY >= 0) {
-				if (cleverHits[lastHitX][currentY] == 'X') {
+			while (currentY >= 0) 
+			{
+				if (cleverHits[lastHitX][currentY] == 'X') 
+				{
 					currentY--;
 				}
-				else {
+				else 
+				{
 					return currentY + 1;
 				}
 			}
@@ -158,7 +180,8 @@ int ComputerPlayer::getShipFirstY(bool horizontal)
 			return currentY + 1;
 		}
 	}
-	else {
+	else 
+	{
 		return lastHitY;
 	}
 
@@ -170,14 +193,18 @@ int ComputerPlayer::getShipSize(int firstX, int firstY, bool horizontal)
 {
 	int size = 1;
 
-	if (horizontal) {
+	if (horizontal) 
+	{
 		int currentY = firstY+1;
-		while (currentY <= 9) {
-			if (cleverHits[firstX][currentY] == 'X') {
+		while (currentY <= 9) 
+		{
+			if (cleverHits[firstX][currentY] == 'X') 
+			{
 				currentY++;
 				size++;
 			}
-			else {
+			else 
+			{
 				break;
 			}
 		}
@@ -185,14 +212,18 @@ int ComputerPlayer::getShipSize(int firstX, int firstY, bool horizontal)
 		return size;
 
 	}
-	else {
+	else 
+	{
 		int currentX = firstX+1;
-		while (currentX <= 9) {
-			if (cleverHits[currentX][firstY] == 'X') {
+		while (currentX <= 9) 
+		{
+			if (cleverHits[currentX][firstY] == 'X') 
+			{
 				currentX++;
 				size++;
 			}
-			else {
+			else 
+			{
 				break;
 			}
 		}
@@ -203,14 +234,18 @@ int ComputerPlayer::getShipSize(int firstX, int firstY, bool horizontal)
 	return 0;
 }
 
-void ComputerPlayer::markShip(int firstX, int firstY, int size, bool horizontal)
+void ComputerPlayer::markShipAround(int firstX, int firstY, int size, bool horizontal)
 {
-	if (horizontal) {
-		for (int i = firstX - 1; i<firstX + 2; i++) {
+	if (horizontal) 
+	{
+		for (int i = firstX - 1; i<firstX + 2; i++) 
+		{
 			if (i>-1 && i<10)
 			{
-				for (int j = firstY - 1; j<firstY + size + 1; j++) {
-					if (j>-1 && j<10) {
+				for (int j = firstY - 1; j<firstY + size + 1; j++) 
+				{
+					if (j>-1 && j<10) 
+					{
 						if (cleverHits[i][j] == '1')
 							cleverHits[i][j] = '0';
 					}
@@ -218,19 +253,21 @@ void ComputerPlayer::markShip(int firstX, int firstY, int size, bool horizontal)
 			}
 		}
 	}
-	else {
-
-		for (int i = firstX - 1; i<firstX + size + 1; i++) {
+	else 
+	{
+		for (int i = firstX - 1; i<firstX + size + 1; i++) 
+		{
 			if (i>-1 && i<10)
 			{
-				for (int j = firstY - 1; j<firstY + 2; j++) {
-					if (j>-1 && j<10) {
+				for (int j = firstY - 1; j<firstY + 2; j++) 
+				{
+					if (j>-1 && j<10) 
+					{
 						if (cleverHits[i][j] == '1')
 							cleverHits[i][j] = '0';
 					}
 				}
 			}
 		}
-
 	}
 }

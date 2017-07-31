@@ -8,17 +8,16 @@
 #include <ctime>
 #include <windows.h>
 
-
 using namespace std;
 
 class Game
 {
+private:
 	Map map;
 	Player human;
-	//Player computer;
 	ComputerPlayer computer;
-	static const int MSG_VERTICAL_SIZE = 5, MSG_HORIZONTALAL_SIZE = 25;
 	int timeOfGame;
+	static const int MSG_VERTICAL_SIZE = 5, MSG_HORIZONTALAL_SIZE = 25;
 
 public:
 	Game(void);
@@ -26,13 +25,17 @@ public:
 
 	void initializeGame(void);
 	void playGame(void);
+
+	void convertHumanHitToInt(char cHit[3], int humanHit[2]);
 	bool checkHit(char hit[3]);
+
 	bool checkEndOfGame(void);
 	void showStatistics(void);
-	void showMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]);
-	void convertHumanHit(char cHit[3], int humanHit[2]);
+	void showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]);
+
 	bool listenKeyPress(short p_key);
-	void pauseGame(void);
 
+	void pause(void);
+
+	void setCursorPosition(int column, int row);
 };
-
