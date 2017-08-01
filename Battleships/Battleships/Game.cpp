@@ -3,6 +3,7 @@
 Game::Game(void)
 {
 	char keyPressed = 0;
+	static const char ENTER_KEY = '\r';
 
 	cout << "\n";
 	cout << " *************************************" << endl;
@@ -13,7 +14,7 @@ Game::Game(void)
 	cout << "\n\n";
 	cout << " Press ENTER to start...";
 
-	while (keyPressed != '\r')
+	while (keyPressed != ENTER_KEY)
 	{
 		keyPressed = _getch();
 	}
@@ -48,6 +49,8 @@ void Game::playGame(void)
 	bool isComputerSinkSunk = false;
 	bool isHumanSinkSunk = false;
 	bool isAnyHumanShipHit = false;
+
+	static const char ENTER_KEY = '\r';
 
 	char winningMessage[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE] = {
 		"                        ",
@@ -93,7 +96,8 @@ void Game::playGame(void)
 			{
 				cout << "\nYou sunk enemy's ship!" << endl;
 				Sleep(1500);
-				Game::setCursorPosition(0, 19);
+				Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
+					ROW_POSITION_FOR_USER_HIT+1);
 
 				cout << "                      ";
 
@@ -159,7 +163,7 @@ void Game::playGame(void)
 
 	cout << "\nPress ENTER to exit...";
 	keyPressed = 0;
-	while (keyPressed != '\r')
+	while (keyPressed != ENTER_KEY)
 	{
 		keyPressed = _getch();
 	}
@@ -200,7 +204,9 @@ void Game::convertHumanHitToInt(char cHit[3], int humanHit[2])
 
 bool Game::checkHit(char hit[3])
 {
-	if (hit[2] != '\r')
+	static const char ENTER_KEY = '\r';
+
+	if (hit[2] != ENTER_KEY)
 		return false;
 	if (hit[1]<'0' || hit[1]>'9')
 		return false;
