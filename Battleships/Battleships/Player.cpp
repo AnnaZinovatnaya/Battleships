@@ -246,7 +246,7 @@ void Player::hit(int hit[2])
 bool Player::isAnyShipHit(int x, int y)
 {
 
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
 	{
 		if (fleet[i].isShipCoordinates(x, y))
 			return true;
@@ -261,7 +261,7 @@ bool Player::markSunkShips(int enemyHits[10][10])
 {
 	bool shipSunk = false;
 
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
 	{
 		if (fleet[i].getIsSunk() == false)
 		{
@@ -289,7 +289,7 @@ bool Player::getIsDeafeat(void)
 
 bool Player::checkEndOfGame()
 {
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
 	{
 		if (fleet[i].getIsSunk() == false)
 			return false;
@@ -305,7 +305,7 @@ int Player::countSunkShips()
 {
 	int count = 0;
 
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
 	{
 		if (fleet[i].getIsSunk())
 			count++;

@@ -9,10 +9,12 @@ class Player
 {
 private:
 	bool isDefeat;
+	static const int NUMBER_OF_SHIPS = 10;
+
 public:
 	int ships[10][10];
 	int hits[10][10];
-	Ship fleet[10];
+	Ship fleet[NUMBER_OF_SHIPS];
 
 	Player(void);
 	~Player(void);

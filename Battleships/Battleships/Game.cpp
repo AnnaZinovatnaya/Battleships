@@ -69,12 +69,15 @@ void Game::playGame(void)
 	{	
 		cHit[0] = _getch();
 		putchar(cHit[0]);
+
 		cHit[1] = _getch();
 		putchar(cHit[1]);
+
 		cHit[2] = _getch();
 		putchar(cHit[2]);
 
-		Game::setCursorPosition(0, 18);
+		Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
+			ROW_POSITION_FOR_USER_HIT);
 
 		cout << "   \b\b\b";
 
@@ -94,7 +97,8 @@ void Game::playGame(void)
 
 				cout << "                      ";
 
-				Game::setCursorPosition(0, 18);
+				Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
+					ROW_POSITION_FOR_USER_HIT);
 				
 				endOfGame = Game::checkEndOfGame();
 			}
@@ -235,8 +239,7 @@ void Game::showStatistics(void)
 	int computerSunkShips = computer.countSunkShips();
 
 	cout << "\n";
-	cout << "Statistics:";
-	cout << "\n";
+	cout << "Statistics:"<< endl;
 	cout << "\n";
 	cout << "Time: " << minutes << " minute(s) ";
 	cout<< timeOfGame - (minutes * 60) << " second(s)" << endl;
@@ -284,6 +287,8 @@ void Game::pause(void)
 	int oldTime = 0;
 	int newTime = 0;
 	int minutes = 0;
+	static const int COLUMN_POSITION_FOR_PAUSE_TIME = 0;
+	static const int ROW_POSITION_FOR_PAUSE_TIME = 20;
 
 	cout << "\n";
 	cout << "PAUSED Press SPACE key to continue... " << endl;
@@ -295,9 +300,13 @@ void Game::pause(void)
 		newTime = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 		if (newTime != oldTime) {
 
-			Game::setCursorPosition(0, 20);
+			Game::setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
+				ROW_POSITION_FOR_PAUSE_TIME);
+
 			cout << "                               ";
-			Game::setCursorPosition(0, 20);
+
+			Game::setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
+				ROW_POSITION_FOR_PAUSE_TIME);
 
 			minutes = static_cast<int>(newTime / 60);
 			cout << "Time: " << minutes << " minute(s) ";
@@ -306,14 +315,16 @@ void Game::pause(void)
 		}
 	}
 
-	Game::setCursorPosition(0, 19);
+	Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
+		ROW_POSITION_FOR_USER_HIT+1);
 
 	for (int i = 0; i<8; i++) 
 	{
 		cout << "                    ";
 	}
 
-	Game::setCursorPosition(0, 18);
+	Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
+		ROW_POSITION_FOR_USER_HIT);
 }
 
 
