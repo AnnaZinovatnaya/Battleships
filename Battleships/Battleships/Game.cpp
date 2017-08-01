@@ -148,7 +148,8 @@ void Game::playGame(void)
 	clock_t endTime = clock();
 	timeOfGame = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 
-	Game::map.showEndMap(human.ships, human.hits, computer.ships, computer.hits);
+	Game::map.showEndMap(human.ships, human.hits, 
+		computer.ships, computer.hits);
 
 	if (human.getIsDeafeat() == true) 
 	{
@@ -257,7 +258,8 @@ void Game::showStatistics(void)
 
 
 
-void Game::showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]){
+void 
+Game::showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]){
 
 	cout << "\n";
 	for (int i = 0; i < MSG_VERTICAL_SIZE; i++)
