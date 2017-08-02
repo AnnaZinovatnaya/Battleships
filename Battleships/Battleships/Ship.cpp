@@ -86,17 +86,3 @@ bool Ship::isShipCoordinates(int hitX, int hitY)
 
 	return false;
 }
-
-
-
-bool Ship::getIsSunk(void)
-{
-	return isSunk;
-}
-
-
-
-void Ship::setIsSunk(bool newStatus)
-{
-	isSunk = newStatus;
-}

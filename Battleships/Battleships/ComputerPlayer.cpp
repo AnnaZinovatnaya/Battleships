@@ -291,17 +291,3 @@ void ComputerPlayer::markShipAround(int firstX, int firstY,
 		}
 	}
 }
-
-
-
-int ComputerPlayer::getLastHitX(void)
-{
-	return lastHitX;
-}
-
-
-
-int ComputerPlayer::getLastHitY(void)
-{
-	return lastHitY;
-}

@@ -40,10 +40,10 @@ void Player::initialize(void)
 
 Ship Player::setShip(int size)
 {
-	int x;
-	int y;
+	int x  = 0;
+	int y = 0;
 	bool isHorizontal = false;
-	int horizontal;
+	int horizontal = 0;
 	Ship ship;
 
 	if (size == 4)
@@ -276,13 +276,6 @@ bool Player::markSunkShips(int enemyHits[10][10])
 	}
 
 	return false;
-}
-
-
-
-bool Player::getIsDeafeat(void)
-{
-	return isDefeat;
 }
 
 

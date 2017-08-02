@@ -291,7 +291,7 @@ bool Game::listenKeyPress(short p_key)
 void Game::pause(void)
 {
 	clock_t startTime = clock();
-	clock_t endTime;
+	clock_t endTime = clock();
 	int oldTime = 0;
 	int newTime = 0;
 	int minutes = 0;

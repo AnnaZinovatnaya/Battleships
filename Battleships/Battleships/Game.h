@@ -1,17 +1,24 @@
 #pragma once
 
-#include "Map.h"
-#include "Player.h"
-#include "ComputerPlayer.h"
 #include <conio.h>
 #include <iostream>
 #include <ctime>
 #include <windows.h>
 
+#include "ComputerPlayer.h"
+#include "Map.h"
+#include "Player.h"
+
 using namespace std;
 
 class Game
 {
+public:
+	Game(void);
+	~Game(void);
+
+	void playGame(void);
+
 private:
 	Map map;
 	Player human;
@@ -20,12 +27,6 @@ private:
 	static const int MSG_VERTICAL_SIZE = 5, MSG_HORIZONTALAL_SIZE = 25;
 	static const int COLUMN_POSITION_FOR_USER_HIT = 0;
 	static const int ROW_POSITION_FOR_USER_HIT = 18;
-
-public:
-	Game(void);
-	~Game(void);
-
-	void playGame(void);
 
 	void convertHumanHitToInt(char cHit[3], int humanHit[2]);
 	bool checkHit(char hit[3]);
