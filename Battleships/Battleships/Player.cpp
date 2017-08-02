@@ -24,16 +24,16 @@ void Player::initialize(void)
 		}
 	}
 
-	fleet[0] = setShip(4);
-	fleet[1] = setShip(3);
-	fleet[2] = setShip(3);
-	fleet[3] = setShip(2);
-	fleet[4] = setShip(2);
-	fleet[5] = setShip(2);
-	fleet[6] = setShip(1);
-	fleet[7] = setShip(1);
-	fleet[8] = setShip(1);
-	fleet[9] = setShip(1);
+	fleet.push_front(setShip(4));
+	fleet.push_front(setShip(3));
+	fleet.push_front(setShip(3));
+	fleet.push_front(setShip(2));
+	fleet.push_front(setShip(2));
+	fleet.push_front(setShip(2));
+	fleet.push_front(setShip(1));
+	fleet.push_front(setShip(1));
+	fleet.push_front(setShip(1));
+	fleet.push_front(setShip(1));
 }
 
 
@@ -246,9 +246,8 @@ void Player::hit(int hit[2])
 bool Player::isAnyShipHit(int x, int y)
 {
 
-	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
-	{
-		if (fleet[i].isShipCoordinates(x, y))
+	for (Ship &ship : fleet) {
+		if(ship.isShipCoordinates(x, y))
 			return true;
 	}
 
@@ -261,15 +260,14 @@ bool Player::markSunkShips(int enemyHits[10][10])
 {
 	bool shipSunk = false;
 
-	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
-	{
-		if (fleet[i].getIsSunk() == false)
+	for (Ship &ship : fleet) {
+		if (ship.getIsSunk() == false)
 		{
 			cout << "  \b\b";
-			shipSunk = fleet[i].isSunkCheck(enemyHits);
+			shipSunk = ship.isSunkCheck(enemyHits);
 			if (shipSunk)
 			{
-				fleet[i].setIsSunk(true);
+				ship.setIsSunk(true);
 				return true;
 			}
 		}
@@ -282,9 +280,9 @@ bool Player::markSunkShips(int enemyHits[10][10])
 
 bool Player::checkEndOfGame()
 {
-	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
-	{
-		if (fleet[i].getIsSunk() == false)
+
+	for (Ship &ship : fleet) {
+		if (ship.getIsSunk() == false)
 			return false;
 	}
 
@@ -298,9 +296,8 @@ int Player::countSunkShips()
 {
 	int count = 0;
 
-	for (int i = 0; i<NUMBER_OF_SHIPS; i++)
-	{
-		if (fleet[i].getIsSunk())
+	for (Ship &ship : fleet) {
+		if (ship.getIsSunk())
 			count++;
 	}
 

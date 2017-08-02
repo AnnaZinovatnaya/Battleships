@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include<iostream>
+#include <list>
 
 #include "Ship.h"
 
@@ -14,7 +15,7 @@ public:
 	static const int NUMBER_OF_SHIPS = 10;
 	int ships[10][10];
 	int hits[10][10];
-	Ship fleet[NUMBER_OF_SHIPS];
+	list<Ship> fleet;
 
 	Player(void);
 	~Player(void);
@@ -29,7 +30,7 @@ public:
 	bool getIsDeafeat(void) { return isDefeat; }
 
 	bool checkEndOfGame();
-	int countSunkShips();
+	int  countSunkShips();
 
 private:
 	bool isDefeat;
