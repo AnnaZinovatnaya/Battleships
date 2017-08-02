@@ -12,7 +12,6 @@ using namespace std;
 class Player
 {
 public:
-	static const int NUMBER_OF_SHIPS = 10;
 	int ships[10][10];
 	int hits[10][10];
 	list<Ship> fleet;

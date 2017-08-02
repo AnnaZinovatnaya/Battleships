@@ -2,6 +2,8 @@
 
 Game::Game(void)
 {
+	srand(time(0));
+
 	char keyPressed = 0;
 	static const char ENTER_KEY = '\r';
 

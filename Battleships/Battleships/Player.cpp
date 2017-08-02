@@ -46,127 +46,36 @@ Ship Player::setShip(int size)
 	int horizontal = 0;
 	Ship ship;
 
-	if (size == 4)
+	bool place = false;
+
+	while (place == false)
 	{
-		srand(time(0));
 		x = rand() % 10;
 		y = rand() % 10;
+	
 		horizontal = rand() % 2;
 		if (horizontal == 0)
 			isHorizontal = true;
 
-		ships[x][y] = 1;
-
-		if (isHorizontal)
-		{
-			if (y<7)
-			{
-				ships[x][y + 1] = 1;
-				ships[x][y + 2] = 1;
-				ships[x][y + 3] = 1;
-			}
-			else 
-			{
-				ships[x][y - 1] = 1;
-				ships[x][y - 2] = 1;
-				ships[x][y - 3] = 1;
-			}
-		}
-		else 
-		{	
-			if (x<7)
-			{
-				ships[x + 1][y] = 1;
-				ships[x + 2][y] = 1;
-				ships[x + 3][y] = 1;
-			}
-			else 
-			{
-				ships[x - 1][y] = 1;
-				ships[x - 2][y] = 1;
-				ships[x - 3][y] = 1;
-			}
-		}
-
-		return Ship(x, y, size, isHorizontal);
+		place = checkPlace(x, y, isHorizontal, size);
 	}
 
-	if (size == 3)
+	if (isHorizontal)
 	{
-		bool place = false;
-
-		while (place == false) 
+		for (int i = y; i < y + size; i++) 
 		{
-			srand(time(0));
-			x = rand() % 10;
-			y = rand() % 10;
-			horizontal = rand() % 2;
-			if (horizontal == 0)
-				isHorizontal = true;
-
-			place = checkPlace(x, y, isHorizontal, 3);
+			ships[x][i] = 1;
 		}
-
-		if (isHorizontal) 
-		{
-			ships[x][y] = 1;
-			ships[x][y + 1] = 1;
-			ships[x][y + 2] = 1;
-		}
-		else 
-		{
-			ships[x][y] = 1;
-			ships[x + 1][y] = 1;
-			ships[x + 2][y] = 1;
-		}
-		return Ship(x, y, size, isHorizontal);
 	}
-
-	if (size == 2)
+	else
 	{
-		bool place = false;
-
-		while (place == false) 
+		for (int i = x; i < x + size; i++)
 		{
-			x = rand() % 10;
-			y = rand() % 10;
-			horizontal = rand() % 2;
-			if (horizontal == 0)
-				isHorizontal = true;
-
-			place = checkPlace(x, y, isHorizontal, 2);
+			ships[i][y] = 1;
 		}
-
-		if (isHorizontal) 
-		{
-			ships[x][y] = 1;
-			ships[x][y + 1] = 1;
-		}
-		else 
-		{
-			ships[x][y] = 1;
-			ships[x + 1][y] = 1;
-		}
-		return Ship(x, y, size, isHorizontal);
 	}
 
-	if (size == 1)
-	{
-		bool place = false;
-
-		while (place == false) 
-		{
-			x = rand() % 10;
-			y = rand() % 10;
-
-			place = checkPlace(x, y, false, 1);
-		}
-
-		ships[x][y] = 1;
-		return Ship(x, y, size, false);
-	}
-
-	return ship;
+	return Ship(x, y, size, isHorizontal);
 }
 
 

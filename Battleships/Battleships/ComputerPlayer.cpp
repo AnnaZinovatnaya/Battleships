@@ -40,6 +40,7 @@ void ComputerPlayer::hit()
 			x = lastHitX + 1;
 			y = lastHitY;
 		}
+
 		if (lastHitY > 0 && cleverHits[lastHitX][lastHitY - 1] == '1') 
 		{
 			x = lastHitX;
