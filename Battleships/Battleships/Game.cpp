@@ -4,9 +4,6 @@ Game::Game(void)
 {
 	srand(time(0));
 
-	char keyPressed = 0;
-	static const char ENTER_KEY = '\r';
-
 	cout << "\n";
 	cout << " *************************************" << endl;
 	cout << " *                                   *" << endl;
@@ -16,14 +13,7 @@ Game::Game(void)
 	cout << "\n\n";
 	cout << " Press ENTER to start...";
 
-	while (keyPressed != ENTER_KEY)
-	{
-		keyPressed = _getch();
-	}
-	system("cls");
-
-	cout << "\n";
-	cout << " Please wait until the game is loaded...";
+	Game::waitForEnterPressed();
 
 	Game::human.initialize();
 	Game::computer.initialize();
@@ -41,18 +31,18 @@ Game::~Game(void)
 
 void Game::playGame(void)
 {
-	char cHit[3] = "00";
+	char charHumanHit[3] = { "00" };
 	int humanHit[2] = { 0,0 };
-	int computerHit[2] = { 0,0 };
 	bool properHit = false;
-	bool endOfGame = false;
-	
-	char keyPressed = 0;
-	bool isComputerSinkSunk = false;
-	bool isHumanSinkSunk = false;
-	bool isAnyHumanShipHit = false;
 
-	static const char ENTER_KEY = '\r';
+	int computerHit[2] = { 0,0 };
+	
+	bool endOfGame = false;
+
+	bool isAnyHumanShipHit = false;
+	bool isHumanSinkSunk = false;
+
+	bool isComputerSinkSunk = false;
 
 	char winningMessage[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE] = {
 		"                        ",
@@ -72,24 +62,28 @@ void Game::playGame(void)
 
 	while (endOfGame == false) 
 	{	
-		cHit[0] = _getch();
-		putchar(cHit[0]);
+		charHumanHit[0] = _getch();
+		putchar(charHumanHit[0]);
 
-		cHit[1] = _getch();
-		putchar(cHit[1]);
+		charHumanHit[1] = _getch();
+		putchar(charHumanHit[1]);
 
-		cHit[2] = _getch();
-		putchar(cHit[2]);
+		charHumanHit[2] = _getch();
+		putchar(charHumanHit[2]);
 
 		Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
 			ROW_POSITION_FOR_USER_HIT);
 
-		cout << "   \b\b\b";
+		cout << "   ";
 
-		properHit = Game::checkHit(cHit);
+		Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
+			ROW_POSITION_FOR_USER_HIT);
+
+		properHit = Game::checkHumanHit(charHumanHit);
+
 		if (properHit) 
 		{
-			Game::convertHumanHitToInt(cHit, humanHit);
+			Game::convertHumanHitToInt(charHumanHit, humanHit);
 			Game::human.hit(humanHit);
 
 			Game::map.updateMap(human, computer);
@@ -110,7 +104,7 @@ void Game::playGame(void)
 				endOfGame = Game::checkEndOfGame();
 			}
 			
-			if (endOfGame == true)
+			if (endOfGame)
 				break;
 
 			Game::computer.hit();
@@ -123,6 +117,7 @@ void Game::playGame(void)
 			if (isAnyHumanShipHit)
 			{
 				computer.markSuccessHit();
+
 				isHumanSinkSunk = Game::human.markSunkShips(computer.hits);
 				if (isHumanSinkSunk) 
 				{
@@ -135,18 +130,16 @@ void Game::playGame(void)
 				computer.markMissedHit();
 			}
 
-			if (endOfGame == true)
+			if (endOfGame)
 				break;
 		}
 		else
 		{
-			if (cHit[0] == 'p' && cHit[1] == 'p' && cHit[2] == 'p') 
+			if (charHumanHit[0] == 'p' && charHumanHit[1] == 'p' && charHumanHit[2] == 'p') 
 			{
 				Game::pause();
 			}
 		}
-		if (endOfGame == true)
-			break;
 	}
 
 	clock_t endTime = clock();
@@ -154,7 +147,7 @@ void Game::playGame(void)
 
 	Game::map.showEndMap(human, computer);
 
-	if (human.getIsDeafeat() == true) 
+	if (human.getIsDeafeat()) 
 	{
 		Game::showEndMessage(losingMessage);
 	}
@@ -165,48 +158,32 @@ void Game::playGame(void)
 
 	Game::showStatistics();
 
-	cout << "\nPress ENTER to exit...";
-	keyPressed = 0;
-	while (keyPressed != ENTER_KEY)
-	{
-		keyPressed = _getch();
-	}
+	cout << "\n";
+	cout << "Press ENTER to exit...";
+
+	Game::waitForEnterPressed();
 }
 
 
 
 void Game::convertHumanHitToInt(char cHit[3], int humanHit[2]) const
 {
-	switch (cHit[0]) {
-		case 'A' : case 'a' : humanHit[0] = 0; break;
-		case 'B' : case 'b' : humanHit[0] = 1; break;
-		case 'C' : case 'c' : humanHit[0] = 2; break;
-		case 'D' : case 'd' : humanHit[0] = 3; break;
-		case 'E' : case 'e' : humanHit[0] = 4; break;
-		case 'F' : case 'f' : humanHit[0] = 5; break;
-		case 'G' : case 'g' : humanHit[0] = 6; break;
-		case 'H' : case 'h' : humanHit[0] = 7; break;
-		case 'I' : case 'i' : humanHit[0] = 8; break;
-		case 'J' : case 'j' : humanHit[0] = 9;
+
+	if (cHit[0] >= 'A' && cHit[0] <= 'J')
+	{
+		humanHit[0] = cHit[0] % 'A';
+	}
+	else
+	{
+		humanHit[0] = cHit[0] % 'a';
 	}
 
-	switch (cHit[1]) {
-		case '0' : humanHit[1] = 0; break;
-		case '1' : humanHit[1] = 1; break;
-		case '2' : humanHit[1] = 2; break;
-		case '3' : humanHit[1] = 3; break;
-		case '4' : humanHit[1] = 4; break;
-		case '5' : humanHit[1] = 5; break;
-		case '6' : humanHit[1] = 6; break;
-		case '7' : humanHit[1] = 7; break;
-		case '8' : humanHit[1] = 8; break;
-		case '9' : humanHit[1] = 9;
-	}
+	humanHit[1] = cHit[1] % '0';
 }
 
 
 
-bool Game::checkHit(char hit[3]) const
+bool Game::checkHumanHit(char hit[3]) const
 {
 	static const char ENTER_KEY = '\r';
 
@@ -230,11 +207,11 @@ bool Game::checkEndOfGame(void)
 	bool computerShipsKilled = false;
 
 	humanShipsKilled = human.checkEndOfGame();
-	if (humanShipsKilled == true)
+	if (humanShipsKilled)
 		return true;
 
 	computerShipsKilled = computer.checkEndOfGame();
-	if (computerShipsKilled == true)
+	if (computerShipsKilled)
 		return true;
 
 	return false;
@@ -346,4 +323,15 @@ void Game::setCursorPosition(int column, int row) const
 	coord.X = column;
 	coord.Y = row;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+void Game::waitForEnterPressed(void) const
+{
+	char keyPressed = 0;
+	static const char ENTER_KEY = '\r';
+
+	while (keyPressed != ENTER_KEY)
+	{
+		keyPressed = _getch();
+	}
 }

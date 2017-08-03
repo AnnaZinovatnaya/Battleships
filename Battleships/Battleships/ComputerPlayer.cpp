@@ -24,37 +24,44 @@ ComputerPlayer::~ComputerPlayer()
 
 void ComputerPlayer::hit()
 {
-	bool suitableHit = false;
+	bool lastHitSuccessful = false;
 	int x = 0, y = 0;
 	
+	if (cleverHits[lastHitX][lastHitY] == 'X')
+		lastHitSuccessful = true;
+
 	//if computer hit any human's ship, it hits around that cell (not randomly)
-	if (cleverHits[lastHitX][lastHitY] == 'X') 
+	if (lastHitSuccessful)
 	{
-		if (lastHitX > 0 && cleverHits[lastHitX - 1][lastHitY] == '1') 
-		{
-			x = lastHitX - 1;
-			y = lastHitY;
-		}
-		if (lastHitX < 9 && cleverHits[lastHitX + 1][lastHitY] == '1') 
+
+		direction direction = ComputerPlayer::chooseSideToHit();
+
+		if (direction == TOP) 
+		{ 
+			x = lastHitX - 1; 
+			y = lastHitY; 
+		} 
+		else if (direction == BOTTOM)
 		{
 			x = lastHitX + 1;
 			y = lastHitY;
+			
 		}
-
-		if (lastHitY > 0 && cleverHits[lastHitX][lastHitY - 1] == '1') 
+		else if (direction == LEFT)
 		{
 			x = lastHitX;
 			y = lastHitY - 1;
 		}
-		if (lastHitY < 9 && cleverHits[lastHitX ][lastHitY + 1] == '1') 
+		else if (direction == RIGHT)
 		{
 			x = lastHitX;
 			y = lastHitY + 1;
 		}
+
 	}
 	else 
 	{
-		srand(time(0));
+		bool suitableHit = false;
 
 		while (suitableHit == false) 
 		{
@@ -67,11 +74,11 @@ void ComputerPlayer::hit()
 			}
 		}
 	}
-	
-	lastHitX = x;
-	lastHitY = y;
 
 	hits[x][y] = 1;
+
+	lastHitX = x;
+	lastHitY = y;
 }
 
 
@@ -98,10 +105,10 @@ void ComputerPlayer::markSunkShip(void)
 
 	isHorizontal = isShipHorizontal();
 
-	firstX = getShipFirstX(isHorizontal);
-	firstY = getShipFirstY(isHorizontal);
+	firstX = findShipFirstX(isHorizontal);
+	firstY = findShipFirstY(isHorizontal);
 
-	size = getShipSize(firstX, firstY, isHorizontal);
+	size = findShipSize(firstX, firstY, isHorizontal);
 
 	Ship foundShip(firstX, firstY, size, isHorizontal);
 
@@ -135,7 +142,7 @@ bool ComputerPlayer::isShipHorizontal(void) const
 
 
 
-int ComputerPlayer::getShipFirstX(bool isHorizontal) const
+int ComputerPlayer::findShipFirstX(bool isHorizontal) const
 {
 	if (isHorizontal)
 	{
@@ -172,7 +179,7 @@ int ComputerPlayer::getShipFirstX(bool isHorizontal) const
 
 
 
-int ComputerPlayer::getShipFirstY(bool isHorizontal) const
+int ComputerPlayer::findShipFirstY(bool isHorizontal) const
 {
 	if (isHorizontal)
 	{
@@ -209,7 +216,7 @@ int ComputerPlayer::getShipFirstY(bool isHorizontal) const
 
 
 
-int ComputerPlayer::getShipSize(int firstX, int firstY, bool isHorizontal) const
+int ComputerPlayer::findShipSize(int firstX, int firstY, bool isHorizontal) const
 {
 	int size = 1;
 
@@ -289,5 +296,30 @@ void ComputerPlayer::markShipAround(Ship & sunkShip)
 				}
 			}
 		}
+	}
+}
+
+
+
+direction ComputerPlayer::chooseSideToHit(void) const
+{
+	if (lastHitX > 0 && cleverHits[lastHitX - 1][lastHitY] == '1')
+	{
+		return TOP;
+	}
+
+	if (lastHitX < 9 && cleverHits[lastHitX + 1][lastHitY] == '1')
+	{
+		return BOTTOM;
+	}
+
+	if (lastHitY > 0 && cleverHits[lastHitX][lastHitY - 1] == '1')
+	{
+		return LEFT;
+	}
+
+	if (lastHitY < 9 && cleverHits[lastHitX][lastHitY + 1] == '1')
+	{
+		return RIGHT;
 	}
 }

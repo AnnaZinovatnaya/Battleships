@@ -29,7 +29,7 @@ private:
 	static const int ROW_POSITION_FOR_USER_HIT = 18;
 
 	void convertHumanHitToInt(char cHit[3], int humanHit[2]) const;
-	bool checkHit(char hit[3]) const;
+	bool checkHumanHit(char hit[3]) const;
 
 	bool checkEndOfGame(void);
 	void showStatistics(void);
@@ -40,4 +40,6 @@ private:
 	void pause(void) const;
 
 	void setCursorPosition(int column, int row) const;
+
+	void waitForEnterPressed(void) const;
 };
