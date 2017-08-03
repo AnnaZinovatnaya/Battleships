@@ -15,7 +15,7 @@ Map::~Map(void)
 
 
 
-void Map::initializeMap(int humanShips[10][10])
+void Map::initializeMap(Player &human)
 {
 	system("cls");
 
@@ -46,7 +46,7 @@ void Map::initializeMap(int humanShips[10][10])
 	{
 		for (int j = 0; j<10; j++)
 		{
-			if (humanShips[i][j] == 1)
+			if (human.ships[i][j] == 1)
 			{
 				map[i + 2][j + 3] = 'S';
 			}
@@ -71,10 +71,7 @@ void Map::initializeMap(int humanShips[10][10])
 
 }
 
-
-
-void Map::updateMap(int humanShips[10][10], int humanHits[10][10], 
-	int computerShips[10][10], int computerHits[10][10])
+void Map::updateMap(Player &human, Player &computer)
 {
 	DWORD dw;
 	COORD here;
@@ -89,7 +86,7 @@ void Map::updateMap(int humanShips[10][10], int humanHits[10][10],
 	{
 		for (int j = 0; j<10; j++)
 		{
-			if (humanShips[i][j] == 1 && computerHits[i][j] == 1)
+			if (human.ships[i][j] == 1 && computer.hits[i][j] == 1)
 			{
 				map[i + 2][j + 3] = 'X';
 				here.X = j + 3;
@@ -98,7 +95,7 @@ void Map::updateMap(int humanShips[10][10], int humanHits[10][10],
 
 			}
 
-			if (humanShips[i][j] == 0 && computerHits[i][j] == 1)
+			if (human.ships[i][j] == 0 && computer.hits[i][j] == 1)
 			{
 				map[i + 2][j + 3] = '0';
 				here.X = j + 3;
@@ -107,7 +104,7 @@ void Map::updateMap(int humanShips[10][10], int humanHits[10][10],
 
 			}
 
-			if (computerShips[i][j] == 1 && humanHits[i][j] == 1)
+			if (computer.ships[i][j] == 1 && human.hits[i][j] == 1)
 			{
 				map[i + 2][j + 18] = 'X';
 				here.X = j + 18;
@@ -116,7 +113,7 @@ void Map::updateMap(int humanShips[10][10], int humanHits[10][10],
 
 			}
 
-			if (computerShips[i][j] == 0 && humanHits[i][j] == 1)
+			if (computer.ships[i][j] == 0 && human.hits[i][j] == 1)
 			{
 				map[i + 2][j + 18] = '0';
 				here.X = j + 18;
@@ -128,10 +125,7 @@ void Map::updateMap(int humanShips[10][10], int humanHits[10][10],
 	}
 }
 
-
-
-void Map::showEndMap(int humanShips[10][10], int humanHits[10][10], 
-	int computerShips[10][10], int computerHits[10][10])
+void Map::showEndMap(Player &human, Player &computer)
 {
 	system("cls");
 
@@ -142,7 +136,7 @@ void Map::showEndMap(int humanShips[10][10], int humanHits[10][10],
 		for (int j = 0; j<10; j++)
 		{
 
-			if (computerShips[i][j] == 1 && humanHits[i][j] == 0)
+			if (computer.ships[i][j] == 1 && human.hits[i][j] == 0)
 			{
 				map[i + 2][j + 18] = 'S';
 			}

@@ -28,16 +28,16 @@ private:
 	static const int COLUMN_POSITION_FOR_USER_HIT = 0;
 	static const int ROW_POSITION_FOR_USER_HIT = 18;
 
-	void convertHumanHitToInt(char cHit[3], int humanHit[2]);
-	bool checkHit(char hit[3]);
+	void convertHumanHitToInt(char cHit[3], int humanHit[2]) const;
+	bool checkHit(char hit[3]) const;
 
 	bool checkEndOfGame(void);
 	void showStatistics(void);
 	void showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]);
 
-	bool listenKeyPress(short p_key);
+	bool listenKeyPress(short p_key) const;
 
-	void pause(void);
+	void pause(void) const;
 
-	void setCursorPosition(int column, int row);
+	void setCursorPosition(int column, int row) const;
 };

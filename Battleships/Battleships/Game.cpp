@@ -28,7 +28,7 @@ Game::Game(void)
 	Game::human.initialize();
 	Game::computer.initialize();
 
-	Game::map.initializeMap(human.ships);
+	Game::map.initializeMap(human);
 }
 
 
@@ -91,7 +91,8 @@ void Game::playGame(void)
 		{
 			Game::convertHumanHitToInt(cHit, humanHit);
 			Game::human.hit(humanHit);
-			Game::map.updateMap(human.ships, human.hits, computer.ships, computer.hits);
+
+			Game::map.updateMap(human, computer);
 
 			isComputerSinkSunk = Game::computer.markSunkShips(human.hits);
 			if (isComputerSinkSunk) 
@@ -113,7 +114,8 @@ void Game::playGame(void)
 				break;
 
 			Game::computer.hit();
-			Game::map.updateMap(human.ships, human.hits, computer.ships, computer.hits);
+
+			Game::map.updateMap(human, computer);
 
 			isAnyHumanShipHit = Game::human.isAnyShipHit(computer.getLastHitX(), 
 					computer.getLastHitY());
@@ -150,8 +152,7 @@ void Game::playGame(void)
 	clock_t endTime = clock();
 	timeOfGame = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 
-	Game::map.showEndMap(human.ships, human.hits, 
-		computer.ships, computer.hits);
+	Game::map.showEndMap(human, computer);
 
 	if (human.getIsDeafeat() == true) 
 	{
@@ -174,7 +175,7 @@ void Game::playGame(void)
 
 
 
-void Game::convertHumanHitToInt(char cHit[3], int humanHit[2])
+void Game::convertHumanHitToInt(char cHit[3], int humanHit[2]) const
 {
 	switch (cHit[0]) {
 		case 'A' : case 'a' : humanHit[0] = 0; break;
@@ -205,7 +206,7 @@ void Game::convertHumanHitToInt(char cHit[3], int humanHit[2])
 
 
 
-bool Game::checkHit(char hit[3])
+bool Game::checkHit(char hit[3]) const
 {
 	static const char ENTER_KEY = '\r';
 
@@ -276,7 +277,7 @@ Game::showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]){
 
 
 
-bool Game::listenKeyPress(short p_key)
+bool Game::listenKeyPress(short p_key) const
 {
 	const unsigned short MSB = 0x8000;
 
@@ -290,7 +291,7 @@ bool Game::listenKeyPress(short p_key)
 
 
 
-void Game::pause(void)
+void Game::pause(void) const
 {
 	clock_t startTime = clock();
 	clock_t endTime = clock();
@@ -339,7 +340,7 @@ void Game::pause(void)
 
 
 
-void Game::setCursorPosition(int column, int row)
+void Game::setCursorPosition(int column, int row) const
 {
 	COORD coord;
 	coord.X = column;

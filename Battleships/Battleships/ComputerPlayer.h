@@ -20,10 +20,10 @@ private:
 	char cleverHits[10][10]; //array that stores all hits and cells aroung sunk ships
 	int lastHitX, lastHitY;
 
-	bool isShipHorizontal(void);
-	int getShipFirstX(bool isHorizontal);
-	int getShipFirstY(bool isHorizontal);
-	int getShipSize(int firstX, int firstY, bool isHorizontal);
+	bool isShipHorizontal(void) const;
+	int getShipFirstX(bool isHorizontal) const;
+	int getShipFirstY(bool isHorizontal) const;
+	int getShipSize(int firstX, int firstY, bool isHorizontal) const;
 
-	void markShipAround(int firstX, int firstY, int size, bool isHorizontal);
+	void markShipAround(Ship &sunkShip);
 };

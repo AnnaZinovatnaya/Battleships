@@ -103,12 +103,14 @@ void ComputerPlayer::markSunkShip(void)
 
 	size = getShipSize(firstX, firstY, isHorizontal);
 
-	ComputerPlayer::markShipAround(firstX, firstY, size, isHorizontal);
+	Ship foundShip(firstX, firstY, size, isHorizontal);
+
+	ComputerPlayer::markShipAround(foundShip);
 }
 
 
 
-bool ComputerPlayer::isShipHorizontal(void)
+bool ComputerPlayer::isShipHorizontal(void) const
 {
 
 	if (lastHitY == 0) 
@@ -133,7 +135,7 @@ bool ComputerPlayer::isShipHorizontal(void)
 
 
 
-int ComputerPlayer::getShipFirstX(bool isHorizontal)
+int ComputerPlayer::getShipFirstX(bool isHorizontal) const
 {
 	if (isHorizontal)
 	{
@@ -170,7 +172,7 @@ int ComputerPlayer::getShipFirstX(bool isHorizontal)
 
 
 
-int ComputerPlayer::getShipFirstY(bool isHorizontal)
+int ComputerPlayer::getShipFirstY(bool isHorizontal) const
 {
 	if (isHorizontal)
 	{
@@ -207,7 +209,7 @@ int ComputerPlayer::getShipFirstY(bool isHorizontal)
 
 
 
-int ComputerPlayer::getShipSize(int firstX, int firstY, bool isHorizontal)
+int ComputerPlayer::getShipSize(int firstX, int firstY, bool isHorizontal) const
 {
 	int size = 1;
 
@@ -252,20 +254,17 @@ int ComputerPlayer::getShipSize(int firstX, int firstY, bool isHorizontal)
 	return 0;
 }
 
-
-
-void ComputerPlayer::markShipAround(int firstX, int firstY, 
-	int size, bool isHorizontal)
+void ComputerPlayer::markShipAround(Ship & sunkShip)
 {
-	if (isHorizontal)
+	if (sunkShip.getIsHorizontal())
 	{
-		for (int i = firstX - 1; i<firstX + 2; i++) 
+		for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + 2; i++)
 		{
 			if (i>-1 && i<10)
 			{
-				for (int j = firstY - 1; j<firstY + size + 1; j++) 
+				for (int j = sunkShip.getY() - 1; j<sunkShip.getY() + sunkShip.getSize() + 1; j++)
 				{
-					if (j>-1 && j<10) 
+					if (j>-1 && j<10)
 					{
 						if (cleverHits[i][j] == '1')
 							cleverHits[i][j] = '0';
@@ -274,15 +273,15 @@ void ComputerPlayer::markShipAround(int firstX, int firstY,
 			}
 		}
 	}
-	else 
+	else
 	{
-		for (int i = firstX - 1; i<firstX + size + 1; i++) 
+		for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + sunkShip.getSize() + 1; i++)
 		{
 			if (i>-1 && i<10)
 			{
-				for (int j = firstY - 1; j<firstY + 2; j++) 
+				for (int j = sunkShip.getY() - 1; j<sunkShip.getY() + 2; j++)
 				{
-					if (j>-1 && j<10) 
+					if (j>-1 && j<10)
 					{
 						if (cleverHits[i][j] == '1')
 							cleverHits[i][j] = '0';

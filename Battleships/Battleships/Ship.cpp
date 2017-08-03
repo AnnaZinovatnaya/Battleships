@@ -33,7 +33,7 @@ Ship::~Ship(void)
 
 
 
-bool Ship::isSunkCheck(int enemyHits[10][10])
+bool Ship::isSunkCheck(int enemyHits[10][10]) const
 {
 	if (isHorizontal)
 	{
@@ -61,7 +61,7 @@ bool Ship::isSunkCheck(int enemyHits[10][10])
 
 
 
-bool Ship::isShipCoordinates(int hitX, int hitY)
+bool Ship::isShipCoordinates(int hitX, int hitY) const
 {
 	if (isHorizontal)
 	{

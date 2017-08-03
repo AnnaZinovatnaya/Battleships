@@ -152,7 +152,7 @@ void Player::hit(int hit[2])
 
 
 
-bool Player::isAnyShipHit(int x, int y)
+bool Player::isAnyShipHit(int x, int y) 
 {
 
 	for (Ship &ship : fleet) {
