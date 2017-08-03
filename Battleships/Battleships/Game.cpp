@@ -18,7 +18,7 @@ Game::Game(void)
 	Game::human.initialize();
 	Game::computer.initialize();
 
-	Game::map.initializeMap(human);
+	Game::map.initialize(human);
 }
 
 
@@ -86,7 +86,7 @@ void Game::playGame(void)
 			Game::convertHumanHitToInt(charHumanHit, humanHit);
 			Game::human.hit(humanHit);
 
-			Game::map.updateMap(human, computer);
+			Game::map.update(human, computer);
 
 			isComputerSinkSunk = Game::computer.markSunkShips(human.hits);
 			if (isComputerSinkSunk) 
@@ -109,7 +109,7 @@ void Game::playGame(void)
 
 			Game::computer.hit();
 
-			Game::map.updateMap(human, computer);
+			Game::map.update(human, computer);
 
 			isAnyHumanShipHit = Game::human.isAnyShipHit(computer.getLastHitX(), 
 					computer.getLastHitY());

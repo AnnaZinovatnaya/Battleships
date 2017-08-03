@@ -9,9 +9,9 @@ public:
 	Map(void);
 	~Map(void);
 
-	void initializeMap(Player &human);
+	void initialize(Player &human);
 
-	void updateMap(Player &human, Player &computer);
+	void update(Player &human, Player &computer);
 
 	void showEndMap(Player &human, Player &computer);
 

@@ -15,7 +15,7 @@ Map::~Map(void)
 
 
 
-void Map::initializeMap(Player &human)
+void Map::initialize(Player &human)
 {
 	system("cls");
 
@@ -71,7 +71,7 @@ void Map::initializeMap(Player &human)
 
 }
 
-void Map::updateMap(Player &human, Player &computer)
+void Map::update(Player &human, Player &computer)
 {
 	DWORD dw;
 	COORD here;

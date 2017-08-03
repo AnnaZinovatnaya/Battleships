@@ -24,6 +24,7 @@ private:
 	Player human;
 	ComputerPlayer computer;
 	int timeOfGame;
+
 	static const int MSG_VERTICAL_SIZE = 5, MSG_HORIZONTALAL_SIZE = 25;
 	static const int COLUMN_POSITION_FOR_USER_HIT = 0;
 	static const int ROW_POSITION_FOR_USER_HIT = 18;
