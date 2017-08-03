@@ -42,9 +42,9 @@ void Game::playGame()
 	bool endOfGame = false;
 
 	bool isAnyHumanShipHit = false;
-	bool isHumanSinkSunk = false;
+	bool isHumanShipSunk = false;
 
-	bool isComputerSinkSunk = false;
+	bool isComputerShipSunk = false;
 
 	char winningMessage[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE] = {
 		"                        ",
@@ -90,8 +90,8 @@ void Game::playGame()
 
 			Game::map.update(human, computer);
 
-			isComputerSinkSunk = Game::computer.markSunkShips(human.hits);
-			if (isComputerSinkSunk) 
+			isComputerShipSunk = Game::computer.markSunkShips(human.hits);
+			if (isComputerShipSunk) 
 			{
 				cout << "\nYou sunk enemy's ship!" << endl;
 				Sleep(1500);
@@ -120,8 +120,8 @@ void Game::playGame()
 			{
 				computer.markSuccessHit();
 
-				isHumanSinkSunk = Game::human.markSunkShips(computer.hits);
-				if (isHumanSinkSunk) 
+				isHumanShipSunk = Game::human.markSunkShips(computer.hits);
+				if (isHumanShipSunk) 
 				{
 					computer.markSunkShip();
 					endOfGame = Game::checkEndOfGame();
