@@ -6,8 +6,8 @@
 class Map
 {
 public:
-	Map(void);
-	~Map(void);
+	Map();
+	~Map();
 
 	void initialize(Player &human);
 

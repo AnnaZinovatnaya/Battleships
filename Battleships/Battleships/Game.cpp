@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game(void)
+Game::Game()
 {
 	srand(time(0));
 
@@ -19,17 +19,19 @@ Game::Game(void)
 	Game::computer.initialize();
 
 	Game::map.initialize(human);
+
+	timeOfGame = 0;
 }
 
 
 
-Game::~Game(void)
+Game::~Game()
 {
 }
 
 
 
-void Game::playGame(void)
+void Game::playGame()
 {
 	char charHumanHit[3] = { "00" };
 	int humanHit[2] = { 0,0 };
@@ -185,7 +187,7 @@ void Game::convertHumanHitToInt(char cHit[3], int humanHit[2]) const
 
 bool Game::checkHumanHit(char hit[3]) const
 {
-	static const char ENTER_KEY = '\r';
+	const char ENTER_KEY = '\r';
 
 	if (hit[2] != ENTER_KEY)
 		return false;
@@ -201,16 +203,13 @@ bool Game::checkHumanHit(char hit[3]) const
 
 
 
-bool Game::checkEndOfGame(void)
+bool Game::checkEndOfGame()
 {
-	bool humanShipsKilled = false;
-	bool computerShipsKilled = false;
-
-	humanShipsKilled = human.checkEndOfGame();
+	bool humanShipsKilled = human.checkEndOfGame();
 	if (humanShipsKilled)
 		return true;
 
-	computerShipsKilled = computer.checkEndOfGame();
+	bool computerShipsKilled = computer.checkEndOfGame();
 	if (computerShipsKilled)
 		return true;
 
@@ -219,11 +218,9 @@ bool Game::checkEndOfGame(void)
 
 
 
-void Game::showStatistics(void)
+void Game::showStatistics()
 {
 	int minutes = static_cast<int>(timeOfGame / 60);
-	int humanSunkShips = human.countSunkShips();
-	int computerSunkShips = computer.countSunkShips();
 
 	cout << "\n";
 	cout << "Statistics:"<< endl;
@@ -231,9 +228,9 @@ void Game::showStatistics(void)
 	cout << "Time: " << minutes << " minute(s) ";
 	cout<< timeOfGame - (minutes * 60) << " second(s)" << endl;
 	cout << "\n";
-	cout << "You sunk " << computerSunkShips << " of enemy's ships" << endl;
+	cout << "You sunk " << computer.countSunkShips() << " of enemy's ships" << endl;
 	cout << "\n";
-	cout << "Enemy sunk " << humanSunkShips << " of your ships" << endl;
+	cout << "Enemy sunk " << human.countSunkShips() << " of your ships" << endl;
 }
 
 
@@ -268,13 +265,14 @@ bool Game::listenKeyPress(short p_key) const
 
 
 
-void Game::pause(void) const
+void Game::pause() const
 {
 	clock_t startTime = clock();
 	clock_t endTime = clock();
+
 	int oldTime = 0;
 	int newTime = 0;
-	int minutes = 0;
+
 	static const int COLUMN_POSITION_FOR_PAUSE_TIME = 0;
 	static const int ROW_POSITION_FOR_PAUSE_TIME = 20;
 
@@ -296,7 +294,7 @@ void Game::pause(void) const
 			Game::setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
 				ROW_POSITION_FOR_PAUSE_TIME);
 
-			minutes = static_cast<int>(newTime / 60);
+			int minutes = static_cast<int>(newTime / 60);
 			cout << "Time: " << minutes << " minute(s) ";
 			cout<< newTime - (minutes * 60) << " second(s)" << endl;
 			oldTime = newTime;
@@ -325,7 +323,7 @@ void Game::setCursorPosition(int column, int row) const
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void Game::waitForEnterPressed(void) const
+void Game::waitForEnterPressed() const
 {
 	char keyPressed = 0;
 	static const char ENTER_KEY = '\r';

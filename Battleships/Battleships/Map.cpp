@@ -3,13 +3,20 @@
 using namespace std;
 
 
-Map::Map(void)
+Map::Map()
 {
+	for (int i = 0; i < VERTICAL_SIZE; i++)
+	{
+		for (int j = 0; j < HORIZONTAL_SIZE; j++)
+		{
+			map[i][j] = ' ';
+		}
+	}
 }
 
 
 
-Map::~Map(void)
+Map::~Map()
 {
 }
 

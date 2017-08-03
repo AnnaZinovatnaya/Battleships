@@ -83,32 +83,28 @@ void ComputerPlayer::hit()
 
 
 
-void ComputerPlayer::markMissedHit(void) 
+void ComputerPlayer::markMissedHit() 
 {
 	cleverHits[lastHitX][lastHitY] = '0';
 }
 
 
 
-void ComputerPlayer::markSuccessHit(void)
+void ComputerPlayer::markSuccessHit()
 {
 	cleverHits[lastHitX][lastHitY] = 'X';
 }
 
 
 
-void ComputerPlayer::markSunkShip(void)
+void ComputerPlayer::markSunkShip()
 {
-	bool isHorizontal = false;
-	int size = 0;
-	int firstX = 0, firstY = 0;
+	bool isHorizontal = isShipHorizontal();
 
-	isHorizontal = isShipHorizontal();
+	int firstX = findShipFirstX(isHorizontal);
+	int firstY = findShipFirstY(isHorizontal);
 
-	firstX = findShipFirstX(isHorizontal);
-	firstY = findShipFirstY(isHorizontal);
-
-	size = findShipSize(firstX, firstY, isHorizontal);
+	int size = findShipSize(firstX, firstY, isHorizontal);
 
 	Ship foundShip(firstX, firstY, size, isHorizontal);
 
@@ -117,7 +113,7 @@ void ComputerPlayer::markSunkShip(void)
 
 
 
-bool ComputerPlayer::isShipHorizontal(void) const
+bool ComputerPlayer::isShipHorizontal() const
 {
 
 	if (lastHitY == 0) 
@@ -301,7 +297,7 @@ void ComputerPlayer::markShipAround(Ship & sunkShip)
 
 
 
-direction ComputerPlayer::chooseSideToHit(void) const
+direction ComputerPlayer::chooseSideToHit() const
 {
 	if (lastHitX > 0 && cleverHits[lastHitX - 1][lastHitY] == '1')
 	{

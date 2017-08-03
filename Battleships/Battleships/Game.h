@@ -14,10 +14,10 @@ using namespace std;
 class Game
 {
 public:
-	Game(void);
-	~Game(void);
+	Game();
+	~Game();
 
-	void playGame(void);
+	void playGame();
 
 private:
 	Map map;
@@ -32,15 +32,15 @@ private:
 	void convertHumanHitToInt(char cHit[3], int humanHit[2]) const;
 	bool checkHumanHit(char hit[3]) const;
 
-	bool checkEndOfGame(void);
-	void showStatistics(void);
+	bool checkEndOfGame();
+	void showStatistics();
 	void showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]);
 
 	bool listenKeyPress(short p_key) const;
 
-	void pause(void) const;
+	void pause() const;
 
 	void setCursorPosition(int column, int row) const;
 
-	void waitForEnterPressed(void) const;
+	void waitForEnterPressed() const;
 };

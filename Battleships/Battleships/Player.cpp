@@ -1,19 +1,19 @@
 #include "Player.h"
 
-Player::Player(void)
+Player::Player()
 {
 	isDefeat = false;
 }
 
 
 
-Player::~Player(void)
+Player::~Player()
 {
 }
 
 
 
-void Player::initialize(void)
+void Player::initialize()
 {
 	for (int i = 0; i < 10; i++)
 	{
@@ -40,20 +40,18 @@ void Player::initialize(void)
 
 Ship Player::setShip(int size)
 {
-	int x  = 0;
-	int y = 0;
+	int x = 0, y = 0;
 	bool isHorizontal = false;
-	int horizontal = 0;
-	Ship ship;
 
 	bool place = false;
 
 	while (place == false)
 	{
-		x = rand() % 10;
-		y = rand() % 10;
+		int x = rand() % 10;
+		int y = rand() % 10;
 	
-		horizontal = rand() % 2;
+		int horizontal = rand() % 2;
+
 		if (horizontal == 0)
 			isHorizontal = true;
 
@@ -86,7 +84,7 @@ bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
 		return false;
 
 	if (isHorizontal) {
-		//проверка, станет ли корабль
+		//check if the ship fits
 		if (y>10 - size)
 			return false;
 		for (int i = y + 1; i<y + size; i++) 
@@ -95,7 +93,7 @@ bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
 				return false;
 		}
 
-		//проверка, свободно ли вокруг него
+		//check if cells around the ship are empty
 		for (int i = x - 1; i<x + 2; i++)
 		{
 			if (i>-1 && i<10)
@@ -116,14 +114,14 @@ bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
 		if (x>10 - size)
 			return false;
 
-		//проверка, станет ли корабль
+		//check if the ship fits
 		for (int i = x + 1; i<x + size; i++) 
 		{
 			if (ships[i][y] == 1)
 				return false;
 		}
 
-		//проверка, свободно ли вокруг него
+		//check if cells around the ship are empty
 		for (int i = x - 1; i<x + size + 1; i++) 
 		{
 			if (i>-1 && i<10)

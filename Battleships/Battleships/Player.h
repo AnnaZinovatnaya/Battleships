@@ -16,17 +16,17 @@ public:
 	int hits[10][10];
 	list<Ship> fleet;
 
-	Player(void);
-	~Player(void);
+	Player();
+	~Player();
 
-	void initialize(void);
+	void initialize();
 
 	void hit(int hit[2]);
 
 	bool isAnyShipHit(int x, int y);
 	bool markSunkShips(int enemyHits[10][10]);
 
-	bool getIsDeafeat(void) { return isDefeat; }
+	bool getIsDeafeat() { return isDefeat; }
 
 	bool checkEndOfGame();
 	int  countSunkShips();

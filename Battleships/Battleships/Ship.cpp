@@ -22,7 +22,7 @@ Ship::Ship(int x, int y, int size, bool isHorizontal)
 
 
 
-Ship::~Ship(void)
+Ship::~Ship()
 {
 	Ship::x = 0;
 	Ship::y = 0;

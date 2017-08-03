@@ -3,23 +3,23 @@
 class Ship
 {
 public:
-	Ship(void);
+	Ship();
 	Ship(int x, int y, int size, bool  isHorizontal);
-	~Ship(void);
+	~Ship();
 
 	bool isSunkCheck(int enemyHits[10][10]) const;
 	bool isShipCoordinates(int hitX, int hitY) const;
 
-	bool getIsSunk(void) const  { return isSunk; }
+	bool getIsSunk() const  { return isSunk; }
 	void setIsSunk(bool newStatus) { isSunk = newStatus; }
 
-	int getX(void) const { return x; }
+	int getX() const { return x; }
 	
-	int getY(void) const { return y; }
+	int getY() const { return y; }
 
-	bool getIsHorizontal(void) const { return isHorizontal; }
+	bool getIsHorizontal() const { return isHorizontal; }
 
-	int getSize(void) const { return size; }
+	int getSize() const { return size; }
 
 
 private:
