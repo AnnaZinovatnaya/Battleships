@@ -1,6 +1,4 @@
 #include "Map.h"
-#include <iostream>
-using namespace std;
 
 
 Map::Map()
@@ -49,9 +47,9 @@ void Map::initialize(Player &human)
 		}
 	}
 
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
-		for (int j = 0; j<10; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 			if (human.ships[i][j] == 1)
 			{
@@ -89,9 +87,9 @@ void Map::update(Player &human, Player &computer)
 	}
 
 
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
-		for (int j = 0; j<10; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 			if (human.ships[i][j] == 1 && computer.hits[i][j] == 1)
 			{
@@ -138,9 +136,9 @@ void Map::showEndMap(Player &human, Player &computer)
 
 	cout << "Game results:\n";
 
-	for (int i = 0; i<10; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
-		for (int j = 0; j<10; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 
 			if (computer.ships[i][j] == 1 && human.hits[i][j] == 0)

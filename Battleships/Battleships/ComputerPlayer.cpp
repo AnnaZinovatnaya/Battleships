@@ -1,10 +1,11 @@
 #include "ComputerPlayer.h"
 
+
 ComputerPlayer::ComputerPlayer()
 {
-	for (int i = 0; i < 10; i++) 
+	for (int i = 0; i < FIELD_SIZE; i++) 
 	{
-		for (int j = 0; j < 10; j++) 
+		for (int j = 0; j < FIELD_SIZE; j++) 
 		{
 			cleverHits[i][j] = '1';
 		}
@@ -65,8 +66,8 @@ void ComputerPlayer::hit()
 
 		while (suitableHit == false) 
 		{
-			x = rand() % 10;
-			y = rand() % 10;
+			x = rand() % FIELD_SIZE;
+			y = rand() % FIELD_SIZE;
 
 			if (cleverHits[x][y] != '0' && cleverHits[x][y] != 'X') 
 			{
@@ -121,13 +122,13 @@ bool ComputerPlayer::isShipHorizontal() const
 		if (cleverHits[lastHitX][lastHitY + 1] == 'X')
 			return true;
 	}
-	else if (lastHitY > 0 && lastHitY < 9) 
+	else if (lastHitY > 0 && lastHitY < FIELD_SIZE - 1) 
 	{
 		if (cleverHits[lastHitX][lastHitY - 1] == 'X' || 
 				cleverHits[lastHitX][lastHitY + 1] == 'X')
 			return true;
 	}
-	else if (lastHitY == 9) 
+	else if (lastHitY == FIELD_SIZE - 1) 
 	{
 		if (cleverHits[lastHitX][lastHitY - 1] == 'X')
 			return true;
@@ -154,7 +155,7 @@ int ComputerPlayer::findShipFirstX(bool isHorizontal) const
 		{
 			int currentX = lastHitX;
 
-			while (currentX>=0) 
+			while (currentX >= 0) 
 			{
 				if (cleverHits[currentX][lastHitY] == 'X') 
 				{
@@ -218,8 +219,8 @@ int ComputerPlayer::findShipSize(int firstX, int firstY, bool isHorizontal) cons
 
 	if (isHorizontal)
 	{
-		int currentY = firstY+1;
-		while (currentY <= 9) 
+		int currentY = firstY + 1;
+		while (currentY <= FIELD_SIZE - 1) 
 		{
 			if (cleverHits[firstX][currentY] == 'X') 
 			{
@@ -238,7 +239,7 @@ int ComputerPlayer::findShipSize(int firstX, int firstY, bool isHorizontal) cons
 	else 
 	{
 		int currentX = firstX+1;
-		while (currentX <= 9) 
+		while (currentX <= FIELD_SIZE - 1) 
 		{
 			if (cleverHits[currentX][firstY] == 'X') 
 			{
@@ -263,11 +264,11 @@ void ComputerPlayer::markShipAround(Ship & sunkShip)
 	{
 		for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + 2; i++)
 		{
-			if (i>-1 && i<10)
+			if (i > -1 && i < FIELD_SIZE)
 			{
-				for (int j = sunkShip.getY() - 1; j<sunkShip.getY() + sunkShip.getSize() + 1; j++)
+				for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + sunkShip.getSize() + 1; j++)
 				{
-					if (j>-1 && j<10)
+					if (j > -1 && j < FIELD_SIZE)
 					{
 						if (cleverHits[i][j] == '1')
 							cleverHits[i][j] = '0';
@@ -278,13 +279,13 @@ void ComputerPlayer::markShipAround(Ship & sunkShip)
 	}
 	else
 	{
-		for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + sunkShip.getSize() + 1; i++)
+		for (int i = sunkShip.getX() - 1; i < sunkShip.getX() + sunkShip.getSize() + 1; i++)
 		{
-			if (i>-1 && i<10)
+			if (i > -1 && i < FIELD_SIZE)
 			{
-				for (int j = sunkShip.getY() - 1; j<sunkShip.getY() + 2; j++)
+				for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + 2; j++)
 				{
-					if (j>-1 && j<10)
+					if (j > -1 && j < FIELD_SIZE)
 					{
 						if (cleverHits[i][j] == '1')
 							cleverHits[i][j] = '0';
@@ -304,7 +305,7 @@ direction ComputerPlayer::chooseSideToHit() const
 		return TOP;
 	}
 
-	if (lastHitX < 9 && cleverHits[lastHitX + 1][lastHitY] == '1')
+	if (lastHitX < FIELD_SIZE - 1 && cleverHits[lastHitX + 1][lastHitY] == '1')
 	{
 		return BOTTOM;
 	}
@@ -314,7 +315,7 @@ direction ComputerPlayer::chooseSideToHit() const
 		return LEFT;
 	}
 
-	if (lastHitY < 9 && cleverHits[lastHitX][lastHitY + 1] == '1')
+	if (lastHitY < FIELD_SIZE - 1 && cleverHits[lastHitX][lastHitY + 1] == '1')
 	{
 		return RIGHT;
 	}

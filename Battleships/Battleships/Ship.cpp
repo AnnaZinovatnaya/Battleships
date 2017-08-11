@@ -1,5 +1,6 @@
 #include "Ship.h"
 
+
 Ship::Ship()
 {
 	x = 0;
@@ -29,11 +30,11 @@ Ship::~Ship()
 
 
 
-bool Ship::isSunkCheck(int enemyHits[10][10]) const
+bool Ship::isSunkCheck(int enemyHits[FIELD_SIZE][FIELD_SIZE]) const
 {
 	if (isHorizontal)
 	{
-		for (int i = y; i<y + size; i++)
+		for (int i = y; i < y + size; i++)
 		{
 			if (enemyHits[x][i] != 1) 
 			{
@@ -43,7 +44,7 @@ bool Ship::isSunkCheck(int enemyHits[10][10]) const
 	}
 	else
 	{
-		for (int i = x; i<x + size; i++)
+		for (int i = x; i < x + size; i++)
 		{
 			if (enemyHits[i][y] != 1) 
 			{
@@ -61,7 +62,7 @@ bool Ship::isShipCoordinates(int hitX, int hitY) const
 {
 	if (isHorizontal)
 	{
-		for (int i = y; i<y + size; i++)
+		for (int i = y; i < y + size; i++)
 		{
 			if (x == hitX && i == hitY) 
 			{
@@ -71,7 +72,7 @@ bool Ship::isShipCoordinates(int hitX, int hitY) const
 	}
 	else
 	{
-		for (int i = x; i<x + size; i++)
+		for (int i = x; i < x + size; i++)
 		{
 			if (i == hitX && y == hitY) 
 			{

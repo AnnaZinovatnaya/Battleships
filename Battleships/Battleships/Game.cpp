@@ -1,5 +1,6 @@
 #include "Game.h"
 
+
 Game::Game()
 {
 	srand(time(0));
@@ -191,11 +192,11 @@ bool Game::checkHumanHit(char hit[3]) const
 
 	if (hit[2] != ENTER_KEY)
 		return false;
-	if (hit[1]<'0' || hit[1]>'9')
+	if (hit[1] < '0' || hit[1] > '9')
 		return false;
-	if (hit[0] >= 'A'&&hit[0] <= 'J')
+	if (hit[0] >= 'A' && hit[0] <= 'J')
 		return true;
-	if (hit[0] >= 'a'&&hit[0] <= 'j') 
+	if (hit[0] >= 'a' && hit[0] <= 'j') 
 		return true;
 
 	return false;
