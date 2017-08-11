@@ -47,8 +47,8 @@ Ship Player::setShip(int size)
 
 	while (place == false)
 	{
-		int x = rand() % 10;
-		int y = rand() % 10;
+		x = rand() % 10;
+		y = rand() % 10;
 	
 		int horizontal = rand() % 2;
 
