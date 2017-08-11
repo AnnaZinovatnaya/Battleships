@@ -6,6 +6,7 @@
 #include <ctime>
 #include<iostream>
 #include <list>
+#include <vector>
 
 #include "Ship.h"
 
@@ -14,7 +15,9 @@ using namespace std;
 class Player
 {
 public:
-	int ships[FIELD_SIZE][FIELD_SIZE];
+
+	vector<vector<int> > ships;
+	//int ships[FIELD_SIZE][FIELD_SIZE];
 	int hits[FIELD_SIZE][FIELD_SIZE];
 	list<Ship> fleet;
 

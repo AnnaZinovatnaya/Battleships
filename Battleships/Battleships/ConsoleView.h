@@ -11,17 +11,21 @@ using namespace std;
 class ConsoleView : public Observer
 {
 public:
-	Model* model;
+	class Model* model;
+	class Controller* controller;
+
+	vector<vector<char> > map;
+	static const int  VERTICAL_SIZE = 13, HORIZONTAL_SIZE = 49;
 
 	ConsoleView();
 	~ConsoleView();
 
 	void initialize(Model* model);
 
-	void activate();
 	void display();
 	void update();
 
+	void setCursorPosition(int column, int row) const;
 	
 };
 

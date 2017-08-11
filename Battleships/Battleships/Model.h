@@ -2,6 +2,7 @@
 #define Model_h__
 
 #include <list>
+#include <vector>
 using namespace std;
 
 #include "Observer.h"
@@ -9,14 +10,21 @@ using namespace std;
 #include "Player.h"
 #include "ComputerPlayer.h"
 
+enum stateType {INITIALIZED, STARTED, USER_TURN, COMPUTER_TURN, ENDED, PAUSED};
+
 class Model
 {
 public:
 	list <Observer*> observers;
+	
+	stateType state;
+	stateType previousState;
+	int pauseTime;
 
-	Player human;
+	Player user;
 	ComputerPlayer computer;
 	int timeOfGame;
+	clock_t startTime;
 
 
 	Model();
@@ -26,12 +34,18 @@ public:
 	void detach(Observer* observer);
 
 	void notify();
-	void getData();
-	void service();
+	stateType getState();
 
 	void play();
 	bool checkEndOfGame();
-	void pause() const;
+	void pause();
+
+	vector<vector<int>> getUserShips();
+	int getPauseTime();
+	void endPause();
+	
+
+	
 	
 };
 

@@ -19,6 +19,12 @@ public:
 	void handleEvent();
 	void update();
 
+	void run();
+
+	void handlePauseEvent();
+
+	void handleEndPauseEvent();
+
 };
 
 #endif

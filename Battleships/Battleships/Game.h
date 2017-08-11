@@ -41,6 +41,7 @@ private:
 	bool listenKeyPress(short p_key) const;
 
 	void pause() const;
+	
 
 	void setCursorPosition(int column, int row) const;
 

@@ -16,6 +16,22 @@ Player::~Player()
 
 void Player::initialize()
 {
+	//initializing ships
+
+	vector<int> row(10, 0);
+	vector<vector<int> > ships(10, row);
+
+	this->ships = ships;
+
+
+
+
+
+
+
+
+
+
 	for (int i = 0; i < FIELD_SIZE; i++)
 	{
 		for (int j = 0; j < FIELD_SIZE; j++)
