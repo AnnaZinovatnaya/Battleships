@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Player_h__
+#define Player_h__
+
 
 #include <cstdlib>
 #include <ctime>
@@ -37,3 +39,5 @@ private:
 	Ship setShip(int size);
 	bool checkPlace(int x, int y, bool isHorizontal, int size);
 };
+
+#endif

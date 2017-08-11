@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="ComputerPlayer.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameRules.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ship.h" />

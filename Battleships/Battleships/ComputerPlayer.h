@@ -1,4 +1,7 @@
-#pragma once
+#ifndef ComputerPlayer_h__
+#define ComputerPlayer_h__
+
+
 #include "Player.h"
 
 enum direction {TOP, RIGHT, BOTTOM, LEFT};
@@ -31,3 +34,5 @@ private:
 
 	void markShipAround(Ship &sunkShip);
 };
+
+#endif

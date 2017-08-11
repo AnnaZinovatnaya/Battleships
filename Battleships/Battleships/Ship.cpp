@@ -2,33 +2,29 @@
 
 Ship::Ship()
 {
-	Ship::x = 0;
-	Ship::y = 0;
-	Ship::size = 0;
-	Ship::isHorizontal = false;
-	Ship::isSunk = false;
+	x = 0;
+	y = 0;
+	size = 0;
+	isHorizontal = false;
+	isSunk = false;
 }
 
 
 
 Ship::Ship(int x, int y, int size, bool isHorizontal)
 {
-	Ship::x = x;
-	Ship::y = y;
-	Ship::size = size;
-	Ship::isHorizontal = isHorizontal;
-	Ship::isSunk = false;
+	this->x = x;
+	this->y = y;
+	this->size = size;
+	this->isHorizontal = isHorizontal;
+	this->isSunk = false;
 }
 
 
 
 Ship::~Ship()
 {
-	Ship::x = 0;
-	Ship::y = 0;
-	Ship::size = 0;
-	Ship::isHorizontal = false;
-	Ship::isSunk = false;
+	
 }
 
 

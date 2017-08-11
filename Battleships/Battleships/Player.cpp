@@ -23,24 +23,25 @@ void Player::initialize()
 			hits[i][j] = 0;
 		}
 	}
+	//Ship temt = setShip(4);
 
-	fleet.push_front(setShip(4));
-	fleet.push_front(setShip(3));
-	fleet.push_front(setShip(3));
-	fleet.push_front(setShip(2));
-	fleet.push_front(setShip(2));
-	fleet.push_front(setShip(2));
-	fleet.push_front(setShip(1));
-	fleet.push_front(setShip(1));
-	fleet.push_front(setShip(1));
-	fleet.push_front(setShip(1));
+	fleet.push_back(setShip(4));
+	fleet.push_back(setShip(3));
+	fleet.push_back(setShip(3));
+	fleet.push_back(setShip(2));
+	fleet.push_back(setShip(2));
+	fleet.push_back(setShip(2));
+	fleet.push_back(setShip(1));
+	fleet.push_back(setShip(1));
+	fleet.push_back(setShip(1));
+	fleet.push_back(setShip(1));
 }
 
 
 
 Ship Player::setShip(int size)
 {
-	int x = 0, y = 0;
+	int x = rand() % 10, y = rand() % 10;
 	bool isHorizontal = false;
 
 	bool place = false;
@@ -72,7 +73,7 @@ Ship Player::setShip(int size)
 			ships[i][y] = 1;
 		}
 	}
-
+	
 	return Ship(x, y, size, isHorizontal);
 }
 

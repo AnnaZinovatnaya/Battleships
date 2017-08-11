@@ -34,7 +34,7 @@ void ComputerPlayer::hit()
 	if (lastHitSuccessful)
 	{
 
-		direction direction = ComputerPlayer::chooseSideToHit();
+		direction direction = chooseSideToHit();
 
 		if (direction == TOP) 
 		{ 
@@ -108,7 +108,7 @@ void ComputerPlayer::markSunkShip()
 
 	Ship foundShip(firstX, firstY, size, isHorizontal);
 
-	ComputerPlayer::markShipAround(foundShip);
+	markShipAround(foundShip);
 }
 
 

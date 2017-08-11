@@ -1,4 +1,8 @@
-#pragma once
+#ifndef Ship_h__
+#define Ship_h__
+
+
+#include "GameRules.h"
 
 class Ship
 {
@@ -29,3 +33,5 @@ private:
 	bool isHorizontal;
 	bool isSunk;
 };
+
+#endif

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Map_h__
+#define Map_h__
+
 
 #include <Windows.h>
 #include "Player.h"
@@ -19,3 +21,5 @@ private:
 	static const int  VERTICAL_SIZE = 13, HORIZONTAL_SIZE = 49;
 	char map[VERTICAL_SIZE][HORIZONTAL_SIZE];
 };
+
+#endif
