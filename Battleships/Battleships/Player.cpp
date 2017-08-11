@@ -15,9 +15,9 @@ Player::~Player()
 
 void Player::initialize()
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < FIELD_SIZE; i++)
 	{
-		for (int j = 0; j< 10; j++)
+		for (int j = 0; j < FIELD_SIZE; j++)
 		{
 			ships[i][j] = 0;
 			hits[i][j] = 0;
@@ -47,8 +47,8 @@ Ship Player::setShip(int size)
 
 	while (place == false)
 	{
-		int x = rand() % 10;
-		int y = rand() % 10;
+		int x = rand() % FIELD_SIZE;
+		int y = rand() % FIELD_SIZE;
 	
 		int horizontal = rand() % 2;
 
@@ -85,22 +85,22 @@ bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
 
 	if (isHorizontal) {
 		//check if the ship fits
-		if (y>10 - size)
+		if (y > FIELD_SIZE - size)
 			return false;
-		for (int i = y + 1; i<y + size; i++) 
+		for (int i = y + 1; i < y + size; i++) 
 		{
 			if (ships[x][i] == 1)
 				return false;
 		}
 
 		//check if cells around the ship are empty
-		for (int i = x - 1; i<x + 2; i++)
+		for (int i = x - 1; i < x + 2; i++)
 		{
-			if (i>-1 && i<10)
+			if (i > -1 && i < FIELD_SIZE)
 			{
-				for (int j = y - 1; j<y + size + 1; j++) 
+				for (int j = y - 1; j < y + size + 1; j++) 
 				{
-					if (j>-1 && j<10) 
+					if (j > -1 && j < FIELD_SIZE)
 					{
 						if (ships[i][j] == 1)
 							return false;
@@ -111,24 +111,24 @@ bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
 	}
 	else 
 	{
-		if (x>10 - size)
+		if (x > FIELD_SIZE - size)
 			return false;
 
 		//check if the ship fits
-		for (int i = x + 1; i<x + size; i++) 
+		for (int i = x + 1; i< x + size; i++) 
 		{
 			if (ships[i][y] == 1)
 				return false;
 		}
 
 		//check if cells around the ship are empty
-		for (int i = x - 1; i<x + size + 1; i++) 
+		for (int i = x - 1; i < x + size + 1; i++) 
 		{
-			if (i>-1 && i<10)
+			if (i > -1 && i < FIELD_SIZE)
 			{
-				for (int j = y - 1; j<y + 2; j++) 
+				for (int j = y - 1; j < y + 2; j++) 
 				{
-					if (j>-1 && j<10) 
+					if (j > -1 && j < FIELD_SIZE)
 					{
 						if (ships[i][j] == 1)
 							return false;
@@ -163,7 +163,7 @@ bool Player::isAnyShipHit(int x, int y)
 
 
 
-bool Player::markSunkShips(int enemyHits[10][10])
+bool Player::markSunkShips(int enemyHits[FIELD_SIZE][FIELD_SIZE])
 {
 	bool shipSunk = false;
 
