@@ -1,8 +1,4 @@
-#ifndef Ship_h__
-#define Ship_h__
-
-
-#include "GameRules.h"
+#pragma once
 
 class Ship
 {
@@ -11,10 +7,10 @@ public:
 	Ship(int x, int y, int size, bool  isHorizontal);
 	~Ship();
 
-	bool isSunkCheck(int enemyHits[FIELD_SIZE][FIELD_SIZE]) const;
+	bool isSunkCheck(int enemyHits[10][10]) const;
 	bool isShipCoordinates(int hitX, int hitY) const;
 
-	bool getIsSunk() const { return isSunk; }
+	bool getIsSunk() const  { return isSunk; }
 	void setIsSunk(bool newStatus) { isSunk = newStatus; }
 
 	int getX() const { return x; }
@@ -33,5 +29,3 @@ private:
 	bool isHorizontal;
 	bool isSunk;
 };
-
-#endif

@@ -1,6 +1,4 @@
-#ifndef Player_h__
-#define Player_h__
-
+#pragma once
 
 #include <cstdlib>
 #include <ctime>
@@ -14,8 +12,8 @@ using namespace std;
 class Player
 {
 public:
-	int ships[FIELD_SIZE][FIELD_SIZE];
-	int hits[FIELD_SIZE][FIELD_SIZE];
+	int ships[10][10];
+	int hits[10][10];
 	list<Ship> fleet;
 
 	Player();
@@ -26,7 +24,7 @@ public:
 	void hit(int hit[2]);
 
 	bool isAnyShipHit(int x, int y);
-	bool markSunkShips(int enemyHits[FIELD_SIZE][FIELD_SIZE]);
+	bool markSunkShips(int enemyHits[10][10]);
 
 	bool getIsDeafeat() { return isDefeat; }
 
@@ -39,5 +37,3 @@ private:
 	Ship setShip(int size);
 	bool checkPlace(int x, int y, bool isHorizontal, int size);
 };
-
-#endif

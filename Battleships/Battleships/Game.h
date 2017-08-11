@@ -1,6 +1,4 @@
-#ifndef Game_h__
-#define Game_h__
-
+#pragma once
 
 #include <conio.h>
 #include <iostream>
@@ -46,5 +44,3 @@ private:
 
 	void waitForEnterPressed() const;
 };
-
-#endif

@@ -13,12 +13,12 @@ Game::Game()
 	cout << "\n\n";
 	cout << " Press ENTER to start...";
 
-	waitForEnterPressed();
+	Game::waitForEnterPressed();
 
-	human.initialize();
-	computer.initialize();
+	Game::human.initialize();
+	Game::computer.initialize();
 
-	map.initialize(human);
+	Game::map.initialize(human);
 
 	timeOfGame = 0;
 }
@@ -73,58 +73,58 @@ void Game::playGame()
 		charHumanHit[2] = _getch();
 		putchar(charHumanHit[2]);
 
-		setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
+		Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
 			ROW_POSITION_FOR_USER_HIT);
 
 		cout << "   ";
 
-		setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
+		Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
 			ROW_POSITION_FOR_USER_HIT);
 
-		properHit = checkHumanHit(charHumanHit);
+		properHit = Game::checkHumanHit(charHumanHit);
 
 		if (properHit) 
 		{
-			convertHumanHitToInt(charHumanHit, humanHit);
-			human.hit(humanHit);
+			Game::convertHumanHitToInt(charHumanHit, humanHit);
+			Game::human.hit(humanHit);
 
-			map.update(human, computer);
+			Game::map.update(human, computer);
 
-			isComputerShipSunk = computer.markSunkShips(human.hits);
+			isComputerShipSunk = Game::computer.markSunkShips(human.hits);
 			if (isComputerShipSunk) 
 			{
 				cout << "\nYou sunk enemy's ship!" << endl;
 				Sleep(1500);
-				setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
+				Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
 					ROW_POSITION_FOR_USER_HIT+1);
 
 				cout << "                      ";
 
-				setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
+				Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
 					ROW_POSITION_FOR_USER_HIT);
 				
-				endOfGame = checkEndOfGame();
+				endOfGame = Game::checkEndOfGame();
 			}
 			
 			if (endOfGame)
 				break;
-			
-			computer.hit();
 
-			map.update(human, computer);
+			Game::computer.hit();
 
-			isAnyHumanShipHit = human.isAnyShipHit(computer.getLastHitX(), 
+			Game::map.update(human, computer);
+
+			isAnyHumanShipHit = Game::human.isAnyShipHit(computer.getLastHitX(), 
 					computer.getLastHitY());
 
 			if (isAnyHumanShipHit)
 			{
 				computer.markSuccessHit();
 
-				isHumanShipSunk = human.markSunkShips(computer.hits);
+				isHumanShipSunk = Game::human.markSunkShips(computer.hits);
 				if (isHumanShipSunk) 
 				{
 					computer.markSunkShip();
-					endOfGame = checkEndOfGame();
+					endOfGame = Game::checkEndOfGame();
 				}
 			}
 			else 
@@ -139,7 +139,7 @@ void Game::playGame()
 		{
 			if (charHumanHit[0] == 'p' && charHumanHit[1] == 'p' && charHumanHit[2] == 'p') 
 			{
-				pause();
+				Game::pause();
 			}
 		}
 	}
@@ -147,23 +147,23 @@ void Game::playGame()
 	clock_t endTime = clock();
 	timeOfGame = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 
-	map.showEndMap(human, computer);
+	Game::map.showEndMap(human, computer);
 
 	if (human.getIsDeafeat()) 
 	{
-		showEndMessage(losingMessage);
+		Game::showEndMessage(losingMessage);
 	}
 	else 
 	{
-		showEndMessage(winningMessage);
+		Game::showEndMessage(winningMessage);
 	}
 
-	showStatistics();
+	Game::showStatistics();
 
 	cout << "\n";
 	cout << "Press ENTER to exit...";
 
-	waitForEnterPressed();
+	Game::waitForEnterPressed();
 }
 
 
@@ -286,12 +286,12 @@ void Game::pause() const
 		newTime = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 		if (newTime != oldTime) {
 
-			setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
+			Game::setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
 				ROW_POSITION_FOR_PAUSE_TIME);
 
 			cout << "                               ";
 
-			setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
+			Game::setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME, 
 				ROW_POSITION_FOR_PAUSE_TIME);
 
 			int minutes = static_cast<int>(newTime / 60);
@@ -301,7 +301,7 @@ void Game::pause() const
 		}
 	}
 
-	setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
+	Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT,
 		ROW_POSITION_FOR_USER_HIT+1);
 
 	for (int i = 0; i<8; i++) 
@@ -309,7 +309,7 @@ void Game::pause() const
 		cout << "                    ";
 	}
 
-	setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
+	Game::setCursorPosition(COLUMN_POSITION_FOR_USER_HIT, 
 		ROW_POSITION_FOR_USER_HIT);
 }
 

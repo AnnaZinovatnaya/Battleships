@@ -1,7 +1,4 @@
-#ifndef ComputerPlayer_h__
-#define ComputerPlayer_h__
-
-
+#pragma once
 #include "Player.h"
 
 enum direction {TOP, RIGHT, BOTTOM, LEFT};
@@ -22,7 +19,7 @@ public:
 	void markSunkShip();
 
 private:
-	char cleverHits[FIELD_SIZE][FIELD_SIZE]; //array that stores all hits and cells around sunk ships
+	char cleverHits[10][10]; //array that stores all hits and cells around sunk ships
 	int lastHitX, lastHitY;
 
 	direction chooseSideToHit() const;
@@ -34,5 +31,3 @@ private:
 
 	void markShipAround(Ship &sunkShip);
 };
-
-#endif
