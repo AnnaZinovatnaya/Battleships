@@ -16,10 +16,10 @@ Game::Game()
 
 	waitForEnterPressed();
 
-	human.initialize();
+	user.initialize();
 	computer.initialize();
 
-	map.initialize(human);
+	map.initialize(user);
 
 	timeOfGame = 0;
 }
@@ -87,11 +87,11 @@ void Game::playGame()
 		if (properHit) 
 		{
 			convertHumanHitToInt(charHumanHit, humanHit);
-			human.hit(humanHit);
+			//user.hit(humanHit);
 
-			map.update(human, computer);
+			map.update(user, computer);
 
-			isComputerShipSunk = computer.markSunkShips(human.hits);
+			isComputerShipSunk = computer.markSunkShips(user.hits);
 			if (isComputerShipSunk) 
 			{
 				cout << "\nYou sunk enemy's ship!" << endl;
@@ -112,16 +112,16 @@ void Game::playGame()
 
 			computer.hit();
 
-			map.update(human, computer);
+			map.update(user, computer);
 
-			isAnyHumanShipHit = human.isAnyShipHit(computer.getLastHitX(), 
+			isAnyHumanShipHit = user.isAnyShipHit(computer.getLastHitX(), 
 					computer.getLastHitY());
 
 			if (isAnyHumanShipHit)
 			{
 				computer.markSuccessHit();
 
-				isHumanShipSunk = human.markSunkShips(computer.hits);
+				isHumanShipSunk = user.markSunkShips(computer.hits);
 				if (isHumanShipSunk) 
 				{
 					computer.markSunkShip();
@@ -148,9 +148,9 @@ void Game::playGame()
 	clock_t endTime = clock();
 	timeOfGame = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
 
-	map.showEndMap(human, computer);
+	map.showEndMap(user, computer);
 
-	if (human.getIsDeafeat()) 
+	if (user.getIsDeafeat()) 
 	{
 		showEndMessage(losingMessage);
 	}
@@ -206,7 +206,7 @@ bool Game::checkHumanHit(char hit[3]) const
 
 bool Game::checkEndOfGame()
 {
-	bool humanShipsKilled = human.checkEndOfGame();
+	bool humanShipsKilled = user.checkEndOfGame();
 	if (humanShipsKilled)
 		return true;
 
@@ -231,7 +231,7 @@ void Game::showStatistics()
 	cout << "\n";
 	cout << "You sunk " << computer.countSunkShips() << " of enemy's ships" << endl;
 	cout << "\n";
-	cout << "Enemy sunk " << human.countSunkShips() << " of your ships" << endl;
+	cout << "Enemy sunk " << user.countSunkShips() << " of your ships" << endl;
 }
 
 

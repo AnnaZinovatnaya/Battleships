@@ -1,4 +1,6 @@
-#pragma once
+#ifndef Observer_h__
+#define Observer_h__
+
 
 #include "Observer.h"
 
@@ -12,3 +14,4 @@ public:
 	void virtual update() = 0;
 };
 
+#endif

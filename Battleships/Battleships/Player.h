@@ -26,7 +26,7 @@ public:
 
 	void initialize();
 
-	void hit(int hit[2]);
+	void hit(vector<int> hit);
 
 	bool isAnyShipHit(int x, int y);
 	bool markSunkShips(int enemyHits[FIELD_SIZE][FIELD_SIZE]);

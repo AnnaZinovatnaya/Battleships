@@ -47,10 +47,24 @@ void ConsoleView::initialize(Model* model)
 			map[i][j] = tempMap[i][j];
 	}
 
-	this->map = map;
+
 
 	this->model = model;
 	model->attach(this);
+
+
+	vector<vector<int> > userShips = model->getUserShips();
+
+	for (int i = 0; i < 10; i++) {
+
+		for (int j = 0; j < 10; j++) {
+			if (userShips[i][j] == 1) {
+				map[i + 2][j + 3] = 'S';
+			}
+		}
+	}
+
+	this->map = map;
 
 }
 
@@ -63,17 +77,6 @@ void ConsoleView::display()
 	if (state == STARTED) {
 
 		system("cls");
-
-		vector<vector<int> > userShips = model->getUserShips();
-
-		for (int i = 0; i < 10; i++) {
-
-			for (int j = 0; j < 10; j++) {
-				if (userShips[i][j] == 1) {
-					map[i + 2][j + 3] = 'S';
-				}
-			}
-		}
 
 		for (int i = 0; i < map.size(); i++) {
 
@@ -89,27 +92,25 @@ void ConsoleView::display()
 		cout << "\n";
 		cout << "\n";
 		cout << "Type character and digit and press ENTER to hit:\n";
-	} 
+	}
+	else if (state == COMPUTER_TURN) {
+		//update computer map
+	}
+	else if (state == USER_TURN) {
+		//update user map
+	}
 	else if (state == PAUSED) {
-		int pausedTime = model->getPauseTime();
-		if (pausedTime == 0) {
-			cout << "\n";
-			cout << "PAUSED Press SPACE key to continue... " << endl;
-			cout << "Time: 0 minute(s) 0 second(s)";
-		}
-		else {
+		//show pause time
+	}
+	else if (state == ENDED) {
+		bool isUserDefeat = model->isUserDefeat();
 
-			static const int COLUMN_POSITION_FOR_PAUSE_TIME = 0;
-			static const int ROW_POSITION_FOR_PAUSE_TIME = 19;
-		
-			setCursorPosition(COLUMN_POSITION_FOR_PAUSE_TIME,
-				ROW_POSITION_FOR_PAUSE_TIME);
+		showEndMessage(isUserDefeat);
 
-			int minutes = static_cast<int>(pausedTime / 60);
-			cout << "Time: " << minutes << " minute(s) ";
-			cout << pausedTime - (minutes * 60) << " second(s)" << endl;
-		}
+		showStatistics();
 
+		cout << "\n";
+		cout << "Press ENTER to exit...";
 	}
 }
 
@@ -118,12 +119,66 @@ void ConsoleView::update()
 	display();
 }
 
-
-
-void ConsoleView::setCursorPosition(int column, int row) const
+void ConsoleView::clearHit()
 {
-	COORD coord;
-	coord.X = column;
-	coord.Y = row;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), {0, 17});
+	cout << "  ";
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 17 });
+}
+
+
+
+void ConsoleView::showStatistics()
+{
+	int timeOfGame = model->getTimeOfGame();
+	int computerSunkShips = model->countComputerSunkShips();
+	int userSunkShips = model->countUserSunkShips();
+
+	int minutes = static_cast<int>(timeOfGame / 60);
+
+	cout << "\n";
+	cout << "Statistics:" << endl;
+	cout << "\n";
+	cout << "Time: " << minutes << " minute(s) ";
+	cout << timeOfGame - (minutes * 60) << " second(s)" << endl;
+	cout << "\n";
+	cout << "You sunk " << computerSunkShips << " of enemy's ships" << endl;
+	cout << "\n";
+	cout << "Enemy sunk " << userSunkShips << " of your ships" << endl;
+}
+
+
+
+void
+ConsoleView::showEndMessage(bool isUserDefeat) {
+
+	char winningMessage[5][25] = {
+		"                        ",
+		" ***********************",
+		" *      YOU WON!       *",
+		" ***********************",
+		"                        " };
+
+	char losingMessage[5][25] = {
+		"                        ",
+		" ***********************",
+		" *     YOU LOST :(     *",
+		" ***********************",
+		"                        " };
+
+
+	cout << "\n";
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 25; j++)
+		{
+			if (isUserDefeat) {
+				cout << losingMessage[i][j];
+			}
+			else {
+				cout << winningMessage[i][j];
+			}
+		}
+		cout << "\n";
+	}
 }

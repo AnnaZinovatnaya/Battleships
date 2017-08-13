@@ -23,7 +23,7 @@ public:
 
 private:
 	Map map;
-	Player human;
+	Player user;
 	ComputerPlayer computer;
 	int timeOfGame;
 

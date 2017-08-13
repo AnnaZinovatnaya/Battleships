@@ -160,7 +160,7 @@ bool Player::checkPlace(int x, int y, bool isHorizontal, int size) {
 
 
 
-void Player::hit(int hit[2])
+void Player::hit(vector<int> hit)
 {
 	hits[hit[0]][hit[1]] = 1;
 }

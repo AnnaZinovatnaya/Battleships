@@ -26,6 +26,8 @@ public:
 	int timeOfGame;
 	clock_t startTime;
 
+	bool endOfGame;
+
 
 	Model();
 	~Model();
@@ -38,14 +40,18 @@ public:
 
 	void play();
 	bool checkEndOfGame();
-	void pause();
 
 	vector<vector<int>> getUserShips();
-	int getPauseTime();
-	void endPause();
 	
+	void hit(vector<int> userHit);
 
+	bool isUserDefeat();
 	
+	int getTimeOfGame();
+
+	int countComputerSunkShips();
+
+	int countUserSunkShips();
 	
 };
 

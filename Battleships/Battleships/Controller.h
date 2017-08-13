@@ -16,15 +16,18 @@ public:
 	~Controller();
 
 	void initialize(Model* model, ConsoleView* consoleView);
-	void handleEvent();
+
 	void update();
 
 	void run();
 
-	void handlePauseEvent();
+	bool isCorrectLetter(char letter);
 
-	void handleEndPauseEvent();
+	bool isCorrectDigit(char digit);
 
+	void convertHumanHitToInt(vector<char> userInput, vector<int> userHit) const;
+
+	void handleUserHitEvent(vector<int> userHit);
 };
 
 #endif

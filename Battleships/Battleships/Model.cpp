@@ -15,6 +15,8 @@ Model::Model()
 
 	state = INITIALIZED;
 	previousState = state;
+
+	endOfGame = false;
 }
 
 
@@ -58,44 +60,50 @@ bool Model::checkEndOfGame()
 	return false;
 }
 
-void Model::pause() 
-{
-	previousState = state;
-	state = PAUSED;
-	notify();
 
-	clock_t startTime = clock();
-	clock_t endTime = clock();
-
-	int oldTime = 0;
-	int newTime = 0;
-
-	while (true)
-	{
-		endTime = clock();
-		newTime = static_cast<int>(endTime - startTime) / CLOCKS_PER_SEC;
-		
-		if (newTime != oldTime) {
-
-			pauseTime = newTime;
-			notify();
-			oldTime = newTime;
-		}
-
-	}
-}
 
 vector<vector<int> > Model::getUserShips()
 {
 	return user.ships;
 }
 
-int Model::getPauseTime() {
-	return pauseTime;
+
+
+void Model::hit(vector<int> userHit)
+{
+	user.hit(userHit);
+
+	state = COMPUTER_TURN;
+
+	bool isComputerShipSunk = computer.markSunkShips(user.hits);
+
+	if (isComputerShipSunk)
+	{
+		endOfGame = checkEndOfGame();
+	}
+
+	if (endOfGame)
+		state = ENDED;
+
+	notify();
 }
 
-void Model::endPause()
+bool Model::isUserDefeat()
 {
-	state = previousState;
-	notify();
+	return user.getIsDeafeat();
+}
+
+int Model::getTimeOfGame()
+{
+	return timeOfGame;
+}
+
+int Model::countComputerSunkShips()
+{
+	return computer.countSunkShips();
+}
+
+int Model::countUserSunkShips()
+{
+	return user.countSunkShips();
 }

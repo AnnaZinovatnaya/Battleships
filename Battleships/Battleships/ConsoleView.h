@@ -25,8 +25,11 @@ public:
 	void display();
 	void update();
 
-	void setCursorPosition(int column, int row) const;
-	
+	void clearHit();
+
+	void showStatistics();
+
+	void showEndMessage(bool isUserDefeat);
 };
 
 #endif
