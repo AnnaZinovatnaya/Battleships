@@ -1,6 +1,5 @@
 #include "Ship.h"
 
-
 Ship::Ship()
 {
 	x = 0;
@@ -30,7 +29,7 @@ Ship::~Ship()
 
 
 
-bool Ship::isSunkCheck(int enemyHits[FIELD_SIZE][FIELD_SIZE]) const
+bool Ship::isSunkCheck(vector<vector<int> > enemyHits) const
 {
 	if (isHorizontal)
 	{

@@ -3,6 +3,8 @@
 
 
 #include "GameRules.h"
+#include <vector>
+using namespace std;
 
 class Ship
 {
@@ -11,7 +13,8 @@ public:
 	Ship(int x, int y, int size, bool  isHorizontal);
 	~Ship();
 
-	bool isSunkCheck(int enemyHits[FIELD_SIZE][FIELD_SIZE]) const;
+
+	bool isSunkCheck(vector<vector<int> > enemyHits) const;
 	bool isShipCoordinates(int hitX, int hitY) const;
 
 	bool getIsSunk() const  { return isSunk; }

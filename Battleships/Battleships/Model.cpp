@@ -57,6 +57,14 @@ void Model::play()
 
 bool Model::checkEndOfGame()
 {
+	bool humanShipsKilled = user.checkEndOfGame();
+	if (humanShipsKilled)
+		return true;
+
+	bool computerShipsKilled = computer.checkEndOfGame();
+	if (computerShipsKilled)
+		return true;
+
 	return false;
 }
 
@@ -67,6 +75,21 @@ vector<vector<int> > Model::getUserShips()
 	return user.ships;
 }
 
+vector<vector<int>> Model::getComputerShips()
+{
+	return computer.ships;
+}
+
+vector<vector<int>> Model::getUserHits()
+{
+	return user.hits;
+}
+
+vector<vector<int>> Model::getComputerHits()
+{
+	return computer.hits;
+}
+
 
 
 void Model::hit(vector<int> userHit)
@@ -75,6 +98,8 @@ void Model::hit(vector<int> userHit)
 
 	state = COMPUTER_TURN;
 
+	notify();
+
 	bool isComputerShipSunk = computer.markSunkShips(user.hits);
 
 	if (isComputerShipSunk)
@@ -82,10 +107,44 @@ void Model::hit(vector<int> userHit)
 		endOfGame = checkEndOfGame();
 	}
 
-	if (endOfGame)
-		state = ENDED;
+	if (endOfGame) {
 
-	notify();
+		state = ENDED;
+		notify();
+
+	}else{
+		computer.hit();
+
+
+		bool isAnyHumanShipHit = user.isAnyShipHit(computer.getLastHitX(),
+			computer.getLastHitY());
+
+		if (isAnyHumanShipHit)
+		{
+			computer.markSuccessHit();
+
+			bool isHumanShipSunk = user.markSunkShips(computer.hits);
+			if (isHumanShipSunk)
+			{
+				computer.markSunkShip();
+				endOfGame = checkEndOfGame();
+			}
+		}
+		else
+		{
+			computer.markMissedHit();
+		}
+
+		if (endOfGame) {
+			state = ENDED;
+			notify();
+		}
+		else {
+
+			state = USER_TURN;
+			notify();
+		}
+	}
 }
 
 bool Model::isUserDefeat()

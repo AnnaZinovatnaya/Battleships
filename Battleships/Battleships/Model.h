@@ -42,6 +42,10 @@ public:
 	bool checkEndOfGame();
 
 	vector<vector<int>> getUserShips();
+	vector<vector<int>> getComputerShips();
+
+	vector<vector<int>> getUserHits();
+	vector<vector<int>> getComputerHits();
 	
 	void hit(vector<int> userHit);
 

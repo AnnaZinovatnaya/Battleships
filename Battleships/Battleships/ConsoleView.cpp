@@ -95,14 +95,51 @@ void ConsoleView::display()
 	}
 	else if (state == COMPUTER_TURN) {
 		//update computer map
+		vector<vector<int>> ships = model->getComputerShips();
+		vector<vector<int>> hits = model->getUserHits();
+		updateComputerMap(ships, hits);
+		
 	}
 	else if (state == USER_TURN) {
 		//update user map
+		vector<vector<int>> ships = model->getUserShips();
+		vector<vector<int>> hits = model->getComputerHits();
+		updateUserMap(ships, hits);
 	}
 	else if (state == PAUSED) {
 		//show pause time
 	}
 	else if (state == ENDED) {
+		vector<vector<int> > computerShips = model->getComputerShips();
+		vector<vector<int> > userHits = model->getUserHits();
+
+		system("cls");
+
+		cout << "Game results:\n";
+
+		for (int i = 0; i < FIELD_SIZE; i++)
+		{
+			for (int j = 0; j < FIELD_SIZE; j++)
+			{
+
+				if (computerShips[i][j] == 1 && userHits[i][j] == 0)
+				{
+					map[i + 2][j + 18] = 'S';
+				}
+			}
+		}
+
+		cout << "\n";
+		for (int i = 0; i < VERTICAL_SIZE; i++)
+		{
+			for (int j = 0; j < HORIZONTAL_SIZE; j++)
+			{
+				cout << map[i][j];
+			}
+			cout << "\n";
+		}
+
+
 		bool isUserDefeat = model->isUserDefeat();
 
 		showEndMessage(isUserDefeat);
@@ -182,3 +219,77 @@ ConsoleView::showEndMessage(bool isUserDefeat) {
 		cout << "\n";
 	}
 }
+
+void ConsoleView::updateUserMap(vector<vector<int>> ships, vector<vector<int>> hits)
+{
+	DWORD dw;
+	COORD here;
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	if (hStdOut == INVALID_HANDLE_VALUE)
+	{
+		printf("Invalid handle");
+	}
+
+
+	for (int i = 0; i < FIELD_SIZE; i++)
+	{
+		for (int j = 0; j < FIELD_SIZE; j++)
+		{
+			if (ships[i][j] == 1 && hits[i][j] == 1)
+			{
+				map[i + 2][j + 3] = 'X';
+				here.X = j + 3;
+				here.Y = i + 2;
+				WriteConsoleOutputCharacter(hStdOut, L"X", 1, here, &dw);
+
+			}
+
+			if (ships[i][j] == 0 && hits[i][j] == 1)
+			{
+				map[i + 2][j + 3] = '0';
+				here.X = j + 3;
+				here.Y = i + 2;
+				WriteConsoleOutputCharacter(hStdOut, L"0", 1, here, &dw);
+
+			}
+		}
+	}
+}
+
+void ConsoleView::updateComputerMap(vector<vector<int>> ships, vector<vector<int>> hits)
+{
+	DWORD dw;
+	COORD here;
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	if (hStdOut == INVALID_HANDLE_VALUE)
+	{
+		printf("Invalid handle");
+	}
+
+
+	for (int i = 0; i < FIELD_SIZE; i++)
+	{
+		for (int j = 0; j < FIELD_SIZE; j++)
+		{
+
+			if (ships[i][j] == 1 && hits[i][j] == 1)
+			{
+				map[i + 2][j + 18] = 'X';
+				here.X = j + 18;
+				here.Y = i + 2;
+				WriteConsoleOutputCharacter(hStdOut, L"X", 1, here, &dw);
+
+			}
+
+			if (ships[i][j] == 0 && hits[i][j] == 1)
+			{
+				map[i + 2][j + 18] = '0';
+				here.X = j + 18;
+				here.Y = i + 2;
+				WriteConsoleOutputCharacter(hStdOut, L"0", 1, here, &dw);
+
+			}
+		}
+	}
+}
+

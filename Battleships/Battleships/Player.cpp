@@ -16,30 +16,24 @@ Player::~Player()
 
 void Player::initialize()
 {
-	//initializing ships
+	//initializing ships and hits
 
 	vector<int> row(10, 0);
 	vector<vector<int> > ships(10, row);
+	vector<vector<int> > hits(10, row);
 
 	this->ships = ships;
-
-
-
-
-
-
-
-
-
+	this->hits = hits;
 
 	for (int i = 0; i < FIELD_SIZE; i++)
 	{
 		for (int j = 0; j < FIELD_SIZE; j++)
 		{
-			ships[i][j] = 0;
-			hits[i][j] = 0;
+			this->ships[i][j] = 0;
+			this->hits[i][j] = 0;
 		}
 	}
+
 
 	fleet.push_back(setShip(4));
 	fleet.push_back(setShip(3));
@@ -180,7 +174,7 @@ bool Player::isAnyShipHit(int x, int y)
 
 
 
-bool Player::markSunkShips(int enemyHits[FIELD_SIZE][FIELD_SIZE])
+bool Player::markSunkShips(vector<vector<int> > enemyHits)
 {
 	bool shipSunk = false;
 

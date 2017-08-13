@@ -30,6 +30,9 @@ public:
 	void showStatistics();
 
 	void showEndMessage(bool isUserDefeat);
+
+	void updateUserMap(vector<vector<int> > ships, vector<vector<int> > hits);
+	void updateComputerMap(vector<vector<int> > ships, vector<vector<int> > hits);
 };
 
 #endif

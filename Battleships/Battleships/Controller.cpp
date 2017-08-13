@@ -48,16 +48,26 @@ void Controller::update()
 
 						vector<int> userHit = { 0, 0 };
 						convertHumanHitToInt(userInput, userHit);
-
+						consoleView->clearHit();
 						handleUserHitEvent(userHit);
 
-						
-
+					}
+					else {
+						consoleView->clearHit();
+						this->update();
 					}
 				}
+				else {
+					consoleView->clearHit();
+					this->update();
+				}
+			}
+			else {
+				consoleView->clearHit();
+				this->update();
 			}
 
-			consoleView->clearHit();
+			
 		}
 	}
 	else if (state == COMPUTER_TURN)
@@ -105,7 +115,7 @@ bool Controller::isCorrectDigit(char digit)
 
 
 
-void Controller::convertHumanHitToInt(vector<char> userInput, vector<int> userHit) const
+void Controller::convertHumanHitToInt(vector<char> userInput, vector<int> &userHit) const
 {
 
 	if (userInput[0] >= 'A' && userInput[0] <= 'J')

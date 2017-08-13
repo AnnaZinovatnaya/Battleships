@@ -25,7 +25,7 @@ public:
 
 	bool isCorrectDigit(char digit);
 
-	void convertHumanHitToInt(vector<char> userInput, vector<int> userHit) const;
+	void convertHumanHitToInt(vector<char> userInput, vector<int> &userHit) const;
 
 	void handleUserHitEvent(vector<int> userHit);
 };

@@ -17,8 +17,9 @@ class Player
 public:
 
 	vector<vector<int> > ships;
+	vector<vector<int> > hits;
 	//int ships[FIELD_SIZE][FIELD_SIZE];
-	int hits[FIELD_SIZE][FIELD_SIZE];
+	//int hits[FIELD_SIZE][FIELD_SIZE];
 	list<Ship> fleet;
 
 	Player();
@@ -29,7 +30,7 @@ public:
 	void hit(vector<int> hit);
 
 	bool isAnyShipHit(int x, int y);
-	bool markSunkShips(int enemyHits[FIELD_SIZE][FIELD_SIZE]);
+	bool markSunkShips(vector<vector<int> > enemyHits);
 
 	bool getIsDeafeat() { return isDefeat; }
 
