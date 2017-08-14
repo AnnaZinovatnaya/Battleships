@@ -19,7 +19,7 @@ ConsoleView::~ConsoleView()
 {
 }
 
-void ConsoleView::initialize(Model* model)
+void ConsoleView::initialize(Game* game)
 {
 	char tempMap[VERTICAL_SIZE][HORIZONTAL_SIZE] = {
 		"   0123456789     0123456789 ",
@@ -49,15 +49,15 @@ void ConsoleView::initialize(Model* model)
 
 
 
-	this->model = model;
-	model->attach(this);
+	this->game = game;
+	game->attach(this);
 
 
-	vector<vector<int> > userShips = model->getUserShips();
+	vector<vector<int> > userShips = game->getUserShips();
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < FIELD_SIZE; i++) {
 
-		for (int j = 0; j < 10; j++) {
+		for (int j = 0; j < FIELD_SIZE; j++) {
 			if (userShips[i][j] == 1) {
 				map[i + 2][j + 3] = 'S';
 			}
@@ -72,7 +72,7 @@ void ConsoleView::initialize(Model* model)
 
 void ConsoleView::display()
 {
-	stateType state = model->getState();
+	stateType state = game->getState();
 
 	if (state == STARTED) {
 
@@ -95,23 +95,31 @@ void ConsoleView::display()
 	}
 	else if (state == COMPUTER_TURN) {
 		//update computer map
-		vector<vector<int>> ships = model->getComputerShips();
-		vector<vector<int>> hits = model->getUserHits();
+		vector<vector<int>> ships = game->getComputerShips();
+		vector<vector<int>> hits = game->getUserHits();
 		updateComputerMap(ships, hits);
+
+		//bool isComputerShipSunk = game->isComputerShipSunk();
 		
 	}
 	else if (state == USER_TURN) {
 		//update user map
-		vector<vector<int>> ships = model->getUserShips();
-		vector<vector<int>> hits = model->getComputerHits();
+		vector<vector<int>> ships = game->getUserShips();
+		vector<vector<int>> hits = game->getComputerHits();
 		updateUserMap(ships, hits);
 	}
 	else if (state == PAUSED) {
 		//show pause time
 	}
 	else if (state == ENDED) {
-		vector<vector<int> > computerShips = model->getComputerShips();
-		vector<vector<int> > userHits = model->getUserHits();
+		vector<vector<int> > computerShips = game->getComputerShips();
+		vector<vector<int>> userShips = game->getUserShips();
+
+		vector<vector<int>> computerHits = game->getComputerHits();
+		vector<vector<int> > userHits = game->getUserHits();
+
+		updateComputerMap(computerShips, userHits);
+		updateUserMap(userShips, computerHits);
 
 		system("cls");
 
@@ -140,7 +148,7 @@ void ConsoleView::display()
 		}
 
 
-		bool isUserDefeat = model->isUserDefeat();
+		bool isUserDefeat = game->isUserDefeat();
 
 		showEndMessage(isUserDefeat);
 
@@ -167,9 +175,9 @@ void ConsoleView::clearHit()
 
 void ConsoleView::showStatistics()
 {
-	int timeOfGame = model->getTimeOfGame();
-	int computerSunkShips = model->countComputerSunkShips();
-	int userSunkShips = model->countUserSunkShips();
+	int timeOfGame = game->getTimeOfGame();
+	int computerSunkShips = game->countComputerSunkShips();
+	int userSunkShips = game->countUserSunkShips();
 
 	int minutes = static_cast<int>(timeOfGame / 60);
 

@@ -1,15 +1,15 @@
-#include "Model.h"
+#include "Game.h"
 #include "ConsoleView.h"
 
 int main() {
 
-	Model model;
+	Game game;
 
 	ConsoleView consoleView;
-	consoleView.initialize(&model);
+	consoleView.initialize(&game);
 
 	Controller controller;
-	controller.initialize(&model, &consoleView);
+	controller.initialize(&game, &consoleView);
 
 	controller.run();
 

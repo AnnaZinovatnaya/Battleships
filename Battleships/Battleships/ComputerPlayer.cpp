@@ -3,13 +3,10 @@
 
 ComputerPlayer::ComputerPlayer()
 {
-	for (int i = 0; i < FIELD_SIZE; i++) 
-	{
-		for (int j = 0; j < FIELD_SIZE; j++) 
-		{
-			cleverHits[i][j] = '1';
-		}
-	}
+	vector<char> row(FIELD_SIZE, '1');
+	vector<vector<char> > cleverHits(FIELD_SIZE, row);
+
+	this->cleverHits = cleverHits;
 
 	lastHitX = 0;
 	lastHitY = 0;
@@ -31,7 +28,7 @@ void ComputerPlayer::hit()
 	if (cleverHits[lastHitX][lastHitY] == 'X')
 		lastHitSuccessful = true;
 
-	//if computer hit any human's ship, it hits around that cell (not randomly)
+	//if computer hit any user's ship, it hits around that cell (not randomly)
 	if (lastHitSuccessful)
 	{
 
@@ -258,7 +255,7 @@ int ComputerPlayer::findShipSize(int firstX, int firstY, bool isHorizontal) cons
 	return 0;
 }
 
-void ComputerPlayer::markShipAround(Ship & sunkShip)
+void ComputerPlayer::markShipAround(Ship const & sunkShip)
 {
 	if (sunkShip.getIsHorizontal())
 	{

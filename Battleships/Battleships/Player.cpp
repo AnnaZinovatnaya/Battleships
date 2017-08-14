@@ -3,24 +3,9 @@
 
 Player::Player()
 {
-	isDefeat = false;
-}
-
-
-
-Player::~Player()
-{
-}
-
-
-
-void Player::initialize()
-{
-	//initializing ships and hits
-
-	vector<int> row(10, 0);
-	vector<vector<int> > ships(10, row);
-	vector<vector<int> > hits(10, row);
+	vector<int> row(FIELD_SIZE, 0);
+	vector<vector<int> > ships(FIELD_SIZE, row);
+	vector<vector<int> > hits(FIELD_SIZE, row);
 
 	this->ships = ships;
 	this->hits = hits;
@@ -33,8 +18,18 @@ void Player::initialize()
 			this->hits[i][j] = 0;
 		}
 	}
+}
 
 
+
+Player::~Player()
+{
+}
+
+
+
+void Player::initialize()
+{
 	fleet.push_back(setShip(4));
 	fleet.push_back(setShip(3));
 	fleet.push_back(setShip(3));
@@ -49,11 +44,31 @@ void Player::initialize()
 
 
 
+vector<vector<int>> Player::getShips() const
+{
+	return ships;
+}
+
+
+
+vector<vector<int>> Player::getHits() const
+{
+	return hits;
+}
+
+
+
+list<Ship> Player::getFleet() const
+{
+	return fleet;
+}
+
+
+
 Ship Player::setShip(int size)
 {
 	int x = 0, y = 0;
 	bool isHorizontal = false;
-
 	bool place = false;
 
 	while (place == false)
@@ -161,10 +176,10 @@ void Player::hit(vector<int> hit)
 
 
 
-bool Player::isAnyShipHit(int x, int y) 
+bool Player::isAnyShipHit(int x, int y) const
 {
 
-	for (Ship &ship : fleet) {
+	for (Ship const &ship : fleet) {
 		if(ship.isShipCoordinates(x, y))
 			return true;
 	}
@@ -196,25 +211,24 @@ bool Player::markSunkShips(vector<vector<int> > enemyHits)
 
 
 
-bool Player::checkEndOfGame()
+bool Player::checkDefeat() const
 {
 
-	for (Ship &ship : fleet) {
+	for (Ship const & ship : fleet) {
 		if (ship.getIsSunk() == false)
 			return false;
 	}
 
-	isDefeat = true;
 	return true;
 }
 
 
 
-int Player::countSunkShips()
+int Player::countSunkShips() const
 {
 	int count = 0;
 
-	for (Ship &ship : fleet) {
+	for (Ship const &ship : fleet) {
 		if (ship.getIsSunk())
 			count++;
 	}

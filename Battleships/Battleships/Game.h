@@ -1,51 +1,60 @@
 #ifndef Game_h__
 #define Game_h__
 
-
-#include <conio.h>
-#include <iostream>
-#include <ctime>
-#include <windows.h>
-
-#include "ComputerPlayer.h"
-#include "Map.h"
-#include "Player.h"
-
+#include <list>
+#include <vector>
 using namespace std;
+
+#include "Observer.h"
+#include "Player.h"
+#include "ComputerPlayer.h"
+
+enum stateType {INITIALIZED, STARTED, USER_TURN, COMPUTER_TURN, ENDED, PAUSED};
 
 class Game
 {
 public:
+
 	Game();
 	~Game();
 
-	void playGame();
+	void attach(Observer* observer);
+	void detach(Observer* observer);
 
+	stateType getState() const;
+
+	void play();
+
+	vector<vector<int>> getUserShips() const;
+	vector<vector<int>> getComputerShips() const;
+
+	vector<vector<int>> getUserHits() const;
+	vector<vector<int>> getComputerHits() const;
+
+	int getTimeOfGame() const;
+	
+	void hit(vector<int> userHit);
+
+	bool isUserDefeat() const;
+
+	int countComputerSunkShips() const;
+	int countUserSunkShips() const;
 private:
-	Map map;
+	list <Observer*> observers;
+
+	stateType state;
+	stateType previousState;
+
 	Player user;
 	ComputerPlayer computer;
+
 	int timeOfGame;
+	clock_t startTime;
 
-	static const int MSG_VERTICAL_SIZE = 5, MSG_HORIZONTALAL_SIZE = 25;
-	static const int COLUMN_POSITION_FOR_USER_HIT = 0;
-	static const int ROW_POSITION_FOR_USER_HIT = 18;
+	void notify();
+	bool checkEndOfGame() const;
 
-	void convertHumanHitToInt(char cHit[3], int humanHit[2]) const;
-	bool checkHumanHit(char hit[3]) const;
-
-	bool checkEndOfGame();
-	void showStatistics();
-	void showEndMessage(char message[MSG_VERTICAL_SIZE][MSG_HORIZONTALAL_SIZE]);
-
-	bool listenKeyPress(short p_key) const;
-
-	void pause() const;
-	
-
-	void setCursorPosition(int column, int row) const;
-
-	void waitForEnterPressed() const;
 };
 
 #endif
+

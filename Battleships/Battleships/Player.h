@@ -15,30 +15,30 @@ using namespace std;
 class Player
 {
 public:
-
-	vector<vector<int> > ships;
-	vector<vector<int> > hits;
-	//int ships[FIELD_SIZE][FIELD_SIZE];
-	//int hits[FIELD_SIZE][FIELD_SIZE];
-	list<Ship> fleet;
-
 	Player();
 	~Player();
 
 	void initialize();
 
+	vector<vector<int> > getShips() const;
+	vector<vector<int> > getHits() const;
+	list<Ship> getFleet() const;
+
 	void hit(vector<int> hit);
 
-	bool isAnyShipHit(int x, int y);
+	bool isAnyShipHit(int x, int y) const;
 	bool markSunkShips(vector<vector<int> > enemyHits);
 
-	bool getIsDeafeat() { return isDefeat; }
+	bool checkDefeat() const;
 
-	bool checkEndOfGame();
-	int  countSunkShips();
+	int  countSunkShips() const;
+protected:
+	vector<vector<int> > hits;
 
 private:
-	bool isDefeat;
+	vector<vector<int> > ships;
+	
+	list<Ship> fleet;
 
 	Ship setShip(int size);
 	bool checkPlace(int x, int y, bool isHorizontal, int size);

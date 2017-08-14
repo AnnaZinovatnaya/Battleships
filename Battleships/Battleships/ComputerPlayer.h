@@ -22,8 +22,10 @@ public:
 	void markSunkShip();
 
 private:
-	char cleverHits[FIELD_SIZE][FIELD_SIZE]; //array that stores all hits and cells around sunk ships
-	int lastHitX, lastHitY;
+	vector<vector<char> > cleverHits; //array that stores all hits and cells around sunk ships
+
+	int lastHitX;
+	int lastHitY;
 
 	direction chooseSideToHit() const;
 
@@ -32,7 +34,7 @@ private:
 	int findShipFirstY(bool isHorizontal) const;
 	int findShipSize(int firstX, int firstY, bool isHorizontal) const;
 
-	void markShipAround(Ship &sunkShip);
+	void markShipAround(Ship const & sunkShip);
 };
 
 #endif

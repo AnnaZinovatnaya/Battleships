@@ -12,23 +12,26 @@ Controller::~Controller()
 }
 
 
-void Controller::initialize(Model* model, ConsoleView* consoleView)
+void Controller::initialize(Game* game, ConsoleView* consoleView)
 {
-	this->model = model;
+	this->game = game;
 	this->consoleView = consoleView;
 
-	model->attach(this);
+	game->attach(this);
 }
 
 
 
 void Controller::update()
 {
-	stateType state = model->getState();
+	stateType state = game->getState();
 
 	if (state == STARTED || state == USER_TURN) {
-		vector<char> userInput(3, 0);
+		const int MAX_INPUT = 3;
+
+		vector<char> userInput(MAX_INPUT, 0);
 		
+		cin.clear();
 		userInput[0] = _getch();
 		cout << userInput[0];
 		if (userInput[0] == 'p') {
@@ -78,7 +81,11 @@ void Controller::update()
 		//wait for space (end of pause)
 	}
 	else if (state == ENDED) {
-		//wait for ENTER to close window
+		const char ENTER = '\r';
+
+		while (_getch() != ENTER) {
+			
+		}
 	}
 }
 
@@ -89,12 +96,12 @@ void Controller::run()
 
 	while (_getch() != ENTER) {}
 
-	model->play();
+	game->play();
 
 
 }
 
-bool Controller::isCorrectLetter(char letter)
+bool Controller::isCorrectLetter(char letter) const
 {
 	if (letter >= 'a' && letter <= 'j')
 		return true;
@@ -105,7 +112,7 @@ bool Controller::isCorrectLetter(char letter)
 	return false;
 }
 
-bool Controller::isCorrectDigit(char digit)
+bool Controller::isCorrectDigit(char digit) const
 {
 	if (digit >= '0' && digit <= '9')
 		return true;
@@ -130,7 +137,7 @@ void Controller::convertHumanHitToInt(vector<char> userInput, vector<int> &userH
 	userHit[1] = userInput[1] % '0';
 }
 
-void Controller::handleUserHitEvent(vector<int> userHit)
+void Controller::handleUserHitEvent(vector<int> userHit) const
 {
-	model->hit(userHit);
+	game->hit(userHit);
 }

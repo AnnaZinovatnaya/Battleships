@@ -3,31 +3,33 @@
 
 #include <conio.h>
 
-#include "Model.h"
+#include "Game.h"
 #include "ConsoleView.h"
 
 class Controller: public Observer
 {
 public:
-	class Model* model;
-	class ConsoleView* consoleView;
 
 	Controller();
 	~Controller();
 
-	void initialize(Model* model, ConsoleView* consoleView);
+	void initialize(Game* game, class ConsoleView* consoleView);
 
 	void update();
 
 	void run();
 
-	bool isCorrectLetter(char letter);
+private:
+	class Game* game;
+	class ConsoleView* consoleView;
 
-	bool isCorrectDigit(char digit);
+	bool isCorrectLetter(char letter) const;
+
+	bool isCorrectDigit(char digit) const;
 
 	void convertHumanHitToInt(vector<char> userInput, vector<int> &userHit) const;
 
-	void handleUserHitEvent(vector<int> userHit);
+	void handleUserHitEvent(vector<int> userHit) const;
 };
 
 #endif
