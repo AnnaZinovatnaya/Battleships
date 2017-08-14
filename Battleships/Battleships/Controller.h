@@ -8,28 +8,28 @@
 
 class Controller: public Observer
 {
-public:
+  public:
 
-	Controller();
-	~Controller();
+    Controller();
+    ~Controller();
 
-	void initialize(Game* game, class ConsoleView* consoleView);
+    void initialize(Game* game, class ConsoleView* consoleView);
 
-	void update();
+    void update();
 
-	void run();
+    void run();
 
-private:
-	class Game* game;
-	class ConsoleView* consoleView;
+  private:
+    class Game* game;
+    class ConsoleView* consoleView;
 
-	bool isCorrectLetter(char letter) const;
+    bool isCorrectLetter(char letter) const;
 
-	bool isCorrectDigit(char digit) const;
+    bool isCorrectDigit(char digit) const;
 
-	void convertHumanHitToInt(vector<char> userInput, vector<int> &userHit) const;
+    void convertHumanHitToInt(vector<char> userInput, vector<int> &userHit) const;
 
-	void handleUserHitEvent(vector<int> userHit) const;
+    void handleUserHitEvent(vector<int> userHit) const;
 };
 
 #endif

@@ -13,47 +13,45 @@ enum stateType {INITIALIZED, STARTED, USER_TURN, COMPUTER_TURN, ENDED, PAUSED};
 
 class Game
 {
-public:
+  public:
+    Game();
+    ~Game();
 
-	Game();
-	~Game();
+    void attach(Observer* observer);
+    void detach(Observer* observer);
 
-	void attach(Observer* observer);
-	void detach(Observer* observer);
+    stateType getState() const;
 
-	stateType getState() const;
+    void play();
 
-	void play();
+    vector<vector<int>> getUserShips() const;
+    vector<vector<int>> getComputerShips() const;
 
-	vector<vector<int>> getUserShips() const;
-	vector<vector<int>> getComputerShips() const;
+    vector<vector<int>> getUserHits() const;
+    vector<vector<int>> getComputerHits() const;
 
-	vector<vector<int>> getUserHits() const;
-	vector<vector<int>> getComputerHits() const;
+    int getTimeOfGame() const;
 
-	int getTimeOfGame() const;
-	
-	void hit(vector<int> userHit);
+    void hit(vector<int> userHit);
 
-	bool isUserDefeat() const;
+    bool isUserDefeat() const;
 
-	int countComputerSunkShips() const;
-	int countUserSunkShips() const;
-private:
-	list <Observer*> observers;
+    int countComputerSunkShips() const;
+    int countUserSunkShips() const;
+  private:
+    list <Observer*> observers;
 
-	stateType state;
-	stateType previousState;
+    stateType state;
+    stateType previousState;
 
-	Player user;
-	ComputerPlayer computer;
+    Player user;
+    ComputerPlayer computer;
 
-	int timeOfGame;
-	clock_t startTime;
+    int timeOfGame;
+    clock_t startTime;
 
-	void notify();
-	bool checkEndOfGame() const;
-
+    void notify();
+    bool checkEndOfGame() const;
 };
 
 #endif

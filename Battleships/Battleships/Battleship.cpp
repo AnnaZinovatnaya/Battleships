@@ -3,15 +3,15 @@
 
 int main() {
 
-	Game game;
+  Game game;
 
-	ConsoleView consoleView;
-	consoleView.initialize(&game);
+  ConsoleView consoleView;
+  consoleView.initialize(&game);
 
-	Controller controller;
-	controller.initialize(&game, &consoleView);
+  Controller controller;
+  controller.initialize(&game, &consoleView);
 
-	controller.run();
+  controller.run();
 
-	return 0;
+  return 0;
 }

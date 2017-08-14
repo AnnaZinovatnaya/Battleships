@@ -4,16 +4,16 @@
 
 Game::Game()
 {
-	srand(time(0));
+  srand(time(0));
 
-	user.initialize();
-	computer.initialize();
+  user.initialize();
+  computer.initialize();
 
-	timeOfGame = 0;
-	startTime = 0;
+  timeOfGame = 0;
+  startTime = 0;
 
-	state = INITIALIZED;
-	previousState = state;
+  state = INITIALIZED;
+  previousState = state;
 }
 
 
@@ -23,151 +23,171 @@ Game::~Game()
 
 void Game::attach(Observer* observer)
 {
-	observers.push_back(observer);
+  observers.push_back(observer);
 }
 
 void Game::detach(Observer* observer)
 {
-	observers.remove(observer);
+  observers.remove(observer);
 }
+
+
 
 void Game::notify()
 {
-	for (Observer* observer : observers) {
-		observer->update();
-	}
+  for (Observer* observer : observers)
+  {
+    observer->update();
+  }
 }
+
+
 
 stateType Game::getState() const
 {
-	return state;
+  return state;
 }
 
 
 
 void Game::play()
 {
-	startTime = clock();
-	state = STARTED;
-	notify();
+  startTime = clock();
+  state = STARTED;
+  notify();
 }
+
+
 
 bool Game::checkEndOfGame() const
 {
-	bool humanShipsKilled = user.checkDefeat();
-	if (humanShipsKilled)
-		return true;
+  bool humanShipsKilled = user.checkDefeat();
+  if (humanShipsKilled)
+    return true;
 
-	bool computerShipsKilled = computer.checkDefeat();
-	if (computerShipsKilled)
-		return true;
+  bool computerShipsKilled = computer.checkDefeat();
+  if (computerShipsKilled)
+    return true;
 
-	return false;
+  return false;
 }
 
 
 
 vector<vector<int> > Game::getUserShips() const
 {
-	return user.getShips();
+  return user.getShips();
 }
+
+
 
 vector<vector<int>> Game::getComputerShips() const
 {
-	return computer.getShips();
+  return computer.getShips();
 }
+
+
 
 vector<vector<int>> Game::getUserHits() const
 {
-	return user.getHits();
+  return user.getHits();
 }
+
+
 
 vector<vector<int>> Game::getComputerHits() const
 {
-	return computer.getHits();
+  return computer.getHits();
 }
 
 
 
 void Game::hit(vector<int> userHit)
 {
-	user.hit(userHit);
+  user.hit(userHit);
 
-	state = COMPUTER_TURN;
+  state = COMPUTER_TURN;
 
-	notify();
+  notify();
 
-	bool endOfGame = false;
+  bool endOfGame = false;
 
-	bool isComputerShipSunk = computer.markSunkShips(user.getHits());
+  bool isComputerShipSunk = computer.markSunkShips(user.getHits());
 
-	if (isComputerShipSunk)
-	{
-		endOfGame = checkEndOfGame();
-	}
+  if (isComputerShipSunk)
+  {
+    endOfGame = checkEndOfGame();
+  }
 
-	if (endOfGame) {
+  if (endOfGame) 
+  {
+    timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
+    state = ENDED;
+    notify();
+  }
+  else
+  {
+    computer.hit();
 
-		timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
-		state = ENDED;
-		notify();
+    bool isAnyHumanShipHit = user.isAnyShipHit(computer.getLastHitX(),
+      computer.getLastHitY());
 
-	}else{
-		computer.hit();
+    if (isAnyHumanShipHit)
+    {
+      computer.markSuccessHit();
 
+      bool isHumanShipSunk = user.markSunkShips(computer.getHits());
+      if (isHumanShipSunk)
+      {
+        computer.markSunkShip();
+        endOfGame = checkEndOfGame();
+      }
+    }
+    else
+    {
+      computer.markMissedHit();
+    }
 
-		bool isAnyHumanShipHit = user.isAnyShipHit(computer.getLastHitX(),
-			computer.getLastHitY());
+    if (endOfGame) 
+    {
+      state = ENDED;
 
-		if (isAnyHumanShipHit)
-		{
-			computer.markSuccessHit();
+      timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
 
-			bool isHumanShipSunk = user.markSunkShips(computer.getHits());
-			if (isHumanShipSunk)
-			{
-				computer.markSunkShip();
-				endOfGame = checkEndOfGame();
-			}
-		}
-		else
-		{
-			computer.markMissedHit();
-		}
-
-		if (endOfGame) {
-			state = ENDED;
-
-			timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
-
-			notify();
-		}
-		else {
-
-			state = USER_TURN;
-			notify();
-		}
-	}
+      notify();
+    }
+    else 
+    {
+      state = USER_TURN;
+      notify();
+    }
+  }
 }
+
+
 
 bool Game::isUserDefeat() const
 {
-	return user.checkDefeat();
+  return user.checkDefeat();
 }
+
+
 
 int Game::getTimeOfGame() const
 {
-	return timeOfGame;
+  return timeOfGame;
 }
+
+
 
 int Game::countComputerSunkShips() const
 {
-	return computer.countSunkShips();
+  return computer.countSunkShips();
 }
+
+
 
 int Game::countUserSunkShips() const
 {
-	return user.countSunkShips();
+  return user.countSunkShips();
 }
-
-

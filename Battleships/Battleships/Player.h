@@ -1,7 +1,6 @@
 #ifndef Player_h__
 #define Player_h__
 
-
 #include <cstdlib>
 #include <ctime>
 #include<iostream>
@@ -14,34 +13,34 @@ using namespace std;
 
 class Player
 {
-public:
-	Player();
-	~Player();
+  public:
+    Player();
+    ~Player();
 
-	void initialize();
+    void initialize();
 
-	vector<vector<int> > getShips() const;
-	vector<vector<int> > getHits() const;
-	list<Ship> getFleet() const;
+    vector<vector<int> > getShips() const;
+    vector<vector<int> > getHits() const;
+    list<Ship> getFleet() const;
 
-	void hit(vector<int> hit);
+    void hit(vector<int> hit);
 
-	bool isAnyShipHit(int x, int y) const;
-	bool markSunkShips(vector<vector<int> > enemyHits);
+    bool isAnyShipHit(int x, int y) const;
+    bool markSunkShips(vector<vector<int> > enemyHits);
 
-	bool checkDefeat() const;
+    bool checkDefeat() const;
 
-	int  countSunkShips() const;
-protected:
-	vector<vector<int> > hits;
+    int  countSunkShips() const;
+  protected:
+    vector<vector<int> > hits;
 
-private:
-	vector<vector<int> > ships;
-	
-	list<Ship> fleet;
+  private:
+    vector<vector<int> > ships;
 
-	Ship setShip(int size);
-	bool checkPlace(int x, int y, bool isHorizontal, int size);
+    list<Ship> fleet;
+
+    Ship setShip(int size);
+    bool checkPlace(int x, int y, bool isHorizontal, int size);
 };
 
 #endif
