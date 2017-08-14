@@ -29,8 +29,6 @@ class ComputerPlayer: public Player
     direction chooseSideToHit() const;
 
     bool isShipHorizontal() const;
-
-    void markShipAround(Ship const & sunkShip);
 };
 
 #endif

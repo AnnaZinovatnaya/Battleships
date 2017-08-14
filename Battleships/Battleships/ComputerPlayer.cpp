@@ -96,7 +96,7 @@ void ComputerPlayer::markSunkShip()
 
   Ship foundShip(firstX, firstY, size, isHorizontal);
 
-  markShipAround(foundShip);
+  iShip->markAround(foundShip, cleverHits);
 }
 
 
@@ -133,36 +133,6 @@ bool ComputerPlayer::isShipHorizontal() const
   }
 
   return false;
-}
-
-
-
-void ComputerPlayer::markShipAround(Ship const & sunkShip)
-{
-  if (sunkShip.getIsHorizontal()) {
-    for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + 2; i++) {
-      if (i > -1 && i < FIELD_SIZE) {
-        for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + sunkShip.getSize() + 1; j++) {
-          if (j > -1 && j < FIELD_SIZE) {
-            if (cleverHits[i][j] == '1')
-              cleverHits[i][j] = '0';
-          }
-        }
-      }
-    }
-  }
-  else {
-    for (int i = sunkShip.getX() - 1; i < sunkShip.getX() + sunkShip.getSize() + 1; i++) {
-      if (i > -1 && i < FIELD_SIZE) {
-        for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + 2; j++) {
-          if (j > -1 && j < FIELD_SIZE) {
-            if (cleverHits[i][j] == '1')
-              cleverHits[i][j] = '0';
-          }
-        }
-      }
-    }
-  }
 }
 
 

@@ -17,7 +17,7 @@ HorizontalShip::~HorizontalShip()
 
 
 
-bool HorizontalShip::checkPlace(vector<vector<int>> ships)
+bool HorizontalShip::checkPlace(vector<vector<int>> ships) const
 {
   if (ships[x][y] == 1)
     return false;
@@ -45,17 +45,19 @@ bool HorizontalShip::checkPlace(vector<vector<int>> ships)
     }
   }
 
-
-
   return true;
 }
 
-int HorizontalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cleverHits)
+
+
+int HorizontalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cleverHits) const
 {
   return lastHitX;
 }
 
-int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> cleverHits)
+
+
+int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> cleverHits) const
 {
   bool isLastHitNearRightBorder = false;
   if (lastHitY == 0)
@@ -84,14 +86,16 @@ int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> 
   }
 }
 
-int HorizontalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHits)
+
+
+int HorizontalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHits) const
 {
   int size = 1;
   int currentY = firstY + 1;
 
   while (currentY <= FIELD_SIZE - 1) {
     try {
-      if (cleverHits[firstX][currentY] == 'X') {
+      if (cleverHits.at(firstX).at(currentY) == 'X') {
         currentY++;
         size++;
       }
@@ -104,4 +108,21 @@ int HorizontalShip::findSize(int firstX, int firstY, vector<vector<char>> clever
     }
   }
   return size;
+}
+
+
+
+void HorizontalShip::markAround(Ship const & sunkShip, vector<vector<char>> & cleverHits)
+{
+  for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + 2; i++) {
+    for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + sunkShip.getSize() + 1; j++) {
+      try {
+        if (cleverHits.at(i).at(j) == '1')
+          cleverHits.at(i).at(j) = '0';
+        }
+      catch (const std::out_of_range& e) {
+        continue;
+      }
+    }
+  }
 }

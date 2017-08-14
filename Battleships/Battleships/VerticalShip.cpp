@@ -20,7 +20,7 @@ VerticalShip::~VerticalShip()
 
 
 
-bool VerticalShip::checkPlace(vector<vector<int>> ships)
+bool VerticalShip::checkPlace(vector<vector<int>> ships) const
 {
   if (ships[x][y] == 1)
       return false;
@@ -49,7 +49,9 @@ bool VerticalShip::checkPlace(vector<vector<int>> ships)
   return true;
 }
 
-int VerticalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cleverHits)
+
+
+int VerticalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cleverHits) const
 {
   bool isLastHitNearTopBorder = false;
   if (lastHitX == 0)
@@ -64,7 +66,7 @@ int VerticalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cl
     bool cellBelongsToShip = true;
     while (cellBelongsToShip) {
       try {
-        if (cleverHits[currentX][lastHitY] == 'X')
+        if (cleverHits.at(currentX).at(lastHitY) == 'X')
           currentX--;
         else
           cellBelongsToShip = false;
@@ -78,12 +80,16 @@ int VerticalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cl
   }
 }
 
-int VerticalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> cleverHits)
+
+
+int VerticalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> cleverHits) const
 {
   return lastHitY;
 }
 
-int VerticalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHits)
+
+
+int VerticalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHits) const
 {
   int size = 1;
   int currentX = firstX + 1;
@@ -103,4 +109,21 @@ int VerticalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHi
     }
   }
   return size;
+}
+
+
+
+void VerticalShip::markAround(Ship const & sunkShip, vector<vector<char>> & cleverHits)
+{
+  for (int i = sunkShip.getX() - 1; i < sunkShip.getX() + sunkShip.getSize() + 1; i++) {
+    for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + 2; j++) {
+      try {
+        if (cleverHits.at(i).at(j) == '1')
+          cleverHits.at(i).at(j) = '0';
+        }
+      catch (const std::out_of_range& e) {
+        continue;
+      }
+    }
+  }
 }
