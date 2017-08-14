@@ -31,17 +31,21 @@ bool HorizontalShip::checkPlace(vector<vector<int>> ships)
       return false;
   }
 
+
   //check if cells around the ship are empty
   for (int i = x - 1; i < x + 2; i++) {
-    if (i > -1 && i < FIELD_SIZE) {
-      for (int j = y - 1; j < y + size + 1; j++) {
-        if (j > -1 && j < FIELD_SIZE) {
-            if (ships[i][j] == 1)
-              return false;
-        }
+    for (int j = y - 1; j < y + size + 1; j++) {
+      try {
+        if (ships.at(i).at(j) == 1)
+          return false;
+      }
+      catch (const std::out_of_range& e) {
+        continue;
       }
     }
   }
+
+
 
   return true;
 }
@@ -66,7 +70,7 @@ int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> 
     bool cellBelongsToShip = true;
     while (cellBelongsToShip) {
       try {
-        if (cleverHits[lastHitX][currentY] == 'X')
+        if (cleverHits.at(lastHitX).at(currentY) == 'X')
           currentY--;
         else
           cellBelongsToShip = false;

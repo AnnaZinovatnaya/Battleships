@@ -35,12 +35,13 @@ bool VerticalShip::checkPlace(vector<vector<int>> ships)
 
   //check if cells around the ship are empty
   for (int i = x - 1; i < x + size + 1; i++) {
-    if (i > -1 && i < FIELD_SIZE) {
-      for (int j = y - 1; j < y + 2; j++) {
-        if (j > -1 && j < FIELD_SIZE) {
-          if (ships[i][j] == 1)
-            return false;
-        }
+    for (int j = y - 1; j < y + 2; j++) {
+      try {
+        if (ships.at(i).at(j) == 1)
+          return false;
+      }
+      catch (const std::out_of_range& e) {
+        continue;
       }
     }
   }
@@ -89,7 +90,7 @@ int VerticalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHi
 
   while (currentX <= FIELD_SIZE - 1) {
     try {
-      if (cleverHits[currentX][firstY] == 'X') {
+      if (cleverHits.at(currentX).at(firstY) == 'X') {
         currentX++;
         size++;
       }

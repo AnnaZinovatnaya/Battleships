@@ -13,8 +13,8 @@ class ComputerPlayer: public Player
 
     void hit();
 
-	int getLastHitX() { return lastHitX; }
-	int getLastHitY() { return lastHitY; }
+    int getLastHitX() { return lastHitX; }
+    int getLastHitY() { return lastHitY; }
 
     void markMissedHit();
     void markSuccessHit();
