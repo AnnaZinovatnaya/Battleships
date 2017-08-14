@@ -8,6 +8,8 @@
 #include <vector>
 
 #include "Ship.h"
+#include "HorizontalShip.h"
+#include "VerticalShip.h"
 
 using namespace std;
 
@@ -21,11 +23,13 @@ class Player
 
     vector<vector<int> > getShips() const;
     vector<vector<int> > getHits() const;
+
     list<Ship> getFleet() const;
 
     void hit(vector<int> hit);
 
     bool isAnyShipHit(int x, int y) const;
+
     bool markSunkShips(vector<vector<int> > enemyHits);
 
     bool checkDefeat() const;
@@ -33,14 +37,11 @@ class Player
     int  countSunkShips() const;
   protected:
     vector<vector<int> > hits;
-
   private:
     vector<vector<int> > ships;
-
     list<Ship> fleet;
 
     Ship setShip(int size);
-    bool checkPlace(int x, int y, bool isHorizontal, int size);
 };
 
 #endif

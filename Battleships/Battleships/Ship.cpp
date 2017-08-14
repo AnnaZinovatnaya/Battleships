@@ -30,27 +30,20 @@ Ship::~Ship()
 
 bool Ship::isSunkCheck(vector<vector<int> > enemyHits) const
 {
-  if (isHorizontal)
-  {
-    for (int i = y; i < y + size; i++)
-    {
-      if (enemyHits[x][i] != 1) 
-      {
+  if (isHorizontal) {
+    for (int i = y; i < y + size; i++) {
+      if (enemyHits[x][i] != 1) {
         return false;
       }
     }
   }
-  else
-  {
-    for (int i = x; i < x + size; i++)
-    {
-      if (enemyHits[i][y] != 1) 
-      {
+  else {
+    for (int i = x; i < x + size; i++) {
+      if (enemyHits[i][y] != 1) {
         return false;
       }
     }
   }
-
   return true;
 }
 
@@ -58,26 +51,19 @@ bool Ship::isSunkCheck(vector<vector<int> > enemyHits) const
 
 bool Ship::isShipCoordinates(int hitX, int hitY) const
 {
-  if (isHorizontal)
-  {
-    for (int i = y; i < y + size; i++)
-    {
-      if (x == hitX && i == hitY) 
-      {
+  if (isHorizontal) {
+    for (int i = y; i < y + size; i++) {
+      if (x == hitX && i == hitY) {
         return true;
       }
     }
   }
-  else
-  {
-    for (int i = x; i < x + size; i++)
-    {
-      if (i == hitX && y == hitY) 
-      {
+  else {
+    for (int i = x; i < x + size; i++) {
+      if (i == hitX && y == hitY) {
         return true;
       }
     }
   }
-
   return false;
 }

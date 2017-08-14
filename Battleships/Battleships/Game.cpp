@@ -17,14 +17,19 @@ Game::Game()
 }
 
 
+
 Game::~Game()
 {
 }
+
+
 
 void Game::attach(Observer* observer)
 {
   observers.push_back(observer);
 }
+
+
 
 void Game::detach(Observer* observer)
 {
@@ -35,8 +40,7 @@ void Game::detach(Observer* observer)
 
 void Game::notify()
 {
-  for (Observer* observer : observers)
-  {
+  for (Observer* observer : observers) {
     observer->update();
   }
 }
@@ -114,50 +118,42 @@ void Game::hit(vector<int> userHit)
 
   bool isComputerShipSunk = computer.markSunkShips(user.getHits());
 
-  if (isComputerShipSunk)
-  {
+  if (isComputerShipSunk) {
     endOfGame = checkEndOfGame();
   }
 
-  if (endOfGame) 
-  {
+  if (endOfGame)  {
     timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
     state = ENDED;
     notify();
   }
-  else
-  {
+  else {
     computer.hit();
 
     bool isAnyHumanShipHit = user.isAnyShipHit(computer.getLastHitX(),
       computer.getLastHitY());
 
-    if (isAnyHumanShipHit)
-    {
+    if (isAnyHumanShipHit) {
       computer.markSuccessHit();
 
       bool isHumanShipSunk = user.markSunkShips(computer.getHits());
-      if (isHumanShipSunk)
-      {
+      if (isHumanShipSunk) {
         computer.markSunkShip();
         endOfGame = checkEndOfGame();
       }
     }
-    else
-    {
+    else {
       computer.markMissedHit();
     }
 
-    if (endOfGame) 
-    {
+    if (endOfGame)  {
       state = ENDED;
 
       timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
 
       notify();
     }
-    else 
-    {
+    else  {
       state = USER_TURN;
       notify();
     }

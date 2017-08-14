@@ -1,6 +1,5 @@
 #include "Player.h"
 
-
 Player::Player()
 {
   vector<int> row(FIELD_SIZE, 0);
@@ -10,10 +9,8 @@ Player::Player()
   this->ships = ships;
   this->hits = hits;
 
-  for (int i = 0; i < FIELD_SIZE; i++)
-  {
-    for (int j = 0; j < FIELD_SIZE; j++)
-    {
+  for (int i = 0; i < FIELD_SIZE; i++) {
+    for (int j = 0; j < FIELD_SIZE; j++) {
       this->ships[i][j] = 0;
       this->hits[i][j] = 0;
     }
@@ -71,8 +68,7 @@ Ship Player::setShip(int size)
   bool isHorizontal = false;
   bool place = false;
 
-  while (place == false)
-  {
+  while (place == false) {
     x = rand() % FIELD_SIZE;
     y = rand() % FIELD_SIZE;
 
@@ -81,90 +77,25 @@ Ship Player::setShip(int size)
     if (horizontal == 0)
       isHorizontal = true;
 
-    place = checkPlace(x, y, isHorizontal, size);
+    IShip* iShip;
+    if (isHorizontal)
+      iShip = new HorizontalShip(x, y, size);
+    else
+      iShip = new VerticalShip(x, y, size);
+
+    place = iShip->checkPlace(ships);
   }
 
-  if (isHorizontal)
-  {
-    for (int i = y; i < y + size; i++) 
-    {
+  if (isHorizontal) {
+    for (int i = y; i < y + size; i++)
       ships[x][i] = 1;
-    }
   }
-  else
-  {
+  else {
     for (int i = x; i < x + size; i++)
-    {
       ships[i][y] = 1;
-    }
   }
 
   return Ship(x, y, size, isHorizontal);
-}
-
-
-
-bool Player::checkPlace(int x, int y, bool isHorizontal, int size)
-{
-  if (ships[x][y] == 1)
-    return false;
-
-  if (isHorizontal) {
-    //check if the ship fits
-    if (y > FIELD_SIZE - size)
-      return false;
-    for (int i = y + 1; i < y + size; i++) 
-    {
-      if (ships[x][i] == 1)
-        return false;
-    }
-
-    //check if cells around the ship are empty
-    for (int i = x - 1; i < x + 2; i++)
-    {
-      if (i > -1 && i < FIELD_SIZE)
-      {
-        for (int j = y - 1; j < y + size + 1; j++) 
-        {
-          if (j > -1 && j < FIELD_SIZE) 
-            {
-              if (ships[i][j] == 1)
-                return false;
-            }
-        }
-      }
-    }
-  }
-  else 
-  {
-    if (x > FIELD_SIZE - size)
-      return false;
-
-    //check if the ship fits
-    for (int i = x + 1; i < x + size; i++) 
-    {
-      if (ships[i][y] == 1)
-        return false;
-    }
-
-    //check if cells around the ship are empty
-    for (int i = x - 1; i < x + size + 1; i++) 
-    {
-      if (i > -1 && i < FIELD_SIZE)
-      {
-        for (int j = y - 1; j < y + 2; j++) 
-        {
-          if (j > -1 && j < FIELD_SIZE) 
-          {
-            if (ships[i][j] == 1)
-              return false;
-          }
-        }
-      }
-    }
-  }
-
-  return true;
 }
 
 
@@ -179,9 +110,8 @@ void Player::hit(vector<int> hit)
 bool Player::isAnyShipHit(int x, int y) const
 {
 
-  for (Ship const &ship : fleet) 
-  {
-    if(ship.isShipCoordinates(x, y))
+  for (Ship const &ship : fleet) {
+    if (ship.isShipCoordinates(x, y))
       return true;
     }
 
@@ -194,20 +124,16 @@ bool Player::markSunkShips(vector<vector<int> > enemyHits)
 {
   bool shipSunk = false;
 
-  for (Ship &ship : fleet) 
-  {
-    if (ship.getIsSunk() == false)
-    {
+  for (Ship &ship : fleet) {
+    if (ship.getIsSunk() == false) {
       cout << "  \b\b";
       shipSunk = ship.isSunkCheck(enemyHits);
-      if (shipSunk)
-      {
+      if (shipSunk) {
         ship.setIsSunk(true);
         return true;
       }
     }
   }
-
   return false;
 }
 
@@ -215,8 +141,7 @@ bool Player::markSunkShips(vector<vector<int> > enemyHits)
 
 bool Player::checkDefeat() const
 {
-  for (Ship const & ship : fleet)
-  {
+  for (Ship const & ship : fleet) {
     if (ship.getIsSunk() == false)
       return false;
   }
@@ -230,11 +155,9 @@ int Player::countSunkShips() const
 {
   int count = 0;
 
-  for (Ship const &ship : fleet) 
-  {
+  for (Ship const &ship : fleet) {
     if (ship.getIsSunk())
       count++;
   }
-
   return count;
 }

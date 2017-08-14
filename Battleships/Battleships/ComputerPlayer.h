@@ -13,8 +13,8 @@ class ComputerPlayer: public Player
 
     void hit();
 
-    int getLastHitX() { return lastHitX; }
-    int getLastHitY() { return lastHitY; }
+	int getLastHitX() { return lastHitX; }
+	int getLastHitY() { return lastHitY; }
 
     void markMissedHit();
     void markSuccessHit();
@@ -29,9 +29,6 @@ class ComputerPlayer: public Player
     direction chooseSideToHit() const;
 
     bool isShipHorizontal() const;
-    int findShipFirstX(bool isHorizontal) const;
-    int findShipFirstY(bool isHorizontal) const;
-    int findShipSize(int firstX, int firstY, bool isHorizontal) const;
 
     void markShipAround(Ship const & sunkShip);
 };

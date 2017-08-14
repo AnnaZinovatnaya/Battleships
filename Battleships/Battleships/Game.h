@@ -51,6 +51,7 @@ class Game
     clock_t startTime;
 
     void notify();
+
     bool checkEndOfGame() const;
 };
 

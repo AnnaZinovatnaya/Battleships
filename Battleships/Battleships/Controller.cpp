@@ -7,9 +7,11 @@ Controller::Controller()
 }
 
 
+
 Controller::~Controller()
 {
 }
+
 
 
 void Controller::initialize(Game* game, ConsoleView* consoleView)
@@ -26,8 +28,7 @@ void Controller::update()
 {
   stateType state = game->getState();
 
-  if (state == STARTED || state == USER_TURN) 
-  {
+  if (state == STARTED || state == USER_TURN) {
     const int MAX_INPUT = 3;
 
     vector<char> userInput(MAX_INPUT, 0);
@@ -35,64 +36,50 @@ void Controller::update()
     cin.clear();
     userInput[0] = _getch();
     cout << userInput[0];
-    if (userInput[0] == 'p')
-    {
+    if (userInput[0] == 'p') {
       //pause
     }
-    else 
-    {
+    else  {
       userInput[1] = _getch();
       cout << userInput[1];
 
       userInput[2] = _getch();
 
-      if (isCorrectLetter(userInput[0])) 
-      {
-        if (isCorrectDigit(userInput[1])) 
-        {
-          if (userInput[2] == '\r') 
-          {
+      if (isCorrectLetter(userInput[0])) {
+        if (isCorrectDigit(userInput[1])) {
+          if (userInput[2] == '\r') {
             vector<int> userHit = { 0, 0 };
             convertHumanHitToInt(userInput, userHit);
             consoleView->clearHit();
             handleUserHitEvent(userHit);
           }
-          else 
-          {
+          else {
             consoleView->clearHit();
             this->update();
           }
         }
-        else
-        {
+        else {
           consoleView->clearHit();
           this->update();
         }
       }
-      else 
-      {
+      else {
         consoleView->clearHit();
         this->update();
       }
     }
   }
-  else if (state == COMPUTER_TURN)
-  {
+  else if (state == COMPUTER_TURN) {
   }
-
-  else if (state == PAUSED) 
-  {
+  else if (state == PAUSED) {
     //wait for space (end of pause)
   }
-    else if (state == ENDED) {
+  else if (state == ENDED) {
     const char ENTER = '\r';
-
-    while (_getch() != ENTER) 
-    {
-
-    }
+    while (_getch() != ENTER) {}
   }
 }
+
 
 
 void Controller::run()
@@ -104,6 +91,8 @@ void Controller::run()
   game->play();
 }
 
+
+
 bool Controller::isCorrectLetter(char letter) const
 {
   if (letter >= 'a' && letter <= 'j')
@@ -114,6 +103,8 @@ bool Controller::isCorrectLetter(char letter) const
 
   return false;
 }
+
+
 
 bool Controller::isCorrectDigit(char digit) const
 {
@@ -129,16 +120,14 @@ void Controller::convertHumanHitToInt(vector<char> userInput, vector<int> &userH
 {
 
   if (userInput[0] >= 'A' && userInput[0] <= 'J')
-  {
     userHit[0] = userInput[0] % 'A';
-  }
   else
-  {
     userHit[0] = userInput[0] % 'a';
-  }
 
   userHit[1] = userInput[1] % '0';
 }
+
+
 
 void Controller::handleUserHitEvent(vector<int> userHit) const
 {

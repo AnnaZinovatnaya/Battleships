@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "ConsoleView.h"
 
-int main() {
-
+int main() 
+{
   Game game;
 
   ConsoleView consoleView;

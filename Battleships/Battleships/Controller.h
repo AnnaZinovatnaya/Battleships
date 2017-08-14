@@ -24,7 +24,6 @@ class Controller: public Observer
     class ConsoleView* consoleView;
 
     bool isCorrectLetter(char letter) const;
-
     bool isCorrectDigit(char digit) const;
 
     void convertHumanHitToInt(vector<char> userInput, vector<int> &userHit) const;
