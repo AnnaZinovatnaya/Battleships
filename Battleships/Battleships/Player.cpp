@@ -113,7 +113,7 @@ bool Player::isAnyShipHit(int x, int y) const
   for (Ship const &ship : fleet) {
     if (ship.isShipCoordinates(x, y))
       return true;
-    }
+  }
 
   return false;
 }

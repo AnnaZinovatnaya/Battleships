@@ -119,7 +119,7 @@ void HorizontalShip::markAround(Ship const & sunkShip, vector<vector<char>> & cl
       try {
         if (cleverHits.at(i).at(j) == '1')
           cleverHits.at(i).at(j) = '0';
-        }
+      }
       catch (const std::out_of_range& e) {
         continue;
       }

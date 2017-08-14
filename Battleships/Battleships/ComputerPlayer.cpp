@@ -31,8 +31,8 @@ void ComputerPlayer::hit()
 
     direction direction = chooseSideToHit();
     if (direction == TOP) {
-      x = lastHitX - 1; 
-      y = lastHitY; 
+      x = lastHitX - 1;
+      y = lastHitY;
     }
     else if (direction == BOTTOM) {
       x = lastHitX + 1;
@@ -66,7 +66,7 @@ void ComputerPlayer::hit()
 
 
 
-void ComputerPlayer::markMissedHit() 
+void ComputerPlayer::markMissedHit()
 {
   cleverHits[lastHitX][lastHitY] = '0';
 }

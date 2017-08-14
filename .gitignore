@@ -240,3 +240,14 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Battleships/Battleships/Battleship.cpp.orig
+/Battleships/Battleships/ComputerPlayer.cpp.orig
+/Battleships/Battleships/ConsoleView.cpp.orig
+/Battleships/Battleships/Controller.cpp.orig
+/Battleships/Battleships/Game.cpp.orig
+/Battleships/Battleships/HorizontalShip.cpp.orig
+/Battleships/Battleships/IShip.cpp.orig
+/Battleships/Battleships/Observer.cpp.orig
+/Battleships/Battleships/Player.cpp.orig
+/Battleships/Battleships/Ship.cpp.orig
+/Battleships/Battleships/VerticalShip.cpp.orig

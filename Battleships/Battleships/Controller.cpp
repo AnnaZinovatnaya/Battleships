@@ -39,7 +39,7 @@ void Controller::update()
     if (userInput[0] == 'p') {
       //pause
     }
-    else  {
+    else {
       userInput[1] = _getch();
       cout << userInput[1];
 

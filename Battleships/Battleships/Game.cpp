@@ -122,7 +122,7 @@ void Game::hit(vector<int> userHit)
     endOfGame = checkEndOfGame();
   }
 
-  if (endOfGame)  {
+  if (endOfGame) {
     timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
     state = ENDED;
     notify();
@@ -131,7 +131,7 @@ void Game::hit(vector<int> userHit)
     computer.hit();
 
     bool isAnyHumanShipHit = user.isAnyShipHit(computer.getLastHitX(),
-      computer.getLastHitY());
+                             computer.getLastHitY());
 
     if (isAnyHumanShipHit) {
       computer.markSuccessHit();
@@ -146,14 +146,14 @@ void Game::hit(vector<int> userHit)
       computer.markMissedHit();
     }
 
-    if (endOfGame)  {
+    if (endOfGame) {
       state = ENDED;
 
       timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
 
       notify();
     }
-    else  {
+    else {
       state = USER_TURN;
       notify();
     }

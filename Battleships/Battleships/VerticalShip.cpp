@@ -23,7 +23,7 @@ VerticalShip::~VerticalShip()
 bool VerticalShip::checkPlace(vector<vector<int>> ships) const
 {
   if (ships[x][y] == 1)
-      return false;
+    return false;
   if (x > FIELD_SIZE - size)
     return false;
 
@@ -120,7 +120,7 @@ void VerticalShip::markAround(Ship const & sunkShip, vector<vector<char>> & clev
       try {
         if (cleverHits.at(i).at(j) == '1')
           cleverHits.at(i).at(j) = '0';
-        }
+      }
       catch (const std::out_of_range& e) {
         continue;
       }

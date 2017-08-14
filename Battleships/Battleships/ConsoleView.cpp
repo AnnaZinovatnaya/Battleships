@@ -34,7 +34,8 @@ void ConsoleView::initialize(Game* game)
     " H|          |  H|          |",
     " I|          |  I|          |",
     " J|          |  J|          |",
-    "  #----------#   #----------#" };
+    "  #----------#   #----------#"
+  };
 
   vector<char> row(HORIZONTAL_SIZE, '0');
   vector<vector<char> > map(VERTICAL_SIZE, row);
@@ -180,21 +181,23 @@ void ConsoleView::showStatistics()
 
 
 
-void ConsoleView::showEndMessage(bool isUserDefeat) 
+void ConsoleView::showEndMessage(bool isUserDefeat)
 {
   char winningMessage[5][25] = {
     "                        ",
     " ***********************",
     " *      YOU WON!       *",
     " ***********************",
-    "                        " };
+    "                        "
+  };
 
   char losingMessage[5][25] = {
     "                        ",
     " ***********************",
     " *     YOU LOST :(     *",
     " ***********************",
-    "                        " };
+    "                        "
+  };
 
   cout << "\n";
   for (int i = 0; i < 5; i++) {
@@ -210,7 +213,7 @@ void ConsoleView::showEndMessage(bool isUserDefeat)
 
 
 
-void 
+void
 ConsoleView::updateUserMap(vector<vector<int>> ships, vector<vector<int>> hits)
 {
   DWORD dw;
@@ -241,8 +244,8 @@ ConsoleView::updateUserMap(vector<vector<int>> ships, vector<vector<int>> hits)
 
 
 
-void ConsoleView::updateComputerMap(vector<vector<int>> ships, 
-    vector<vector<int>> hits)
+void ConsoleView::updateComputerMap(vector<vector<int>> ships,
+                                    vector<vector<int>> hits)
 {
   DWORD dw;
   COORD here;
