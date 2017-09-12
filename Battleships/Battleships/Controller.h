@@ -5,6 +5,9 @@
 
 #include "Game.h"
 #include "IView.h"
+#include <Windows.h>
+
+#include <thread>
 
 
 class Controller: public Observer

@@ -17,6 +17,10 @@ public:
 
 	virtual void clearHit() = 0;
 
+	virtual void showPauseTime(clock_t pauseStartTime) = 0;
+
+	virtual void clearPauseTime() = 0;
+
 protected:
 	class Game* game;
 	class Controller* controller;

@@ -100,6 +100,7 @@ void ConsoleView::display()
 	}
 	else if (state == PAUSED) {
 		//show pause time
+
 	}
 	else if (state == ENDED) {
 		vector<vector<int> > computerShips = game->getComputerShips();
@@ -271,4 +272,26 @@ void ConsoleView::updateComputerMap(vector<vector<int>> ships,
 			}
 		}
 	}
+}
+
+
+void ConsoleView::showPauseTime(clock_t pauseStartTime) 
+{
+
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 17 });
+	cout << "             ";
+
+	int minutes = static_cast<int>(pauseStartTime / 60);
+
+	cout << "\n";
+	cout << "Time: " << minutes << " minute(s) ";
+	cout << pauseStartTime - (minutes * 60) << " second(s)" << endl;
+}
+
+
+void ConsoleView::clearPauseTime()
+{
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 18 });
+	cout << "                                                 ";
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 17 });
 }

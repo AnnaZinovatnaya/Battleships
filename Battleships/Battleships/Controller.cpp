@@ -38,6 +38,8 @@ void Controller::update()
     cout << userInput[0];
     if (userInput[0] == 'p') {
       //pause
+
+		game->pause();
     }
     else {
       userInput[1] = _getch();
@@ -73,6 +75,29 @@ void Controller::update()
   }
   else if (state == PAUSED) {
     //wait for space (end of pause)
+
+	clock_t pauseStartTime = game->getPauseStartTime();
+
+	const char SPACE = ' ';
+
+	int oldTime = (clock() - pauseStartTime) / CLOCKS_PER_SEC;
+	view->showPauseTime(oldTime);
+
+	while (!(GetKeyState(SPACE) & 0x8000))
+	{
+
+		int newTime = (clock() - pauseStartTime) / CLOCKS_PER_SEC;
+
+		if (newTime != oldTime)
+		{
+			view->showPauseTime(newTime);
+
+			oldTime = newTime;
+		}
+	} 
+
+	view->clearPauseTime();
+	game->stopPause();
   }
   else if (state == ENDED) {
     const char ENTER = '\r';

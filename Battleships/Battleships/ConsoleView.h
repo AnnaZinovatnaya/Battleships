@@ -19,6 +19,10 @@ public:
 
 	void clearHit();
 
+	void showPauseTime(clock_t pauseStartTime);
+
+	void clearPauseTime();
+
 private:
 	class Game* game;
 	class Controller* controller;

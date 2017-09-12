@@ -12,6 +12,8 @@ Game::Game()
   timeOfGame = 0;
   startTime = 0;
 
+  pauseStartTime = 0;
+
   state = INITIALIZED;
   previousState = state;
 }
@@ -110,6 +112,7 @@ void Game::hit(vector<int> userHit)
 {
   user.hit(userHit);
 
+  previousState = state;
   state = COMPUTER_TURN;
 
   notify();
@@ -147,6 +150,7 @@ void Game::hit(vector<int> userHit)
     }
 
     if (endOfGame) {
+	  previousState = state;
       state = ENDED;
 
       timeOfGame = static_cast<int>(clock() - startTime) / CLOCKS_PER_SEC;
@@ -154,6 +158,7 @@ void Game::hit(vector<int> userHit)
       notify();
     }
     else {
+	  previousState = state;
       state = USER_TURN;
       notify();
     }
@@ -186,4 +191,27 @@ int Game::countComputerSunkShips() const
 int Game::countUserSunkShips() const
 {
   return user.countSunkShips();
+}
+
+
+
+void Game::pause()
+{
+	pauseStartTime = clock();
+	previousState = state;
+	state = PAUSED;
+	notify();
+}
+
+clock_t Game::getPauseStartTime() const
+{
+	return pauseStartTime;
+}
+
+
+void Game::stopPause()
+{
+	state = previousState;
+	pauseStartTime = 0;
+	notify();
 }

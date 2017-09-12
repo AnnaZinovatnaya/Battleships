@@ -38,6 +38,12 @@ class Game
 
     int countComputerSunkShips() const;
     int countUserSunkShips() const;
+
+	void pause();
+
+	clock_t getPauseStartTime() const;
+
+	void stopPause();
   private:
     list <Observer*> observers;
 
@@ -49,6 +55,8 @@ class Game
 
     int timeOfGame;
     clock_t startTime;
+
+	clock_t pauseStartTime;
 
     void notify();
 
