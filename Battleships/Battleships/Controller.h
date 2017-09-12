@@ -4,7 +4,8 @@
 #include <conio.h>
 
 #include "Game.h"
-#include "ConsoleView.h"
+#include "IView.h"
+
 
 class Controller: public Observer
 {
@@ -13,7 +14,7 @@ class Controller: public Observer
     Controller();
     ~Controller();
 
-    void initialize(Game* game, class ConsoleView* consoleView);
+    void initialize(Game* game, class IView* view);
 
     void update();
 
@@ -21,7 +22,7 @@ class Controller: public Observer
 
   private:
     class Game* game;
-    class ConsoleView* consoleView;
+    class IView* view;
 
     bool isCorrectLetter(char letter) const;
     bool isCorrectDigit(char digit) const;

@@ -1,15 +1,18 @@
 #include "Game.h"
+#include "IView.h"
 #include "ConsoleView.h"
+#include "Controller.h"
 
 int main()
 {
   Game game;
 
-  ConsoleView consoleView;
-  consoleView.initialize(&game);
+  IView * view = new ConsoleView();
+
+  view->initialize(&game);
 
   Controller controller;
-  controller.initialize(&game, &consoleView);
+  controller.initialize(&game, view);
 
   controller.run();
 

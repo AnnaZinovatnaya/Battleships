@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClCompile Include="Battleship.cpp" />
     <ClCompile Include="ComputerPlayer.cpp" />
+    <ClCompile Include="ConsoleView.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HorizontalShip.cpp" />
@@ -155,11 +156,12 @@
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Ship.cpp" />
-    <ClCompile Include="ConsoleView.cpp" />
     <ClCompile Include="VerticalShip.cpp" />
+    <ClCompile Include="IView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ComputerPlayer.h" />
+    <ClInclude Include="ConsoleView.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameRules.h" />
@@ -168,8 +170,8 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Ship.h" />
-    <ClInclude Include="ConsoleView.h" />
     <ClInclude Include="VerticalShip.h" />
+    <ClInclude Include="IView.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

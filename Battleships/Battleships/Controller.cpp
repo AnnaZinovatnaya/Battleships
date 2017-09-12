@@ -14,10 +14,10 @@ Controller::~Controller()
 
 
 
-void Controller::initialize(Game* game, ConsoleView* consoleView)
+void Controller::initialize(Game* game, IView* view)
 {
   this->game = game;
-  this->consoleView = consoleView;
+  this->view = view;
 
   game->attach(this);
 }
@@ -50,21 +50,21 @@ void Controller::update()
           if (userInput[2] == '\r') {
             vector<int> userHit = { 0, 0 };
             convertHumanHitToInt(userInput, userHit);
-            consoleView->clearHit();
+			view->clearHit();
             handleUserHitEvent(userHit);
           }
           else {
-            consoleView->clearHit();
+			  view->clearHit();
             this->update();
           }
         }
         else {
-          consoleView->clearHit();
+			view->clearHit();
           this->update();
         }
       }
       else {
-        consoleView->clearHit();
+		  view->clearHit();
         this->update();
       }
     }
