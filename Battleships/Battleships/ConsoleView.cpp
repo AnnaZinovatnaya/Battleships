@@ -89,7 +89,15 @@ void ConsoleView::display()
 
 		updateComputerMap(ships, hits);
 
-		//bool isComputerShipSunk = game->isComputerShipSunk();
+		bool isComputerShipSunk = game->getIsComputerShipSunk();
+		if (isComputerShipSunk) {
+			cout << "You sunk enemy's ship!";
+			Sleep(2000);
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 17 });
+			cout << "                      ";
+			SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 17 });
+
+		}
 	}
 	else if (state == USER_TURN) {
 		//update user map
@@ -249,26 +257,21 @@ void ConsoleView::updateComputerMap(vector<vector<int>> ships,
 	vector<vector<int>> hits)
 {
 	DWORD dw;
-	COORD here;
 	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	if (hStdOut == INVALID_HANDLE_VALUE) {
 		printf("Invalid handle");
 	}
 
-	for (int i = 0; i < FIELD_SIZE; i++) {
-		for (int j = 0; j < FIELD_SIZE; j++) {
+	for (short i = 0; i < FIELD_SIZE; i++) {
+		for (short j = 0; j < FIELD_SIZE; j++) {
 			if (ships[i][j] == 1 && hits[i][j] == 1) {
 				map[i + 2][j + 18] = 'X';
-				here.X = j + 18;
-				here.Y = i + 2;
-				WriteConsoleOutputCharacter(hStdOut, L"X", 1, here, &dw);
+				WriteConsoleOutputCharacter(hStdOut, L"X", 1, {j + 18, i + 2}, &dw);
 			}
 
 			if (ships[i][j] == 0 && hits[i][j] == 1) {
 				map[i + 2][j + 18] = '0';
-				here.X = j + 18;
-				here.Y = i + 2;
-				WriteConsoleOutputCharacter(hStdOut, L"0", 1, here, &dw);
+				WriteConsoleOutputCharacter(hStdOut, L"0", 1, { j + 18, i + 2 }, &dw);
 			}
 		}
 	}

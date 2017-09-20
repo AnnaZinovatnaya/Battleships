@@ -126,7 +126,7 @@ bool Player::markSunkShips(vector<vector<int> > enemyHits)
 
   for (Ship &ship : fleet) {
     if (ship.getIsSunk() == false) {
-      cout << "  \b\b";
+      //cout << "  \b\b";
       shipSunk = ship.isSunkCheck(enemyHits);
       if (shipSunk) {
         ship.setIsSunk(true);

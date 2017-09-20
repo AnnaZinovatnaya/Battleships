@@ -16,6 +16,8 @@ Game::Game()
 
   state = INITIALIZED;
   previousState = state;
+
+  isComputerShipSunk = false;
 }
 
 
@@ -115,12 +117,10 @@ void Game::hit(vector<int> userHit)
   previousState = state;
   state = COMPUTER_TURN;
 
-  notify();
-
   bool endOfGame = false;
 
-  bool isComputerShipSunk = computer.markSunkShips(user.getHits());
-
+  isComputerShipSunk = computer.markSunkShips(user.getHits());
+  notify();
   if (isComputerShipSunk) {
     endOfGame = checkEndOfGame();
   }
@@ -214,4 +214,9 @@ void Game::stopPause()
 	state = previousState;
 	pauseStartTime = 0;
 	notify();
+}
+
+bool Game::getIsComputerShipSunk() const
+{
+	return isComputerShipSunk;
 }

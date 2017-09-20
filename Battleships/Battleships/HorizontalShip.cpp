@@ -17,7 +17,7 @@ HorizontalShip::~HorizontalShip()
 
 
 
-bool HorizontalShip::checkPlace(vector<vector<int>> ships) const
+bool HorizontalShip::checkPlace(vector<vector<int> > ships) const
 {
   if (ships[x][y] == 1)
     return false;
@@ -50,14 +50,14 @@ bool HorizontalShip::checkPlace(vector<vector<int>> ships) const
 
 
 
-int HorizontalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char>> cleverHits) const
+int HorizontalShip::findFirstX(int lastHitX, int lastHitY, vector<vector<char> > cleverHits) const
 {
   return lastHitX;
 }
 
 
 
-int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> cleverHits) const
+int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char> > cleverHits) const
 {
   bool isLastHitNearRightBorder = false;
   if (lastHitY == 0)
@@ -88,7 +88,7 @@ int HorizontalShip::findFirstY(int lastHitX, int lastHitY, vector<vector<char>> 
 
 
 
-int HorizontalShip::findSize(int firstX, int firstY, vector<vector<char>> cleverHits) const
+int HorizontalShip::findSize(int firstX, int firstY, vector<vector<char> > cleverHits) const
 {
   int size = 1;
   int currentY = firstY + 1;
@@ -112,7 +112,7 @@ int HorizontalShip::findSize(int firstX, int firstY, vector<vector<char>> clever
 
 
 
-void HorizontalShip::markAround(Ship const & sunkShip, vector<vector<char>> & cleverHits)
+void HorizontalShip::markAround(Ship const & sunkShip, vector<vector<char> > & cleverHits)
 {
   for (int i = sunkShip.getX() - 1; i<sunkShip.getX() + 2; i++) {
     for (int j = sunkShip.getY() - 1; j < sunkShip.getY() + sunkShip.getSize() + 1; j++) {

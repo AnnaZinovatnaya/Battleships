@@ -22,12 +22,6 @@ public:
 	virtual void clearPauseTime() = 0;
 
 protected:
-	class Game* game;
-	class Controller* controller;
-
-	vector<vector<char> > map;
-
-	static const int  VERTICAL_SIZE = 13, HORIZONTAL_SIZE = 49;
 
 	virtual void display() = 0;
 

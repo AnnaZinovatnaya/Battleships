@@ -44,6 +44,8 @@ class Game
 	clock_t getPauseStartTime() const;
 
 	void stopPause();
+
+	bool getIsComputerShipSunk() const;
   private:
     list <Observer*> observers;
 
@@ -57,6 +59,8 @@ class Game
     clock_t startTime;
 
 	clock_t pauseStartTime;
+
+	bool isComputerShipSunk;
 
     void notify();
 
