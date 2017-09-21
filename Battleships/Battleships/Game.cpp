@@ -119,7 +119,8 @@ void Game::hit(vector<int> userHit)
 
   bool endOfGame = false;
 
-  isComputerShipSunk = computer.markSunkShips(user.getHits());
+  computer.markSunkShips(user.getHits());
+  isComputerShipSunk = computer.isAnyShipSunk();
   notify();
   if (isComputerShipSunk) {
     endOfGame = checkEndOfGame();
@@ -139,7 +140,8 @@ void Game::hit(vector<int> userHit)
     if (isAnyHumanShipHit) {
       computer.markSuccessHit();
 
-      bool isHumanShipSunk = user.markSunkShips(computer.getHits());
+	  user.markSunkShips(computer.getHits());
+      bool isHumanShipSunk = user.isAnyShipSunk();
       if (isHumanShipSunk) {
         computer.markSunkShip();
         endOfGame = checkEndOfGame();

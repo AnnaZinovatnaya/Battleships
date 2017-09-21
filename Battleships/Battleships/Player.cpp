@@ -15,6 +15,8 @@ Player::Player()
       this->hits[i][j] = 0;
     }
   }
+
+  anyShipIsSunk = false;
 }
 
 
@@ -120,8 +122,9 @@ bool Player::isAnyShipHit(int x, int y) const
 
 
 
-bool Player::markSunkShips(vector<vector<int> > enemyHits)
+void Player::markSunkShips(vector<vector<int> > enemyHits)
 {
+  anyShipIsSunk = false;
   bool shipSunk = false;
 
   for (Ship &ship : fleet) {
@@ -130,11 +133,15 @@ bool Player::markSunkShips(vector<vector<int> > enemyHits)
       shipSunk = ship.isSunkCheck(enemyHits);
       if (shipSunk) {
         ship.setIsSunk(true);
-        return true;
+		anyShipIsSunk = true;
       }
     }
   }
-  return false;
+}
+
+bool Player::isAnyShipSunk()
+{
+	return anyShipIsSunk;
 }
 
 

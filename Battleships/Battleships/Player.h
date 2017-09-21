@@ -30,7 +30,8 @@ class Player
 
     bool isAnyShipHit(int x, int y) const;
 
-    bool markSunkShips(vector<vector<int> > enemyHits);
+	void markSunkShips(vector<vector<int> > enemyHits);
+	bool isAnyShipSunk();
 
     bool checkDefeat() const;
 
@@ -40,6 +41,8 @@ class Player
   private:
     vector<vector<int> > ships;
     list<Ship> fleet;
+
+	bool anyShipIsSunk;
 
     Ship setShip(int size);
 };
