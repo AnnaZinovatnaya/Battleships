@@ -14,7 +14,7 @@ Controller::~Controller()
 
 
 
-void Controller::initialize(Game* game, IView* view)
+void Controller::initialize(IGame* game, IView* view)
 {
   this->game = game;
   this->view = view;

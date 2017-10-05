@@ -51,7 +51,7 @@ void Game::notify()
 
 
 
-stateType Game::getState() const
+stateType Game::getState()
 {
   return state;
 }
@@ -82,28 +82,28 @@ bool Game::checkEndOfGame() const
 
 
 
-vector<vector<int> > Game::getUserShips() const
+vector<vector<int> > Game::getUserShips()
 {
   return user.getShips();
 }
 
 
 
-vector<vector<int>> Game::getComputerShips() const
+vector<vector<int>> Game::getComputerShips()
 {
   return computer.getShips();
 }
 
 
 
-vector<vector<int>> Game::getUserHits() const
+vector<vector<int>> Game::getUserHits()
 {
   return user.getHits();
 }
 
 
 
-vector<vector<int>> Game::getComputerHits() const
+vector<vector<int>> Game::getComputerHits()
 {
   return computer.getHits();
 }
@@ -169,28 +169,28 @@ void Game::hit(vector<int> userHit)
 
 
 
-bool Game::isUserDefeat() const
+bool Game::isUserDefeat()
 {
   return user.checkDefeat();
 }
 
 
 
-int Game::getTimeOfGame() const
+int Game::getTimeOfGame()
 {
   return timeOfGame;
 }
 
 
 
-int Game::countComputerSunkShips() const
+int Game::countComputerSunkShips()
 {
   return computer.countSunkShips();
 }
 
 
 
-int Game::countUserSunkShips() const
+int Game::countUserSunkShips()
 {
   return user.countSunkShips();
 }
@@ -205,7 +205,7 @@ void Game::pause()
 	notify();
 }
 
-clock_t Game::getPauseStartTime() const
+clock_t Game::getPauseStartTime()
 {
 	return pauseStartTime;
 }
@@ -218,7 +218,7 @@ void Game::stopPause()
 	notify();
 }
 
-bool Game::getIsComputerShipSunk() const
+bool Game::getIsComputerShipSunk()
 {
 	return isComputerShipSunk;
 }

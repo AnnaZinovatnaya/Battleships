@@ -151,7 +151,9 @@
     <ClCompile Include="ConsoleView.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameLogProxy.cpp" />
     <ClCompile Include="HorizontalShip.cpp" />
+    <ClCompile Include="IGame.cpp" />
     <ClCompile Include="IShip.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -164,8 +166,10 @@
     <ClInclude Include="ConsoleView.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameLogProxy.h" />
     <ClInclude Include="GameRules.h" />
     <ClInclude Include="HorizontalShip.h" />
+    <ClInclude Include="IGame.h" />
     <ClInclude Include="IShip.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Player.h" />

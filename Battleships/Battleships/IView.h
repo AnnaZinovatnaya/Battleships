@@ -2,8 +2,9 @@
 #define IView_h__
 
 #include "Observer.h"
-#include "Game.h"
+#include "IGame.h"
 #include "Controller.h"
+#include "GameRules.h"
 
 class IView : public Observer
 {
@@ -11,7 +12,7 @@ public:
 	IView();
 	virtual ~IView();
 
-	virtual void initialize(Game* game) = 0;
+	virtual void initialize(IGame* game) = 0;
 
 	virtual void update() = 0;
 

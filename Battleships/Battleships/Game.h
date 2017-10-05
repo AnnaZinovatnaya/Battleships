@@ -8,10 +8,10 @@ using namespace std;
 #include "Observer.h"
 #include "Player.h"
 #include "ComputerPlayer.h"
+#include "IGame.h"
 
-enum stateType {INITIALIZED, STARTED, USER_TURN, COMPUTER_TURN, ENDED, PAUSED};
-
-class Game
+class Game :
+	IGame
 {
   public:
     Game();
@@ -20,32 +20,32 @@ class Game
     void attach(Observer* observer);
     void detach(Observer* observer);
 
-    stateType getState() const;
+    stateType getState();
 
     void play();
 
-    vector<vector<int>> getUserShips() const;
-    vector<vector<int>> getComputerShips() const;
+    vector<vector<int>> getUserShips();
+    vector<vector<int>> getComputerShips();
 
-    vector<vector<int>> getUserHits() const;
-    vector<vector<int>> getComputerHits() const;
+    vector<vector<int>> getUserHits();
+    vector<vector<int>> getComputerHits();
 
-    int getTimeOfGame() const;
+    int getTimeOfGame();
 
     void hit(vector<int> userHit);
 
-    bool isUserDefeat() const;
+    bool isUserDefeat();
 
-    int countComputerSunkShips() const;
-    int countUserSunkShips() const;
+    int countComputerSunkShips();
+    int countUserSunkShips();
 
 	void pause();
 
-	clock_t getPauseStartTime() const;
+	clock_t getPauseStartTime();
 
 	void stopPause();
 
-	bool getIsComputerShipSunk() const;
+	bool getIsComputerShipSunk();
   private:
     list <Observer*> observers;
 

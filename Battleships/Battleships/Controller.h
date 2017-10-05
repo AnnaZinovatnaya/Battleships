@@ -3,9 +3,10 @@
 
 #include <conio.h>
 
-#include "Game.h"
+#include "IGame.h"
 #include "IView.h"
 #include <Windows.h>
+#include <iostream>
 
 #include <thread>
 
@@ -17,14 +18,14 @@ class Controller: public Observer
     Controller();
     ~Controller();
 
-    void initialize(Game* game, class IView* view);
+    void initialize(IGame* game, class IView* view);
 
     void update();
 
     void run();
 
   private:
-    class Game* game;
+    class IGame* game;
     class IView* view;
 
     bool isCorrectLetter(char letter) const;

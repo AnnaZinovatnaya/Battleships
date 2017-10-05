@@ -19,7 +19,7 @@ ConsoleView::~ConsoleView()
 {
 }
 
-void ConsoleView::initialize(Game* game)
+void ConsoleView::initialize(IGame* game)
 {
 	char tempMap[VERTICAL_SIZE][HORIZONTAL_SIZE] = {
 		"   0123456789     0123456789 ",

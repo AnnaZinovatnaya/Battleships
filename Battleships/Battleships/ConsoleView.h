@@ -13,7 +13,7 @@ public:
 	ConsoleView();
 	~ConsoleView();
 
-	void initialize(Game* game);
+	void initialize(IGame* game);
 
 	void update();
 
@@ -24,7 +24,7 @@ public:
 	void clearPauseTime();
 
 private:
-	class Game* game;
+	class IGame* game;
 	class Controller* controller;
 
 	vector<vector<char> > map;
