@@ -1,778 +1,723 @@
-GameLogProxy::attach()
-GameLogProxy::getUserShips()
-GameLogProxy::attach()
-GameLogProxy::play()
-GameLogProxy::getState() - state 1
-GameLogProxy::getState() - state 1
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 2
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 3
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 4
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 1 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 1 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 1 2
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 1 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::getState() - state 2
-GameLogProxy::getState() - state 2
-GameLogProxy::getState() - state 2
-GameLogProxy::getState() - state 2
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 2
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getState() - state 2
-GameLogProxy::hit() - hit 0 1
-GameLogProxy::getState() - state 3
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserHits()
-GameLogProxy::getIsComputerShipSunk() - value 0
-GameLogProxy::getState() - state 3
-GameLogProxy::getState() - state 4
-GameLogProxy::getComputerShips()
-GameLogProxy::getUserShips()
-GameLogProxy::getComputerHits()
-GameLogProxy::getUserHits()
-GameLogProxy::isUserDefeat() - value 1
-GameLogProxy::getTimeOfGame() - time 61
-GameLogProxy::countComputerSunkShips() - value 1
-GameLogProxy::countUserSunkShips() - value 10
-GameLogProxy::getState() - state 4
+10:59:14	GameLogProxy::attach()
+10:59:14	GameLogProxy::getUserShips()
+10:59:14	GameLogProxy::attach()
+10:59:15	GameLogProxy::play()
+10:59:15	GameLogProxy::getState() - state 1
+10:59:15	GameLogProxy::getState() - state 1
+10:59:17	GameLogProxy::hit() - hit 0 1
+10:59:17	GameLogProxy::getState() - state 3
+10:59:17	GameLogProxy::getComputerShips()
+10:59:17	GameLogProxy::getUserHits()
+10:59:17	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:17	GameLogProxy::getState() - state 3
+10:59:17	GameLogProxy::getState() - state 2
+10:59:17	GameLogProxy::getUserShips()
+10:59:17	GameLogProxy::getComputerHits()
+10:59:17	GameLogProxy::getState() - state 2
+10:59:18	GameLogProxy::hit() - hit 0 2
+10:59:18	GameLogProxy::getState() - state 3
+10:59:18	GameLogProxy::getComputerShips()
+10:59:18	GameLogProxy::getUserHits()
+10:59:18	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:18	GameLogProxy::getState() - state 3
+10:59:18	GameLogProxy::getState() - state 2
+10:59:18	GameLogProxy::getUserShips()
+10:59:18	GameLogProxy::getComputerHits()
+10:59:18	GameLogProxy::getState() - state 2
+10:59:18	GameLogProxy::hit() - hit 0 3
+10:59:18	GameLogProxy::getState() - state 3
+10:59:18	GameLogProxy::getComputerShips()
+10:59:18	GameLogProxy::getUserHits()
+10:59:18	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:18	GameLogProxy::getState() - state 3
+10:59:18	GameLogProxy::getState() - state 2
+10:59:18	GameLogProxy::getUserShips()
+10:59:18	GameLogProxy::getComputerHits()
+10:59:18	GameLogProxy::getState() - state 2
+10:59:19	GameLogProxy::hit() - hit 0 4
+10:59:19	GameLogProxy::getState() - state 3
+10:59:19	GameLogProxy::getComputerShips()
+10:59:19	GameLogProxy::getUserHits()
+10:59:19	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:19	GameLogProxy::getState() - state 3
+10:59:19	GameLogProxy::getState() - state 2
+10:59:19	GameLogProxy::getUserShips()
+10:59:19	GameLogProxy::getComputerHits()
+10:59:19	GameLogProxy::getState() - state 2
+10:59:20	GameLogProxy::hit() - hit 0 5
+10:59:20	GameLogProxy::getState() - state 3
+10:59:20	GameLogProxy::getComputerShips()
+10:59:20	GameLogProxy::getUserHits()
+10:59:20	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:20	GameLogProxy::getState() - state 3
+10:59:20	GameLogProxy::getState() - state 2
+10:59:20	GameLogProxy::getUserShips()
+10:59:20	GameLogProxy::getComputerHits()
+10:59:20	GameLogProxy::getState() - state 2
+10:59:22	GameLogProxy::hit() - hit 1 5
+10:59:22	GameLogProxy::getState() - state 3
+10:59:22	GameLogProxy::getComputerShips()
+10:59:22	GameLogProxy::getUserHits()
+10:59:22	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:22	GameLogProxy::getState() - state 3
+10:59:22	GameLogProxy::getState() - state 2
+10:59:22	GameLogProxy::getUserShips()
+10:59:22	GameLogProxy::getComputerHits()
+10:59:22	GameLogProxy::getState() - state 2
+10:59:23	GameLogProxy::hit() - hit 1 4
+10:59:23	GameLogProxy::getState() - state 3
+10:59:23	GameLogProxy::getComputerShips()
+10:59:23	GameLogProxy::getUserHits()
+10:59:23	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:23	GameLogProxy::getState() - state 3
+10:59:23	GameLogProxy::getState() - state 2
+10:59:23	GameLogProxy::getUserShips()
+10:59:23	GameLogProxy::getComputerHits()
+10:59:23	GameLogProxy::getState() - state 2
+10:59:25	GameLogProxy::hit() - hit 2 4
+10:59:25	GameLogProxy::getState() - state 3
+10:59:25	GameLogProxy::getComputerShips()
+10:59:25	GameLogProxy::getUserHits()
+10:59:25	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:25	GameLogProxy::getState() - state 3
+10:59:25	GameLogProxy::getState() - state 2
+10:59:25	GameLogProxy::getUserShips()
+10:59:25	GameLogProxy::getComputerHits()
+10:59:25	GameLogProxy::getState() - state 2
+10:59:27	GameLogProxy::getState() - state 2
+10:59:28	GameLogProxy::hit() - hit 3 4
+10:59:28	GameLogProxy::getState() - state 3
+10:59:28	GameLogProxy::getComputerShips()
+10:59:28	GameLogProxy::getUserHits()
+10:59:28	GameLogProxy::getIsComputerShipSunk() - value 1
+10:59:30	GameLogProxy::getState() - state 3
+10:59:30	GameLogProxy::getState() - state 2
+10:59:30	GameLogProxy::getUserShips()
+10:59:30	GameLogProxy::getComputerHits()
+10:59:30	GameLogProxy::getState() - state 2
+10:59:32	GameLogProxy::hit() - hit 0 0
+10:59:32	GameLogProxy::getState() - state 3
+10:59:32	GameLogProxy::getComputerShips()
+10:59:32	GameLogProxy::getUserHits()
+10:59:32	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:32	GameLogProxy::getState() - state 3
+10:59:32	GameLogProxy::getState() - state 2
+10:59:32	GameLogProxy::getUserShips()
+10:59:32	GameLogProxy::getComputerHits()
+10:59:32	GameLogProxy::getState() - state 2
+10:59:33	GameLogProxy::hit() - hit 0 1
+10:59:33	GameLogProxy::getState() - state 3
+10:59:33	GameLogProxy::getComputerShips()
+10:59:33	GameLogProxy::getUserHits()
+10:59:33	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:33	GameLogProxy::getState() - state 3
+10:59:33	GameLogProxy::getState() - state 2
+10:59:33	GameLogProxy::getUserShips()
+10:59:33	GameLogProxy::getComputerHits()
+10:59:33	GameLogProxy::getState() - state 2
+10:59:34	GameLogProxy::hit() - hit 1 0
+10:59:34	GameLogProxy::getState() - state 3
+10:59:34	GameLogProxy::getComputerShips()
+10:59:34	GameLogProxy::getUserHits()
+10:59:34	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:34	GameLogProxy::getState() - state 3
+10:59:34	GameLogProxy::getState() - state 2
+10:59:34	GameLogProxy::getUserShips()
+10:59:34	GameLogProxy::getComputerHits()
+10:59:34	GameLogProxy::getState() - state 2
+10:59:36	GameLogProxy::hit() - hit 2 0
+10:59:36	GameLogProxy::getState() - state 3
+10:59:36	GameLogProxy::getComputerShips()
+10:59:36	GameLogProxy::getUserHits()
+10:59:36	GameLogProxy::getIsComputerShipSunk() - value 1
+10:59:38	GameLogProxy::getState() - state 3
+10:59:38	GameLogProxy::getState() - state 2
+10:59:38	GameLogProxy::getUserShips()
+10:59:38	GameLogProxy::getComputerHits()
+10:59:38	GameLogProxy::getState() - state 2
+10:59:39	GameLogProxy::hit() - hit 0 1
+10:59:39	GameLogProxy::getState() - state 3
+10:59:39	GameLogProxy::getComputerShips()
+10:59:39	GameLogProxy::getUserHits()
+10:59:39	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:39	GameLogProxy::getState() - state 3
+10:59:39	GameLogProxy::getState() - state 2
+10:59:39	GameLogProxy::getUserShips()
+10:59:39	GameLogProxy::getComputerHits()
+10:59:39	GameLogProxy::getState() - state 2
+10:59:39	GameLogProxy::hit() - hit 0 1
+10:59:39	GameLogProxy::getState() - state 3
+10:59:39	GameLogProxy::getComputerShips()
+10:59:39	GameLogProxy::getUserHits()
+10:59:39	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:39	GameLogProxy::getState() - state 3
+10:59:39	GameLogProxy::getState() - state 2
+10:59:39	GameLogProxy::getUserShips()
+10:59:39	GameLogProxy::getComputerHits()
+10:59:39	GameLogProxy::getState() - state 2
+10:59:40	GameLogProxy::hit() - hit 0 1
+10:59:40	GameLogProxy::getState() - state 3
+10:59:40	GameLogProxy::getComputerShips()
+10:59:40	GameLogProxy::getUserHits()
+10:59:40	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:40	GameLogProxy::getState() - state 3
+10:59:40	GameLogProxy::getState() - state 2
+10:59:40	GameLogProxy::getUserShips()
+10:59:40	GameLogProxy::getComputerHits()
+10:59:40	GameLogProxy::getState() - state 2
+10:59:40	GameLogProxy::hit() - hit 0 1
+10:59:40	GameLogProxy::getState() - state 3
+10:59:40	GameLogProxy::getComputerShips()
+10:59:40	GameLogProxy::getUserHits()
+10:59:40	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:40	GameLogProxy::getState() - state 3
+10:59:40	GameLogProxy::getState() - state 2
+10:59:40	GameLogProxy::getUserShips()
+10:59:40	GameLogProxy::getComputerHits()
+10:59:40	GameLogProxy::getState() - state 2
+10:59:41	GameLogProxy::hit() - hit 0 1
+10:59:41	GameLogProxy::getState() - state 3
+10:59:41	GameLogProxy::getComputerShips()
+10:59:41	GameLogProxy::getUserHits()
+10:59:41	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:41	GameLogProxy::getState() - state 3
+10:59:41	GameLogProxy::getState() - state 2
+10:59:41	GameLogProxy::getUserShips()
+10:59:41	GameLogProxy::getComputerHits()
+10:59:41	GameLogProxy::getState() - state 2
+10:59:41	GameLogProxy::hit() - hit 0 1
+10:59:41	GameLogProxy::getState() - state 3
+10:59:41	GameLogProxy::getComputerShips()
+10:59:41	GameLogProxy::getUserHits()
+10:59:41	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:41	GameLogProxy::getState() - state 3
+10:59:41	GameLogProxy::getState() - state 2
+10:59:41	GameLogProxy::getUserShips()
+10:59:41	GameLogProxy::getComputerHits()
+10:59:41	GameLogProxy::getState() - state 2
+10:59:42	GameLogProxy::hit() - hit 0 1
+10:59:42	GameLogProxy::getState() - state 3
+10:59:42	GameLogProxy::getComputerShips()
+10:59:42	GameLogProxy::getUserHits()
+10:59:42	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:42	GameLogProxy::getState() - state 3
+10:59:42	GameLogProxy::getState() - state 2
+10:59:42	GameLogProxy::getUserShips()
+10:59:42	GameLogProxy::getComputerHits()
+10:59:42	GameLogProxy::getState() - state 2
+10:59:42	GameLogProxy::hit() - hit 0 1
+10:59:42	GameLogProxy::getState() - state 3
+10:59:42	GameLogProxy::getComputerShips()
+10:59:42	GameLogProxy::getUserHits()
+10:59:42	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:42	GameLogProxy::getState() - state 3
+10:59:42	GameLogProxy::getState() - state 2
+10:59:42	GameLogProxy::getUserShips()
+10:59:42	GameLogProxy::getComputerHits()
+10:59:42	GameLogProxy::getState() - state 2
+10:59:43	GameLogProxy::hit() - hit 0 1
+10:59:43	GameLogProxy::getState() - state 3
+10:59:43	GameLogProxy::getComputerShips()
+10:59:43	GameLogProxy::getUserHits()
+10:59:43	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:43	GameLogProxy::getState() - state 3
+10:59:43	GameLogProxy::getState() - state 2
+10:59:43	GameLogProxy::getUserShips()
+10:59:43	GameLogProxy::getComputerHits()
+10:59:43	GameLogProxy::getState() - state 2
+10:59:43	GameLogProxy::hit() - hit 0 1
+10:59:43	GameLogProxy::getState() - state 3
+10:59:43	GameLogProxy::getComputerShips()
+10:59:43	GameLogProxy::getUserHits()
+10:59:43	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:43	GameLogProxy::getState() - state 3
+10:59:43	GameLogProxy::getState() - state 2
+10:59:43	GameLogProxy::getUserShips()
+10:59:43	GameLogProxy::getComputerHits()
+10:59:43	GameLogProxy::getState() - state 2
+10:59:43	GameLogProxy::hit() - hit 0 1
+10:59:43	GameLogProxy::getState() - state 3
+10:59:43	GameLogProxy::getComputerShips()
+10:59:43	GameLogProxy::getUserHits()
+10:59:43	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:43	GameLogProxy::getState() - state 3
+10:59:43	GameLogProxy::getState() - state 2
+10:59:43	GameLogProxy::getUserShips()
+10:59:43	GameLogProxy::getComputerHits()
+10:59:43	GameLogProxy::getState() - state 2
+10:59:44	GameLogProxy::hit() - hit 0 1
+10:59:44	GameLogProxy::getState() - state 3
+10:59:44	GameLogProxy::getComputerShips()
+10:59:44	GameLogProxy::getUserHits()
+10:59:44	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:44	GameLogProxy::getState() - state 3
+10:59:44	GameLogProxy::getState() - state 2
+10:59:44	GameLogProxy::getUserShips()
+10:59:44	GameLogProxy::getComputerHits()
+10:59:44	GameLogProxy::getState() - state 2
+10:59:44	GameLogProxy::hit() - hit 0 1
+10:59:44	GameLogProxy::getState() - state 3
+10:59:44	GameLogProxy::getComputerShips()
+10:59:44	GameLogProxy::getUserHits()
+10:59:44	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:44	GameLogProxy::getState() - state 3
+10:59:44	GameLogProxy::getState() - state 2
+10:59:44	GameLogProxy::getUserShips()
+10:59:44	GameLogProxy::getComputerHits()
+10:59:44	GameLogProxy::getState() - state 2
+10:59:45	GameLogProxy::hit() - hit 0 1
+10:59:45	GameLogProxy::getState() - state 3
+10:59:45	GameLogProxy::getComputerShips()
+10:59:45	GameLogProxy::getUserHits()
+10:59:45	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:45	GameLogProxy::getState() - state 3
+10:59:45	GameLogProxy::getState() - state 2
+10:59:45	GameLogProxy::getUserShips()
+10:59:45	GameLogProxy::getComputerHits()
+10:59:45	GameLogProxy::getState() - state 2
+10:59:45	GameLogProxy::hit() - hit 0 1
+10:59:45	GameLogProxy::getState() - state 3
+10:59:45	GameLogProxy::getComputerShips()
+10:59:45	GameLogProxy::getUserHits()
+10:59:45	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:45	GameLogProxy::getState() - state 3
+10:59:45	GameLogProxy::getState() - state 2
+10:59:45	GameLogProxy::getUserShips()
+10:59:45	GameLogProxy::getComputerHits()
+10:59:45	GameLogProxy::getState() - state 2
+10:59:46	GameLogProxy::hit() - hit 0 1
+10:59:46	GameLogProxy::getState() - state 3
+10:59:46	GameLogProxy::getComputerShips()
+10:59:46	GameLogProxy::getUserHits()
+10:59:46	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:46	GameLogProxy::getState() - state 3
+10:59:46	GameLogProxy::getState() - state 2
+10:59:46	GameLogProxy::getUserShips()
+10:59:46	GameLogProxy::getComputerHits()
+10:59:46	GameLogProxy::getState() - state 2
+10:59:46	GameLogProxy::hit() - hit 0 1
+10:59:46	GameLogProxy::getState() - state 3
+10:59:46	GameLogProxy::getComputerShips()
+10:59:46	GameLogProxy::getUserHits()
+10:59:46	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:46	GameLogProxy::getState() - state 3
+10:59:46	GameLogProxy::getState() - state 2
+10:59:46	GameLogProxy::getUserShips()
+10:59:46	GameLogProxy::getComputerHits()
+10:59:46	GameLogProxy::getState() - state 2
+10:59:47	GameLogProxy::hit() - hit 0 1
+10:59:47	GameLogProxy::getState() - state 3
+10:59:47	GameLogProxy::getComputerShips()
+10:59:47	GameLogProxy::getUserHits()
+10:59:47	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:47	GameLogProxy::getState() - state 3
+10:59:47	GameLogProxy::getState() - state 2
+10:59:47	GameLogProxy::getUserShips()
+10:59:47	GameLogProxy::getComputerHits()
+10:59:47	GameLogProxy::getState() - state 2
+10:59:47	GameLogProxy::hit() - hit 0 1
+10:59:47	GameLogProxy::getState() - state 3
+10:59:47	GameLogProxy::getComputerShips()
+10:59:47	GameLogProxy::getUserHits()
+10:59:47	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:47	GameLogProxy::getState() - state 3
+10:59:47	GameLogProxy::getState() - state 2
+10:59:47	GameLogProxy::getUserShips()
+10:59:47	GameLogProxy::getComputerHits()
+10:59:47	GameLogProxy::getState() - state 2
+10:59:48	GameLogProxy::hit() - hit 0 1
+10:59:48	GameLogProxy::getState() - state 3
+10:59:48	GameLogProxy::getComputerShips()
+10:59:48	GameLogProxy::getUserHits()
+10:59:48	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:48	GameLogProxy::getState() - state 3
+10:59:48	GameLogProxy::getState() - state 2
+10:59:48	GameLogProxy::getUserShips()
+10:59:48	GameLogProxy::getComputerHits()
+10:59:48	GameLogProxy::getState() - state 2
+10:59:48	GameLogProxy::hit() - hit 0 1
+10:59:48	GameLogProxy::getState() - state 3
+10:59:48	GameLogProxy::getComputerShips()
+10:59:48	GameLogProxy::getUserHits()
+10:59:48	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:48	GameLogProxy::getState() - state 3
+10:59:48	GameLogProxy::getState() - state 2
+10:59:48	GameLogProxy::getUserShips()
+10:59:48	GameLogProxy::getComputerHits()
+10:59:48	GameLogProxy::getState() - state 2
+10:59:49	GameLogProxy::hit() - hit 0 1
+10:59:49	GameLogProxy::getState() - state 3
+10:59:49	GameLogProxy::getComputerShips()
+10:59:49	GameLogProxy::getUserHits()
+10:59:49	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:49	GameLogProxy::getState() - state 3
+10:59:49	GameLogProxy::getState() - state 2
+10:59:49	GameLogProxy::getUserShips()
+10:59:49	GameLogProxy::getComputerHits()
+10:59:49	GameLogProxy::getState() - state 2
+10:59:50	GameLogProxy::hit() - hit 0 1
+10:59:50	GameLogProxy::getState() - state 3
+10:59:50	GameLogProxy::getComputerShips()
+10:59:50	GameLogProxy::getUserHits()
+10:59:50	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:50	GameLogProxy::getState() - state 3
+10:59:50	GameLogProxy::getState() - state 2
+10:59:50	GameLogProxy::getUserShips()
+10:59:50	GameLogProxy::getComputerHits()
+10:59:50	GameLogProxy::getState() - state 2
+10:59:50	GameLogProxy::hit() - hit 0 1
+10:59:50	GameLogProxy::getState() - state 3
+10:59:50	GameLogProxy::getComputerShips()
+10:59:50	GameLogProxy::getUserHits()
+10:59:50	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:50	GameLogProxy::getState() - state 3
+10:59:50	GameLogProxy::getState() - state 2
+10:59:50	GameLogProxy::getUserShips()
+10:59:50	GameLogProxy::getComputerHits()
+10:59:50	GameLogProxy::getState() - state 2
+10:59:51	GameLogProxy::hit() - hit 0 1
+10:59:51	GameLogProxy::getState() - state 3
+10:59:51	GameLogProxy::getComputerShips()
+10:59:51	GameLogProxy::getUserHits()
+10:59:51	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:51	GameLogProxy::getState() - state 3
+10:59:51	GameLogProxy::getState() - state 2
+10:59:51	GameLogProxy::getUserShips()
+10:59:51	GameLogProxy::getComputerHits()
+10:59:51	GameLogProxy::getState() - state 2
+10:59:51	GameLogProxy::hit() - hit 0 1
+10:59:51	GameLogProxy::getState() - state 3
+10:59:51	GameLogProxy::getComputerShips()
+10:59:51	GameLogProxy::getUserHits()
+10:59:51	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:51	GameLogProxy::getState() - state 3
+10:59:51	GameLogProxy::getState() - state 2
+10:59:51	GameLogProxy::getUserShips()
+10:59:51	GameLogProxy::getComputerHits()
+10:59:51	GameLogProxy::getState() - state 2
+10:59:52	GameLogProxy::hit() - hit 0 1
+10:59:52	GameLogProxy::getState() - state 3
+10:59:52	GameLogProxy::getComputerShips()
+10:59:52	GameLogProxy::getUserHits()
+10:59:52	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:52	GameLogProxy::getState() - state 3
+10:59:52	GameLogProxy::getState() - state 2
+10:59:52	GameLogProxy::getUserShips()
+10:59:52	GameLogProxy::getComputerHits()
+10:59:52	GameLogProxy::getState() - state 2
+10:59:52	GameLogProxy::hit() - hit 0 1
+10:59:52	GameLogProxy::getState() - state 3
+10:59:52	GameLogProxy::getComputerShips()
+10:59:52	GameLogProxy::getUserHits()
+10:59:52	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:52	GameLogProxy::getState() - state 3
+10:59:52	GameLogProxy::getState() - state 2
+10:59:52	GameLogProxy::getUserShips()
+10:59:52	GameLogProxy::getComputerHits()
+10:59:52	GameLogProxy::getState() - state 2
+10:59:53	GameLogProxy::hit() - hit 0 1
+10:59:53	GameLogProxy::getState() - state 3
+10:59:53	GameLogProxy::getComputerShips()
+10:59:53	GameLogProxy::getUserHits()
+10:59:53	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:53	GameLogProxy::getState() - state 3
+10:59:53	GameLogProxy::getState() - state 2
+10:59:53	GameLogProxy::getUserShips()
+10:59:53	GameLogProxy::getComputerHits()
+10:59:53	GameLogProxy::getState() - state 2
+10:59:53	GameLogProxy::hit() - hit 0 1
+10:59:53	GameLogProxy::getState() - state 3
+10:59:53	GameLogProxy::getComputerShips()
+10:59:53	GameLogProxy::getUserHits()
+10:59:53	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:53	GameLogProxy::getState() - state 3
+10:59:53	GameLogProxy::getState() - state 2
+10:59:53	GameLogProxy::getUserShips()
+10:59:53	GameLogProxy::getComputerHits()
+10:59:53	GameLogProxy::getState() - state 2
+10:59:54	GameLogProxy::hit() - hit 0 1
+10:59:54	GameLogProxy::getState() - state 3
+10:59:54	GameLogProxy::getComputerShips()
+10:59:54	GameLogProxy::getUserHits()
+10:59:54	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:54	GameLogProxy::getState() - state 3
+10:59:54	GameLogProxy::getState() - state 2
+10:59:54	GameLogProxy::getUserShips()
+10:59:54	GameLogProxy::getComputerHits()
+10:59:54	GameLogProxy::getState() - state 2
+10:59:55	GameLogProxy::hit() - hit 0 1
+10:59:55	GameLogProxy::getState() - state 3
+10:59:55	GameLogProxy::getComputerShips()
+10:59:55	GameLogProxy::getUserHits()
+10:59:55	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:55	GameLogProxy::getState() - state 3
+10:59:55	GameLogProxy::getState() - state 2
+10:59:55	GameLogProxy::getUserShips()
+10:59:55	GameLogProxy::getComputerHits()
+10:59:55	GameLogProxy::getState() - state 2
+10:59:55	GameLogProxy::hit() - hit 0 1
+10:59:55	GameLogProxy::getState() - state 3
+10:59:55	GameLogProxy::getComputerShips()
+10:59:55	GameLogProxy::getUserHits()
+10:59:55	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:55	GameLogProxy::getState() - state 3
+10:59:55	GameLogProxy::getState() - state 2
+10:59:55	GameLogProxy::getUserShips()
+10:59:55	GameLogProxy::getComputerHits()
+10:59:55	GameLogProxy::getState() - state 2
+10:59:56	GameLogProxy::hit() - hit 0 1
+10:59:56	GameLogProxy::getState() - state 3
+10:59:56	GameLogProxy::getComputerShips()
+10:59:56	GameLogProxy::getUserHits()
+10:59:56	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:56	GameLogProxy::getState() - state 3
+10:59:56	GameLogProxy::getState() - state 2
+10:59:56	GameLogProxy::getUserShips()
+10:59:56	GameLogProxy::getComputerHits()
+10:59:56	GameLogProxy::getState() - state 2
+10:59:57	GameLogProxy::hit() - hit 0 1
+10:59:57	GameLogProxy::getState() - state 3
+10:59:57	GameLogProxy::getComputerShips()
+10:59:57	GameLogProxy::getUserHits()
+10:59:57	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:57	GameLogProxy::getState() - state 3
+10:59:57	GameLogProxy::getState() - state 2
+10:59:57	GameLogProxy::getUserShips()
+10:59:57	GameLogProxy::getComputerHits()
+10:59:57	GameLogProxy::getState() - state 2
+10:59:57	GameLogProxy::hit() - hit 0 1
+10:59:57	GameLogProxy::getState() - state 3
+10:59:57	GameLogProxy::getComputerShips()
+10:59:57	GameLogProxy::getUserHits()
+10:59:57	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:57	GameLogProxy::getState() - state 3
+10:59:57	GameLogProxy::getState() - state 2
+10:59:57	GameLogProxy::getUserShips()
+10:59:57	GameLogProxy::getComputerHits()
+10:59:57	GameLogProxy::getState() - state 2
+10:59:58	GameLogProxy::hit() - hit 0 1
+10:59:58	GameLogProxy::getState() - state 3
+10:59:58	GameLogProxy::getComputerShips()
+10:59:58	GameLogProxy::getUserHits()
+10:59:58	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:58	GameLogProxy::getState() - state 3
+10:59:58	GameLogProxy::getState() - state 2
+10:59:58	GameLogProxy::getUserShips()
+10:59:58	GameLogProxy::getComputerHits()
+10:59:58	GameLogProxy::getState() - state 2
+10:59:58	GameLogProxy::hit() - hit 0 1
+10:59:58	GameLogProxy::getState() - state 3
+10:59:58	GameLogProxy::getComputerShips()
+10:59:58	GameLogProxy::getUserHits()
+10:59:58	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:58	GameLogProxy::getState() - state 3
+10:59:58	GameLogProxy::getState() - state 2
+10:59:58	GameLogProxy::getUserShips()
+10:59:58	GameLogProxy::getComputerHits()
+10:59:58	GameLogProxy::getState() - state 2
+10:59:59	GameLogProxy::hit() - hit 0 1
+10:59:59	GameLogProxy::getState() - state 3
+10:59:59	GameLogProxy::getComputerShips()
+10:59:59	GameLogProxy::getUserHits()
+10:59:59	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:59	GameLogProxy::getState() - state 3
+10:59:59	GameLogProxy::getState() - state 2
+10:59:59	GameLogProxy::getUserShips()
+10:59:59	GameLogProxy::getComputerHits()
+10:59:59	GameLogProxy::getState() - state 2
+10:59:59	GameLogProxy::hit() - hit 0 1
+10:59:59	GameLogProxy::getState() - state 3
+10:59:59	GameLogProxy::getComputerShips()
+10:59:59	GameLogProxy::getUserHits()
+10:59:59	GameLogProxy::getIsComputerShipSunk() - value 0
+10:59:59	GameLogProxy::getState() - state 3
+10:59:59	GameLogProxy::getState() - state 2
+10:59:59	GameLogProxy::getUserShips()
+10:59:59	GameLogProxy::getComputerHits()
+10:59:59	GameLogProxy::getState() - state 2
+11:00:00	GameLogProxy::hit() - hit 0 1
+11:00:00	GameLogProxy::getState() - state 3
+11:00:00	GameLogProxy::getComputerShips()
+11:00:00	GameLogProxy::getUserHits()
+11:00:00	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:00	GameLogProxy::getState() - state 3
+11:00:00	GameLogProxy::getState() - state 2
+11:00:00	GameLogProxy::getUserShips()
+11:00:00	GameLogProxy::getComputerHits()
+11:00:00	GameLogProxy::getState() - state 2
+11:00:00	GameLogProxy::hit() - hit 0 1
+11:00:00	GameLogProxy::getState() - state 3
+11:00:00	GameLogProxy::getComputerShips()
+11:00:00	GameLogProxy::getUserHits()
+11:00:00	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:00	GameLogProxy::getState() - state 3
+11:00:00	GameLogProxy::getState() - state 2
+11:00:00	GameLogProxy::getUserShips()
+11:00:00	GameLogProxy::getComputerHits()
+11:00:00	GameLogProxy::getState() - state 2
+11:00:01	GameLogProxy::hit() - hit 0 1
+11:00:01	GameLogProxy::getState() - state 3
+11:00:01	GameLogProxy::getComputerShips()
+11:00:01	GameLogProxy::getUserHits()
+11:00:01	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:01	GameLogProxy::getState() - state 3
+11:00:01	GameLogProxy::getState() - state 2
+11:00:01	GameLogProxy::getUserShips()
+11:00:01	GameLogProxy::getComputerHits()
+11:00:01	GameLogProxy::getState() - state 2
+11:00:01	GameLogProxy::hit() - hit 0 1
+11:00:01	GameLogProxy::getState() - state 3
+11:00:01	GameLogProxy::getComputerShips()
+11:00:01	GameLogProxy::getUserHits()
+11:00:01	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:01	GameLogProxy::getState() - state 3
+11:00:01	GameLogProxy::getState() - state 2
+11:00:01	GameLogProxy::getUserShips()
+11:00:01	GameLogProxy::getComputerHits()
+11:00:01	GameLogProxy::getState() - state 2
+11:00:02	GameLogProxy::hit() - hit 0 1
+11:00:02	GameLogProxy::getState() - state 3
+11:00:02	GameLogProxy::getComputerShips()
+11:00:02	GameLogProxy::getUserHits()
+11:00:02	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:02	GameLogProxy::getState() - state 3
+11:00:02	GameLogProxy::getState() - state 2
+11:00:02	GameLogProxy::getUserShips()
+11:00:02	GameLogProxy::getComputerHits()
+11:00:02	GameLogProxy::getState() - state 2
+11:00:03	GameLogProxy::hit() - hit 0 1
+11:00:03	GameLogProxy::getState() - state 3
+11:00:03	GameLogProxy::getComputerShips()
+11:00:03	GameLogProxy::getUserHits()
+11:00:03	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:03	GameLogProxy::getState() - state 3
+11:00:03	GameLogProxy::getState() - state 2
+11:00:03	GameLogProxy::getUserShips()
+11:00:03	GameLogProxy::getComputerHits()
+11:00:03	GameLogProxy::getState() - state 2
+11:00:03	GameLogProxy::hit() - hit 0 1
+11:00:03	GameLogProxy::getState() - state 3
+11:00:03	GameLogProxy::getComputerShips()
+11:00:03	GameLogProxy::getUserHits()
+11:00:03	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:03	GameLogProxy::getState() - state 3
+11:00:03	GameLogProxy::getState() - state 2
+11:00:03	GameLogProxy::getUserShips()
+11:00:03	GameLogProxy::getComputerHits()
+11:00:03	GameLogProxy::getState() - state 2
+11:00:04	GameLogProxy::hit() - hit 0 1
+11:00:04	GameLogProxy::getState() - state 3
+11:00:04	GameLogProxy::getComputerShips()
+11:00:04	GameLogProxy::getUserHits()
+11:00:04	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:04	GameLogProxy::getState() - state 3
+11:00:04	GameLogProxy::getState() - state 2
+11:00:04	GameLogProxy::getUserShips()
+11:00:04	GameLogProxy::getComputerHits()
+11:00:04	GameLogProxy::getState() - state 2
+11:00:04	GameLogProxy::hit() - hit 0 1
+11:00:04	GameLogProxy::getState() - state 3
+11:00:04	GameLogProxy::getComputerShips()
+11:00:04	GameLogProxy::getUserHits()
+11:00:04	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:04	GameLogProxy::getState() - state 3
+11:00:04	GameLogProxy::getState() - state 2
+11:00:04	GameLogProxy::getUserShips()
+11:00:04	GameLogProxy::getComputerHits()
+11:00:04	GameLogProxy::getState() - state 2
+11:00:05	GameLogProxy::hit() - hit 0 1
+11:00:05	GameLogProxy::getState() - state 3
+11:00:05	GameLogProxy::getComputerShips()
+11:00:05	GameLogProxy::getUserHits()
+11:00:05	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:05	GameLogProxy::getState() - state 3
+11:00:05	GameLogProxy::getState() - state 2
+11:00:05	GameLogProxy::getUserShips()
+11:00:05	GameLogProxy::getComputerHits()
+11:00:05	GameLogProxy::getState() - state 2
+11:00:06	GameLogProxy::hit() - hit 0 1
+11:00:06	GameLogProxy::getState() - state 3
+11:00:06	GameLogProxy::getComputerShips()
+11:00:06	GameLogProxy::getUserHits()
+11:00:06	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:06	GameLogProxy::getState() - state 3
+11:00:06	GameLogProxy::getState() - state 2
+11:00:06	GameLogProxy::getUserShips()
+11:00:06	GameLogProxy::getComputerHits()
+11:00:06	GameLogProxy::getState() - state 2
+11:00:06	GameLogProxy::hit() - hit 0 1
+11:00:06	GameLogProxy::getState() - state 3
+11:00:06	GameLogProxy::getComputerShips()
+11:00:06	GameLogProxy::getUserHits()
+11:00:06	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:06	GameLogProxy::getState() - state 3
+11:00:06	GameLogProxy::getState() - state 2
+11:00:06	GameLogProxy::getUserShips()
+11:00:06	GameLogProxy::getComputerHits()
+11:00:06	GameLogProxy::getState() - state 2
+11:00:07	GameLogProxy::hit() - hit 0 1
+11:00:07	GameLogProxy::getState() - state 3
+11:00:07	GameLogProxy::getComputerShips()
+11:00:07	GameLogProxy::getUserHits()
+11:00:07	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:07	GameLogProxy::getState() - state 3
+11:00:07	GameLogProxy::getState() - state 2
+11:00:07	GameLogProxy::getUserShips()
+11:00:07	GameLogProxy::getComputerHits()
+11:00:07	GameLogProxy::getState() - state 2
+11:00:07	GameLogProxy::hit() - hit 0 1
+11:00:07	GameLogProxy::getState() - state 3
+11:00:07	GameLogProxy::getComputerShips()
+11:00:07	GameLogProxy::getUserHits()
+11:00:07	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:07	GameLogProxy::getState() - state 3
+11:00:07	GameLogProxy::getState() - state 2
+11:00:07	GameLogProxy::getUserShips()
+11:00:07	GameLogProxy::getComputerHits()
+11:00:07	GameLogProxy::getState() - state 2
+11:00:07	GameLogProxy::hit() - hit 0 1
+11:00:07	GameLogProxy::getState() - state 3
+11:00:07	GameLogProxy::getComputerShips()
+11:00:07	GameLogProxy::getUserHits()
+11:00:07	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:07	GameLogProxy::getState() - state 3
+11:00:07	GameLogProxy::getState() - state 2
+11:00:07	GameLogProxy::getUserShips()
+11:00:07	GameLogProxy::getComputerHits()
+11:00:07	GameLogProxy::getState() - state 2
+11:00:08	GameLogProxy::hit() - hit 0 1
+11:00:08	GameLogProxy::getState() - state 3
+11:00:08	GameLogProxy::getComputerShips()
+11:00:08	GameLogProxy::getUserHits()
+11:00:08	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:08	GameLogProxy::getState() - state 3
+11:00:08	GameLogProxy::getState() - state 2
+11:00:08	GameLogProxy::getUserShips()
+11:00:08	GameLogProxy::getComputerHits()
+11:00:08	GameLogProxy::getState() - state 2
+11:00:08	GameLogProxy::hit() - hit 0 1
+11:00:08	GameLogProxy::getState() - state 3
+11:00:08	GameLogProxy::getComputerShips()
+11:00:08	GameLogProxy::getUserHits()
+11:00:08	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:08	GameLogProxy::getState() - state 3
+11:00:08	GameLogProxy::getState() - state 2
+11:00:08	GameLogProxy::getUserShips()
+11:00:08	GameLogProxy::getComputerHits()
+11:00:08	GameLogProxy::getState() - state 2
+11:00:09	GameLogProxy::hit() - hit 0 1
+11:00:09	GameLogProxy::getState() - state 3
+11:00:09	GameLogProxy::getComputerShips()
+11:00:09	GameLogProxy::getUserHits()
+11:00:09	GameLogProxy::getIsComputerShipSunk() - value 0
+11:00:09	GameLogProxy::getState() - state 3
+11:00:09	GameLogProxy::getState() - state 4
+11:00:09	GameLogProxy::getComputerShips()
+11:00:09	GameLogProxy::getUserShips()
+11:00:09	GameLogProxy::getComputerHits()
+11:00:09	GameLogProxy::getUserHits()
+11:00:09	GameLogProxy::isUserDefeat() - value 1
+11:00:09	GameLogProxy::getTimeOfGame() - time 53
+11:00:09	GameLogProxy::countComputerSunkShips() - value 2
+11:00:09	GameLogProxy::countUserSunkShips() - value 10
+11:00:09	GameLogProxy::getState() - state 4

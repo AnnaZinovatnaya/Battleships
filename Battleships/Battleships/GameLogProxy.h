@@ -1,8 +1,11 @@
-#pragma once
+#ifndef GameLogProxy_h__
+#define GameLogProxy_h__
+
 #include "IGame.h"
 #include "Game.h"
 
 #include <fstream>
+#include <ctime>
 
 class GameLogProxy :
 	public IGame
@@ -43,5 +46,8 @@ public:
 private:
 	Game game;
 	std::ofstream logFile;
+	char time[10];
+	void logTime();
 };
+#endif
 
