@@ -7,7 +7,7 @@ class HorizontalShip: public IShip
 {
   public:
     HorizontalShip(int x, int y, int size);
-    HorizontalShip::HorizontalShip();
+    HorizontalShip();
     ~HorizontalShip();
 
     bool checkPlace(vector<vector<int> > ships) const;

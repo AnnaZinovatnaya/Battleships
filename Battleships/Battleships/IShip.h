@@ -16,7 +16,7 @@ class IShip
     int size;
 
     IShip(int x, int y, int size);
-    IShip::IShip();
+    IShip();
     ~IShip();
 
     virtual bool checkPlace(vector<vector<int> > ships) const = 0;

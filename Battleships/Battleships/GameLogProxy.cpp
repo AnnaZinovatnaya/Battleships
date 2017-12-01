@@ -142,6 +142,6 @@ bool GameLogProxy::getIsComputerShipSunk()
 
 void GameLogProxy::logTime()
 {
-	_strtime_s(time);
+	//_strtime_s(time);
 	logFile << time << "\t";
 }
